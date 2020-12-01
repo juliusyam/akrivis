@@ -1,0 +1,121 @@
+.codes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.highlight {
+  background: #1e1e1e;
+  border: 1px #C1C1C1;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 5em 20px;
+  overflow-x: scroll;
+}
+
+code {
+  border-radius: 3px;
+  padding: 2px;
+}
+
+pre, pre.prettyprint {
+  background: #1e1e1e;
+}
+
+pre span {
+  font-family: monospace;
+  margin: 2px 0;
+}
+
+.language-java .lineno {
+  color: #a9b7c6;
+}
+
+.language-java .s, .language-java .c1 {
+  color: #5f864a;
+}
+
+.language-java .kn, .language-java .kd, .language-java .kt, .language-java .k, .language-java .kc {
+  color: #cc7832;
+}
+
+.language-java .nn, .language-java .nc, .language-java .o, .language-java .na {
+  color: #a9b7c6;
+}
+
+.language-java .n {
+  color: #9876aa;
+}
+
+.language-java .nd {
+  color: #bbb529;
+}
+
+.language-java .nf {
+  color: #ffc66d;
+}
+
+.language-java .mi, .language-java .mf {
+  color: #5c968e;
+}
+
+.language-python .lineno {
+  color: #a9b7c6;
+}
+
+.language-python .c1 {
+  color: #6a9955;
+}
+
+.language-python .s {
+  color: #ce8349;
+}
+
+.language-python .kn, .language-python .k, .language-python .ow {
+  color: #c586b6;
+}
+
+.language-python .nn, .language-python .nc, .language-python .o, .language-python .na, .language-python .p, .language-python .nb, .language-python .n {
+  color: #a9b7c6;
+}
+
+.language-python .bp {
+  color: #1e88da;
+}
+
+.language-python .mi, .language-python .mf {
+  color: #b5ce89;
+}
+
+.language-r .lineno {
+  color: #9cdcfe;
+}
+
+.language-r .c1 {
+  color: #6a9955;
+}
+
+.language-r .nn, .language-r .nc, .language-r .o, .language-r .na, .language-r .p, .language-r .nb, .language-r .n {
+  color: #a9b7c6;
+}
+
+.language-r .s1, .language-r .s2 {
+  color: #ce8349;
+}
+
+.language-r .m {
+  color: #b5ce89;
+}
+
+.language-r .kc {
+  color: #1e88da;
+}
+/*# sourceMappingURL=code.css.map */

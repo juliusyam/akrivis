@@ -1,0 +1,44 @@
+[
+    {
+        "Name": "Ryan Reynolds",
+        "City": "Scunthrope, UK",
+        "Alignment": "House of West Sussex",
+        "Born": "1016",
+        "Picture": "/assets/img/reynolds.jpg"
+    },
+    {
+        "Name": "David Walliams",
+        "City": "Camden London, UK",
+        "Alignment": "House of Westminster",
+        "Born": "0714",
+        "Picture": "/assets/img/walliams.jpg"
+    },
+    {
+        "Name": "Amanda Holden",
+        "City": "Chelsea London, UK",
+        "Alignment": "Chelsea and Kensington",
+        "Born": "1111",
+        "Picture": "/assets/img/holden.jpg"
+    },
+    {
+        "Name": "Kimi Raikkonen",
+        "City": "Helsinki, Finland",
+        "Alignment": "Bwoahhh",
+        "Born": "1111",
+        "Picture": "/assets/img/raikkonen.jpg"
+    },
+    {
+        "Name": "Florida Georgia Line",
+        "City": "Nashville Tennessee, USA",
+        "Alignment": "Chevy with a Lift Kit",
+        "Born": "42069",
+        "Picture": "/assets/img/fgl.jpg"
+    },
+    {
+        "Name": "Armin Van Buuren",
+        "City": "Amsterdam, Netherlands",
+        "Alignment": "House of Better than Tiesto Dutch DJs",
+        "Born": "42069",
+        "Picture": "/assets/img/buuren.jpg"
+    }
+]

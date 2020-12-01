@@ -3,7 +3,7 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: default
-title: Data Analysis
+title: Projects
 ---
 
-{% include hompeage.html %}
+{% include projects.html %}

@@ -1,0 +1,331 @@
+$burgerNav: 1250px;
+$largeTablet: 1050px;
+$midTablet: 900px;
+$phone: 600px;
+$smallPhone: 350px;
+
+$allMaxHeight: 800px;
+$phoneMaxHeight: 500px;
+
+$submitBackground: #e9e9e9;
+$solidNavbar: rgba(23, 23, 23, 1);
+$darkBackground: #171717;
+
+html, body, section, div, h1, h2, h3, h4, h5, h6, a, nav, span, button, input, textarea {
+    font-family: termina, Montserrat, sans-serif;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+body {
+    // background: $darkBackground;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s linear;
+}
+
+button {
+    cursor: pointer;
+    letter-spacing: 1.5px;
+    outline: none;
+    transition: all 0.3s linear;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+i {
+    transition: all 0.3s linear;
+}
+
+ul {
+    margin-block-start: 5px;
+    margin-block-end: 5px;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    list-style: none;
+}
+
+.navigation {
+    margin: 0 auto 0 auto;
+    position: relative;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1550;
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom-width: 2px;
+        border-bottom-color: #171717;
+        border-bottom-style: solid;
+        padding: 7px;
+        background-color: #171717;
+        position: sticky;
+
+        @media (max-width: $smallPhone) {
+            min-height: 40px;
+        }
+    }
+
+    h1 {
+        margin-block-start: 0;
+        margin-block-end: 0;
+        color: white;
+        font-size: 27px;
+        margin-top: auto;
+        margin-bottom: auto;
+        letter-spacing: 1.4px;
+        background-color: #171717;
+        transition: all 0.3s linear;
+
+        @media (max-width: $smallPhone) {
+            font-size: 22px;
+        }
+    }
+
+    li, a, button {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        padding: 14px 16px;
+        font-weight: 400;
+        font-size: 14px;
+        padding: 0;
+        margin: 0 10px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+
+        @media (max-width: $burgerNav) {
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-align: left;
+            background-color: white;
+            // color: #00cac8;
+            padding: 0;
+        }
+    }
+
+    li, a {
+        @media (max-width: $burgerNav) {
+            margin: 10px 0;
+        }
+    }
+
+    li {
+        @media (max-width: $burgerNav) {
+            box-shadow: 0px 2px 4px rgba(23,23,23,0.3);
+            opacity: 0;
+        }
+    }
+
+    a {
+        @media (max-width: $burgerNav) {
+            &:hover {
+                color: #171717;
+            }
+        }
+    }
+
+    button {
+        border: 2px solid white;
+        background: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+
+        @media (max-width: $burgerNav) {
+            padding: 0;
+        }
+
+        i {
+            margin-right: 3px;
+        }
+
+        &:hover {
+            color: #171717;
+
+            @media (max-width: $burgerNav) {
+                background: white;
+                border: 2px solid white;
+            }
+        }
+    }
+}
+
+.nav_texts {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.nav_links {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    @media (max-width: $burgerNav) {
+        position: absolute;
+        right: 0px;
+        height: 100vh;
+        top: 0px;
+        margin-top: 0;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 250px;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        padding-top: 80px;
+        padding-left: 20px;
+        padding-right: 40px;
+        overflow: hidden;
+    }
+    @media (max-height: 500px) and (max-width: $burgerNav) and (orientation: landscape) {
+        overflow-y: scroll;
+        height: 100%;
+        padding: 200px 20px;
+    }
+    @media (max-width: $smallPhone) and (orientation: portrait) {
+        overflow-y: scroll;
+        height: 100%;
+        padding: 250px 20px;
+    }
+}
+
+.burger {
+
+    display: block;
+    cursor: pointer;
+    z-index: 10;
+
+    div {
+        width: 25px;
+        height: 2.5px;
+        background-color: white;
+        margin: 5px;
+        margin-right: 20px;
+        transition: all 0.3s ease;
+    }
+
+    &:hover {
+        .line2 {
+            margin-left: -5px;
+            transition: 0.2s all linear;
+        }
+        .line3 {
+            margin-left: -10px;
+            transition: 0.4s all linear;
+        }
+    }
+}
+
+.nav-box {
+    display: none;
+
+    &.active {
+        display: flex;
+        background-color: green;
+        width: 100%;
+        height: 100vh;
+    }
+}
+
+.nav_active {
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0.5;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.toggle {
+    .line1 {transform: rotate(45deg) translate(5px, 6px);}
+    .line2 {opacity: 0;}
+    .line3 {transform: rotate(-45deg) translate(5px, -6px);}
+
+    &:hover {
+        .line3 {
+            margin-left: 5px;
+        }
+    }
+}
+
+/*JSON*/
+
+img {
+    width: 400px;
+}
+
+.list-group-div {
+    max-width: 700px;
+    padding: 40px;
+    background: #eeeeee;
+    margin: 0 auto;
+}
+
+/*Home Page*/
+section.header {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    max-height: 100vh;
+    width: 100%;
+
+    video {
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
+}
+
+/*Project*/
+
+section.individual-project {
+
+    max-width: 1200px;
+    background: #eeeeee;
+    margin: 0 auto;
+    padding: 20px;
+
+    h1 {
+        color: red;
+    }
+
+    iframe {
+        width: 100%;
+        height: 400px;
+        flex-basis: 50%;
+    }
+
+    .text {
+        flex-basis: 50%;
+    }
+
+    .video-and-text {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+}

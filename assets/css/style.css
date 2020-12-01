@@ -1,0 +1,408 @@
+html, body, section, div, h1, h2, h3, h4, h5, h6, a, nav, span, button, input, textarea {
+  font-family: termina, Montserrat, sans-serif;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+button {
+  cursor: pointer;
+  letter-spacing: 1.5px;
+  outline: none;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+button:focus {
+  outline: none;
+}
+
+i {
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+ul {
+  -webkit-margin-before: 5px;
+          margin-block-start: 5px;
+  -webkit-margin-after: 5px;
+          margin-block-end: 5px;
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+  -webkit-padding-end: 0;
+          padding-inline-end: 0;
+  list-style: none;
+}
+
+.navigation {
+  margin: 0 auto 0 auto;
+  position: relative;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1550;
+}
+
+.navigation nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom-width: 2px;
+  border-bottom-color: #171717;
+  border-bottom-style: solid;
+  padding: 7px;
+  background-color: #171717;
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+@media (max-width: 350px) {
+  .navigation nav {
+    min-height: 40px;
+  }
+}
+
+.navigation h1 {
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+  color: white;
+  font-size: 27px;
+  margin-top: auto;
+  margin-bottom: auto;
+  letter-spacing: 1.4px;
+  background-color: #171717;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+@media (max-width: 350px) {
+  .navigation h1 {
+    font-size: 22px;
+  }
+}
+
+.navigation li, .navigation a, .navigation button {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 14px 16px;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 0;
+  margin: 0 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1250px) {
+  .navigation li, .navigation a, .navigation button {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    text-align: left;
+    background-color: white;
+    padding: 0;
+  }
+}
+
+@media (max-width: 1250px) {
+  .navigation li, .navigation a {
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 1250px) {
+  .navigation li {
+    -webkit-box-shadow: 0px 2px 4px rgba(23, 23, 23, 0.3);
+            box-shadow: 0px 2px 4px rgba(23, 23, 23, 0.3);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1250px) {
+  .navigation a:hover {
+    color: #171717;
+  }
+}
+
+.navigation button {
+  border: 2px solid white;
+  background: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+@media (max-width: 1250px) {
+  .navigation button {
+    padding: 0;
+  }
+}
+
+.navigation button i {
+  margin-right: 3px;
+}
+
+.navigation button:hover {
+  color: #171717;
+}
+
+@media (max-width: 1250px) {
+  .navigation button:hover {
+    background: white;
+    border: 2px solid white;
+  }
+}
+
+.nav_texts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 10px;
+}
+
+.nav_links {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 1250px) {
+  .nav_links {
+    position: absolute;
+    right: 0px;
+    height: 100vh;
+    top: 0px;
+    margin-top: 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 250px;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    -webkit-transition: -webkit-transform 0.5s ease-in;
+    transition: -webkit-transform 0.5s ease-in;
+    transition: transform 0.5s ease-in;
+    transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in;
+    padding-top: 80px;
+    padding-left: 20px;
+    padding-right: 40px;
+    overflow: hidden;
+  }
+}
+
+@media (max-height: 500px) and (max-width: 1250px) and (orientation: landscape) {
+  .nav_links {
+    overflow-y: scroll;
+    height: 100%;
+    padding: 200px 20px;
+  }
+}
+
+@media (max-width: 350px) and (orientation: portrait) {
+  .nav_links {
+    overflow-y: scroll;
+    height: 100%;
+    padding: 250px 20px;
+  }
+}
+
+.burger {
+  display: block;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.burger div {
+  width: 25px;
+  height: 2.5px;
+  background-color: white;
+  margin: 5px;
+  margin-right: 20px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.burger:hover .line2 {
+  margin-left: -5px;
+  -webkit-transition: 0.2s all linear;
+  transition: 0.2s all linear;
+}
+
+.burger:hover .line3 {
+  margin-left: -10px;
+  -webkit-transition: 0.4s all linear;
+  transition: 0.4s all linear;
+}
+
+.nav-box {
+  display: none;
+}
+
+.nav-box.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: green;
+  width: 100%;
+  height: 100vh;
+}
+
+.nav_active {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
+@-webkit-keyframes navLinkFade {
+  from {
+    opacity: 0.5;
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0.5;
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+.toggle .line1 {
+  -webkit-transform: rotate(45deg) translate(5px, 6px);
+          transform: rotate(45deg) translate(5px, 6px);
+}
+
+.toggle .line2 {
+  opacity: 0;
+}
+
+.toggle .line3 {
+  -webkit-transform: rotate(-45deg) translate(5px, -6px);
+          transform: rotate(-45deg) translate(5px, -6px);
+}
+
+.toggle:hover .line3 {
+  margin-left: 5px;
+}
+
+/*JSON*/
+img {
+  width: 400px;
+}
+
+.list-group-div {
+  max-width: 700px;
+  padding: 40px;
+  background: #eeeeee;
+  margin: 0 auto;
+}
+
+/*Home Page*/
+section.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  max-height: 100vh;
+  width: 100%;
+}
+
+section.header video {
+  width: 100%;
+  position: relative;
+  top: 0;
+}
+
+/*Project*/
+section.individual-project {
+  max-width: 1200px;
+  background: #eeeeee;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+section.individual-project h1 {
+  color: red;
+}
+
+section.individual-project iframe {
+  width: 100%;
+  height: 400px;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+
+section.individual-project .text {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+
+section.individual-project .video-and-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=style.css.map */
