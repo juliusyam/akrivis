@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://use.typekit.net/xyt1pjb.css">
     <link rel="stylesheet" text="text/css" href="{{ site.baseurl }}/assets/css/style.css">
     <link rel="stylesheet" text="text/css" href="{{ site.baseurl }}/assets/css/code.css">
+    <script src="https://kit.fontawesome.com/46026483b6.js" crossorigin="anonymous"></script>
     <title>{{ page.title }} - {{ site.title }}</title>
 </head>
 <body>
@@ -22,17 +23,36 @@
             </div>
         </nav>
         <div class="nav-box">
-            <div class="container">
-                <li><a href="{{ site.baseurl }}/">Home</a></li>
-                <li><a href="{{ site.baseurl }}/projects">Projects</a></li>
-                <li><a href="{{ site.baseurl }}/contact">Contact</a></li>
+            <div class="menu-and-form">
+                <div class="menu">
+                    <a class="link" href="{{ site.baseurl }}/">Home</a>
+                    <a class="link" href="{{ site.baseurl }}/#about">About</a>
+                    <a class="link" href="{{ site.baseurl }}/#service">Our Services</a>
+                    <a class="link" href="{{ site.baseurl }}/projects">Projects</a>
+                </div>
+                <div class="form">
+                    <span class="heading">
+                        <h2>Form</h2>
+                    </span>
+                </div>
             </div>
         </div>
     </section>
 
     {{ content }}
+
+    <section class="footer">
+        <div>
+            <a href="mailto:{{ site.email }}" target="_blank">Email Us</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+        <div>
+            <p><em>Copyright</em> &copy; 2020. All Rights Reserved. {{ site.title }}.</p>
+        </div>
+    </section>
     
     <script src="{{ site.baseurl }}/assets/js/navigation.js"></script>
     <script src="{{ site.baseurl }}/assets/js/navigation-bar.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/form.js"></script>
 </body>
 </html>

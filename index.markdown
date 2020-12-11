@@ -4,6 +4,7 @@
 
 layout: default
 title: Data Analysis
+video-file-name: background-video.mp4
 ---
 
-{% include hompeage.html %}
+{% include homepage.html %}
