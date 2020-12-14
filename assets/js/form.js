@@ -2,14 +2,14 @@ $(document).ready(function(){
     
     const form = $('<form>', {
         class: 'form',
-        method: 'post',
+        method: 'POST',
         enctype: 'text/plain',
         name: 'submissionForm'
     });
 
     const textarea = $('<textarea>', {
         id: 'message',
-        placeholder: 'Message',
+        placeholder: 'Enquiry',
         name: 'message'
     });
 
@@ -19,6 +19,8 @@ $(document).ready(function(){
         name: 'submit',
         value: 'Submit'
     });
+
+    const br = $('<br>');
 
     const validationMessage = $('<span>', {
         class: 'validationMessage'
@@ -126,6 +128,7 @@ $(document).ready(function(){
         {scriptName: 'service-3', presentationName: 'Service 3'}
     ));
     form.append(textarea);
+    form.append(br);
     form.append(submit);
     $('div.form').append(form);
 

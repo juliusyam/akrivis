@@ -11,15 +11,20 @@
   font-family: monospace;
 }
 
+.codes figure {
+  margin: 0;
+}
+
 .highlight {
   background: #1e1e1e;
   border: 1px #C1C1C1;
   border-radius: 10px;
   padding: 20px;
   width: 100%;
-  max-width: 1000px;
-  margin: 5em 20px;
-  overflow-x: scroll;
+}
+
+.highlight pre {
+  width: 100%;
 }
 
 code {
@@ -34,6 +39,10 @@ pre, pre.prettyprint {
 pre span {
   font-family: monospace;
   margin: 2px 0;
+}
+
+table.rouge-table {
+  overflow-x: scroll;
 }
 
 .language-java .lineno {

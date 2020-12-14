@@ -3,6 +3,10 @@
     justify-content: center;
     align-items: center;
     font-family: monospace;
+
+    figure {
+        margin: 0;
+    }
 }
 .highlight {
     background: #1e1e1e;
@@ -10,9 +14,10 @@
     border-radius: 10px;
     padding: 20px;
     width: 100%;
-    max-width: 1000px;
-    margin: 5em 20px;
-    overflow-x: scroll;
+
+    pre {
+        width: 100%;
+    }
 }
 code {
     border-radius: 3px;
@@ -24,6 +29,10 @@ pre, pre.prettyprint {
 pre span {
     font-family: monospace;
     margin: 2px 0;
+}
+
+table.rouge-table {
+    overflow-x: scroll;
 }
 
 .language-java {
