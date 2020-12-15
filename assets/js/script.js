@@ -1,6 +1,6 @@
 $(window).ready(function(){
     $('.individual-project').empty();
-    $('.individual-project').load('/projects/project1');
+    $('.individual-project').load('/akrivis/projects/project1');
     
     // $('section.background-section .blockquote').animate({
     //     opacity: 1,
