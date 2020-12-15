@@ -148,7 +148,7 @@ $(window).scroll(function(){
 
 $('button#project1').click(function(){
     $('.individual-project').empty();
-    $('.individual-project').load('/projects/project1');
+    $('.individual-project').load('/akrivis/projects/project1');
 });
 
 $('button#project2').click(function(){
@@ -158,7 +158,7 @@ $('button#project2').click(function(){
 
 $('button#project3').click(function(){
     $('.individual-project').empty();
-    $('.individual-project').load('/projects/project3');
+    $('.individual-project').load('/akrivis/projects/project3');
 });
 
 $(document).ready(function(){
@@ -224,7 +224,7 @@ $(document).ready(function(){
 function loadProject2JSON() {
     $.ajax({
         type: 'GET',
-        url: '/assets/json/stuff.json',
+        url: '/akrivis/assets/json/stuff.json',
         contentType: 'application/json; charset=UTF-8',
         dataType: 'json',
         success: function(response) {
