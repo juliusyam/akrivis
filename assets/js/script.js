@@ -149,21 +149,6 @@ $(window).scroll(function(){
     }
 })
 
-$('button#project1').click(function(){
-    $('.individual-project').empty();
-    $('.individual-project').load('/akrivis/projects/project1');
-});
-
-$('button#project2').click(function(){
-    $('.individual-project').empty();
-    loadProject2JSON();
-});
-
-$('button#project3').click(function(){
-    $('.individual-project').empty();
-    $('.individual-project').load('/akrivis/projects/project3');
-});
-
 $(document).ready(function(){
 
 
@@ -222,6 +207,21 @@ $(document).ready(function(){
         {buttonNo: '4', buttonDes: 'Project 3a'},
     ));
 
+});
+
+$('button#project1').click(function(){
+    $('.individual-project').empty();
+    $('.individual-project').load('/akrivis/projects/project1');
+});
+
+$('button#project2').click(function(){
+    $('.individual-project').empty();
+    loadProject2JSON();
+});
+
+$('button#project3').click(function(){
+    $('.individual-project').empty();
+    $('.individual-project').load('/akrivis/projects/project3');
 });
 
 function loadProject2JSON() {

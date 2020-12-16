@@ -30,13 +30,30 @@ service5-des: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum 
 
 service6-title: Machine learning for correlation and pattern matching
 service6-des: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis ipsum nostrum aperiam doloremque inventore atque quis rerum labore.
+
+# Project Section
+project1-title: Insert Title Here This is a Splendid Project
+project1-type: Data Cleaning & Transformation
+project1-date: Dec 2020
+
+project2-title: Insert Title Here Also Decent Project Innit
+project2-type: Data Management & Warehousing
+project2-date: Sep 2021
+
+project3-title: Analysis of School Performance
+project3-type: Data Visualization & Analysis
+project3-date: Mar 2020
+
+project4-title: Yolo Am I Right Lorem Ipsum This Already
+project4-type: Machine Learning for Correlation & Pattern Matching
+project4-date: Nov 2019
 ---
 
 <!-- This signifies what layouts are included. DONT TOUCH THIS, I will prepare this. -->
 {% include homepage.html %}
 
 <script>
-    // $(window).ready(function(){
+    $(window).ready(function(){
     
     // These are the only two lines need changing. First bracket states where you intend the paragraph to be situated, second bracket states where the paragraph is located at.
 
@@ -49,5 +66,5 @@ service6-des: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis ip
 
     // $('.des-content').empty();
     // $('.des-content').load('/akrivis/paragraphs/about');
-// });
+    });
 </script>

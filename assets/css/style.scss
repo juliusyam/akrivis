@@ -1096,11 +1096,13 @@ section.service {
     }
 
     h6 {
+        margin: 0 auto;
         margin-top: 10px;
         text-align: center;
         color: #9e9e9e;
         font-weight: 400;
         font-size: 16px;
+        max-width: 60em;
     }
 
     section.content-and-images {
@@ -1182,10 +1184,14 @@ section.existing-project {
         font-size: 3vw;
     }
 
-    p {
-        max-width: 60em;
+    h6 {
+        margin: 0 auto;
+        margin-top: 10px;
         text-align: center;
-        margin: 10px;
+        color: #9e9e9e;
+        font-weight: 400;
+        font-size: 16px;
+        max-width: 60em;
     }
 
     .link {     
@@ -1235,6 +1241,8 @@ section.existing-project {
             img {
                 flex-basis: 80%;
                 width: 100%;
+                height: 350px;
+                object-fit: cover;
                 transition: 0.3s all linear;
             }
 
@@ -1257,15 +1265,26 @@ section.existing-project {
                 flex-basis: 20%;
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
+                height: 50px;
                 background: #fdfdfd;
-                padding: 20px;
+                padding: 0 20px;
                 z-index: 10;
 
                 p {
                     margin: 0;
-                    margin-bottom: 20px;
+                    //margin-bottom: 20px;
                     font-size: 12px;
                     color: #9e9e9e;
+
+                    &:first-child {
+                        text-align: left;
+                    }
+
+                    &:last-child {
+                        text-align: right;
+                        min-width: 60px;
+                    }
                 }
             }
         }
@@ -1277,6 +1296,11 @@ section.existing-project {
             .each-project {
                 max-width: 400px;
                 height: 300px;
+
+                img {
+                    height: 250px;
+                }
+
             }
         }
     }
@@ -1289,7 +1313,6 @@ section.existing-project {
 
         div.container {
             div.each-project {
-                height: 250px;
                 .description {
                     p {
                         margin-bottom: 0;
@@ -1812,18 +1835,39 @@ section.footer {
     padding: 20px;
     width: 100%;
 
+    @media (max-width: $largeTablet) {
+        padding: 5px;
+    }
+
     pre {
         width: 100%;
         margin: 20px;
+
+        @media (max-width: $largeTablet) {
+            margin: 0;
+        }
     }
 }
-code {
+.gutter {
+    font-size: 12px;
+
+    @media (max-width: $largeTablet) {
+        display: none;
+    }
+}
+
+.code {
     border-radius: 3px;
     padding: 2px;
 
     pre {
         margin: 0 !important;
         width: auto !important;
+        font-size: 12px;
+
+        @media (max-width: $largeTablet) {
+            font-size: 9px !important;
+        }
     }
 }
 pre, pre.prettyprint {
