@@ -94,13 +94,16 @@ $(window).scroll(function(){
     var scroll = $(window).scrollTop();
 
     // Navigation Bar
-    const nav = $('.navigation nav, .navigation nav h1');
+    const nav = $('.navigation nav');
+    const navTitle = $('.navigation nav h1.site-title');
 
     for (i = 0; i < nav.length; i++) {
         if (this.scrollY <= 500) {
             nav[i].className = '';
+            navTitle[i].className = 'site-title';
         } else {
             nav[i].className = 'scroll';
+            navTitle[i].className = 'site-title scroll'
         }
     }
 

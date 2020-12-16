@@ -130,7 +130,7 @@ $(document).ready(function(){
     form.append(textarea);
     form.append(br);
     form.append(submit);
-    $('div.form').append(form);
+    $('div.form-section').append(form);
 
     $('input.inputElement').mousedown(function(event){
         if(event.which === 1) {
