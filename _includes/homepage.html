@@ -13,7 +13,7 @@
             <div>
                 <h2>About</h2>
                 <i class="icon fas fa-book-reader"></i>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum modi ab unde explicabo consequuntur eius, officiis iste amet at.</p>
+                <p>{{ page.about-brief }}</p>
                 <button id="homepage_navToAbout">
                     <i class="fas fa-sign-in-alt"></i>
                     <h6>Enter</h6>
@@ -22,7 +22,7 @@
             <div>
                 <h2>Our Services</h2>
                 <i class="icon fas fa-file-code"></i>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem magnam commodi blanditiis id omnis officia, ipsum perspiciatis harum, non ratione.</p>
+                <p>{{ page.service-brief }}</p>
                 <button id="homepage_navToService">
                     <i class="fas fa-sign-in-alt"></i>
                     <h6>Enter</h6>
@@ -31,7 +31,7 @@
             <div>
                 <h2>Projects</h2>
                 <i class="icon fas fa-gem"></i>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita molestiae iure, enim minima nesciunt est in rem, maxime autem quo impedit.</p>
+                <p>{{ page.project-brief }}</p>
                 <a href="{{ site.baseurl }}/projects"><button>
                     <i class="fas fa-sign-in-alt"></i>
                     <h6>Enter</h6>
@@ -44,7 +44,12 @@
 
 <section class="about" id="about">
     <div class="grids">
-        <div class="grid">1</div>
+        <div class="grid">
+            <div class="des-content">
+                {{ page.ab-para }}
+            </div>
+
+        </div>
         <div class="grid">2</div>
         <div class="grid">3</div>
         <div class="grid">
@@ -58,26 +63,37 @@
 
 <section class="service" id="service">
     <h2>Our Services</h2>
+    <h6>Akrivis offers a variety of services to meet your institution’s needs.</h6>
     <section class="content-and-images">
         <section class="content">
             <div class="each">
-                <h1>This is a dummy title</h1>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui quia, accusantium laborum est praesentium autem eveniet quam ex eum animi provident corporis distinctio possimus harum assumenda quibusdam laboriosam, repudiandae quae.</p>
+                <h1>{{ page.service1-title }}</h1>
+                <p>{{ page.service1-des }}</p>
                 <img src="{{ site.baseurl }}/assets/img/audit.png" alt="">
             </div>
             <div class="each">
-                <h1>This is a dummy title</h1>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui quia, accusantium laborum est praesentium autem eveniet quam ex eum animi provident corporis distinctio possimus harum assumenda quibusdam laboriosam, repudiandae quae.</p>
+                <h1>{{ page.service2-title }}</h1>
+                <p>{{ page.service2-des }}</p>
                 <img src="{{ site.baseurl }}/assets/img/dummy1.png" alt="">
             </div>
             <div class="each">
-                <h1>This is a dummy title</h1>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui quia, accusantium laborum est praesentium autem eveniet quam ex eum animi provident corporis distinctio possimus harum assumenda quibusdam laboriosam, repudiandae quae.</p>
+                <h1>{{ page.service3-title }}</h1>
+                <p>{{ page.service3-des }}</p>
                 <img src="{{ site.baseurl }}/assets/img/dummy2.png" alt="">
             </div>
             <div class="each">
-                <h1>This is a dummy title</h1>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui quia, accusantium laborum est praesentium autem eveniet quam ex eum animi provident corporis distinctio possimus harum assumenda quibusdam laboriosam, repudiandae quae.</p>
+                <h1>{{ page.service4-title }}</h1>
+                <p>{{ page.service4-des }}</p>
+                <img src="{{ site.baseurl }}/assets/img/dummy3.png" alt="">
+            </div>
+            <div class="each">
+                <h1>{{ page.service5-title }}</h1>
+                <p>{{ page.service5-des }}</p>
+                <img src="{{ site.baseurl }}/assets/img/dummy3.png" alt="">
+            </div>
+            <div class="each">
+                <h1>{{ page.service6-title }}</h1>
+                <p>{{ page.service6-des }}</p>
                 <img src="{{ site.baseurl }}/assets/img/dummy3.png" alt="">
             </div>
         </section>

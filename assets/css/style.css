@@ -1083,8 +1083,18 @@ section.about .grid:nth-child(1) {
   grid-row: 1 / 4;
 }
 
+section.about .grid:nth-child(1) .des-content {
+  padding: 50px;
+}
+
+section.about .grid:nth-child(1) .des-content h1 {
+  font-size: 5vw;
+  margin: 0;
+  line-height: 7rem;
+}
+
 section.about .grid:nth-child(2) {
-  background: red;
+  background: black;
   -ms-grid-column: 3;
   -ms-grid-column-span: 1;
   grid-column: 3 / 4;
@@ -1094,7 +1104,7 @@ section.about .grid:nth-child(2) {
 }
 
 section.about .grid:nth-child(3) {
-  background: green;
+  background: grey;
   -ms-grid-column: 3;
   -ms-grid-column-span: 1;
   grid-column: 3 / 4;
@@ -1154,7 +1164,7 @@ section.about .grid:nth-child(5) {
 }
 
 section.about .grid:nth-child(6) {
-  background: orange;
+  background: grey;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-column: 1 / 4;
@@ -1300,6 +1310,15 @@ section.service {
 section.service h2 {
   text-align: center;
   font-size: 3vw;
+  margin-bottom: 0;
+}
+
+section.service h6 {
+  margin-top: 10px;
+  text-align: center;
+  color: #9e9e9e;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 section.service section.content-and-images {
