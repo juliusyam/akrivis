@@ -32,6 +32,9 @@ service6-title: Machine learning for correlation and pattern matching
 service6-des: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis ipsum nostrum aperiam doloremque inventore atque quis rerum labore.
 ---
 
+<!-- This signifies what layouts are included. DONT TOUCH THIS, I will prepare this. -->
+{% include homepage.html %}
+
 <script>
     $(window).ready(function(){
     
@@ -48,6 +51,3 @@ service6-des: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis ip
     // $('.des-content').load('/akrivis/paragraphs/about');
 });
 </script>
-
-<!-- This signifies what layouts are included. DONT TOUCH THIS, I will prepare this. -->
-{% include homepage.html %}

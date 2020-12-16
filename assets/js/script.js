@@ -10,7 +10,7 @@ $(window).ready(function(){
     $('section.blockquote-section').effect("fold", { mode : "show",  size : 105}, 2000);
 });
 
-//Toggles!1
+//Toggles!
 
 let gridToggleState = 0;
 

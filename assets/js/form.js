@@ -216,21 +216,21 @@ $(document).ready(function(){
             localStorage.setItem('JSON Form', sendJSON);
             console.log('Form successfully sent');
 
-            // function sendData(data) {
-            //     var xmlhttp;
-            //     if (window.XMLHttpRequest) {
-            //       xmlhttp = new XMLHttpRequest();
-            //     } else {
-            //       // code for older browsers
-            //       xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            //     }
-            //     xmlhttp.open("POST", "https://formspree.io/f/xqkgyobg", true);
-            //     xmlhttp.setRequestHeader("x-api-key", "I06EVXWxBzakbN77ajkBh7pCwuwW9SxL5F9STAW7");
-            //     xmlhttp.setRequestHeader("Content-Type", "application/json");
-            //     xmlhttp.send(JSON.stringify(data));
-            //     console.log(data);
-            //     console.log('Form successfully sent');
-            // }
+            function sendData(data) {
+                var xmlhttp;
+                if (window.XMLHttpRequest) {
+                  xmlhttp = new XMLHttpRequest();
+                } else {
+                  // code for older browsers
+                  xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.open("POST", "https://formspree.io/f/xqkgyobg", true);
+                xmlhttp.setRequestHeader("x-api-key", "I06EVXWxBzakbN77ajkBh7pCwuwW9SxL5F9STAW7");
+                xmlhttp.setRequestHeader("Content-Type", "application/json");
+                xmlhttp.send(JSON.stringify(data));
+                console.log(data);
+                console.log('Form successfully sent');
+            }
         
             form.trigger('reset');
             $('.textInput').css({
