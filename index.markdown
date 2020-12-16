@@ -36,7 +36,7 @@ service6-des: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis ip
 {% include homepage.html %}
 
 <script>
-    $(window).ready(function(){
+    // $(window).ready(function(){
     
     // These are the only two lines need changing. First bracket states where you intend the paragraph to be situated, second bracket states where the paragraph is located at.
 
@@ -49,5 +49,5 @@ service6-des: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis ip
 
     // $('.des-content').empty();
     // $('.des-content').load('/akrivis/paragraphs/about');
-});
+// });
 </script>
