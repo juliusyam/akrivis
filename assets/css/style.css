@@ -1,5 +1,5 @@
 html, body, section, div, h1, h2, h3, h4, h5, h6, a, nav, span, button, input, textarea {
-  font-family: termina, Montserrat, sans-serif;
+  font-family: Relaway, Montserrat, sans-serif;
 }
 
 html, body {
@@ -1896,6 +1896,7 @@ section.project-section div.container {
 section.project-section div.container div.catalog {
   background: #242526;
   padding: 40px 10px;
+  min-width: 22em;
   max-width: 25em;
   width: 100%;
   position: -webkit-sticky;
@@ -1921,6 +1922,7 @@ section.project-section div.container div.catalog {
 
 @media (max-width: 1250px) {
   section.project-section div.container div.catalog {
+    min-width: 17em;
     max-width: 17em;
   }
 }
@@ -2009,6 +2011,7 @@ section.project-section div.container div.catalog .buttons button div img {
 
 @media (max-width: 1050px) {
   section.project-section div.container div.catalog {
+    min-width: 0;
     max-width: 95%;
     margin: 10px;
     padding: 20px 10px;
@@ -2114,6 +2117,69 @@ section.project-section div.container div.individual-project section.title-and-d
 
 section.project-section div.container div.individual-project section.title-and-description p {
   color: #9e9e9e;
+}
+
+section.project-section div.container div.individual-project section.embeded-video {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
+  margin: 20px 0;
+}
+
+section.project-section div.container div.individual-project section.embeded-video .all-videos {
+  width: 100%;
+  max-width: 700px;
+}
+
+section.project-section div.container div.individual-project section.embeded-video .all-videos .each {
+  position: relative;
+  padding-bottom: 56.25%;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+section.project-section div.container div.individual-project section.embeded-video .all-videos .each iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 1050px) {
+  section.project-section div.container div.individual-project section.embeded-video {
+    margin: 50px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  section.project-section div.container div.individual-project section.embeded-video .all-videos {
+    width: 90%;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  section.project-section div.container div.individual-project section.embeded-video {
+    margin: 20px;
+  }
+  section.project-section div.container div.individual-project section.embeded-video .all-videos {
+    width: 95%;
+    max-width: 95%;
+  }
 }
 
 section.project-section div.container div.individual-project section.codes {

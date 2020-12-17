@@ -23,7 +23,7 @@ $greyShadow: #f0f0f0;
 $primaryWhite: #e9e9e9;
 
 html, body, section, div, h1, h2, h3, h4, h5, h6, a, nav, span, button, input, textarea {
-    font-family: termina, Montserrat, sans-serif;
+    font-family: Relaway, Montserrat, sans-serif;
 }
 
 html, body {
@@ -1574,6 +1574,7 @@ section.project-section {
         div.catalog {
             background: #242526;
             padding: 40px 10px;
+            min-width: 22em;
             max-width: 25em;
             width: 100%;
             position: sticky;
@@ -1587,6 +1588,7 @@ section.project-section {
             margin: 20px;
 
             @media (max-width: $narrowDesktop) {
+                min-width: 17em;
                 max-width: 17em;
             }
 
@@ -1653,6 +1655,7 @@ section.project-section {
             }
 
             @media (max-width: $largeTablet) {
+                min-width: 0;
                 max-width: 95%;
                 margin: 10px;
                 padding: 20px 10px;
@@ -1731,6 +1734,55 @@ section.project-section {
 
                 p {
                     color: #9e9e9e;
+                }
+            }
+
+            section.embeded-video {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                width: 100%;
+                margin: 20px 0;
+
+                .all-videos {
+                    width: 100%;
+                    max-width: 700px;
+
+                    .each {
+                        position: relative;
+                        padding-bottom: 56.25%;
+                        width: 100%;
+                        height: 0;
+                        overflow: hidden;
+                        margin: 20px 0;
+
+                        iframe {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+
+
+                @media (max-width: $largeTablet) {
+                    margin: 50px;
+                    align-items: center;
+                    .all-videos {
+                        width: 90%;
+                        max-width: 90%;
+                    }
+                }
+ 
+                @media (max-width: $phone) {
+                    margin: 20px;
+                    .all-videos {
+                        width: 95%;
+                        max-width: 95%;
+                    }
                 }
             }
 
