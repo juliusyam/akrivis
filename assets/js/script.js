@@ -130,45 +130,60 @@ $(window).scroll(function(){
 
     // Homepage Images
     let width = $(window).width();
+    console.log(scroll);
 
     const images = $('section.service section.background-img img');
 
-    if (width > 1050) {
+    if (width > 600) {
   
-        if (scroll <= 1500) {
+        if (scroll <= 1000) {
             images.css('display', 'none');
-        } else if (scroll <= 2500) {
+        } else if (scroll <= 1800) {
             images.css('display', 'none');
             $('.image1').css('display', 'flex');
-        } else if (scroll <= 3200) {
+        } else if (scroll <= 2300) {
             images.css('display', 'none');
             $('.image2').css('display', 'flex');
-        } else if (scroll <= 3800) {
+        } else if (scroll <= 2800) {
             images.css('display', 'none');
             $('.image3').css('display', 'flex');
-        } else {
+        } else if (scroll <= 3250) {
             images.css('display', 'none');
             $('.image4').css('display', 'flex');
+        } else if (scroll <= 3750) {
+            images.css('display', 'none');
+            $('.image5').css('display', 'flex');
+        } else {
+            images.css('display', 'none');
+            $('.image6').css('display', 'flex');
         }
-    } else if (width > 600) {
 
-        if (scroll <= 1800) {
-            images.css('display', 'none');
-        } else if (scroll <= 2900) {
-            images.css('display', 'none');
-            $('.image1').css('display', 'flex');
-        } else if (scroll <= 3400) {
-            images.css('display', 'none');
-            $('.image2').css('display', 'flex');
-        } else if (scroll <= 3900) {
-            images.css('display', 'none');
-            $('.image3').css('display', 'flex');
-        } else {
-            images.css('display', 'none');
-            $('.image4').css('display', 'flex');
-        }
-    }
-})
+    } 
+    // else if (width > 600) {
+
+    //     if (scroll <= 1800) {
+    //         images.css('display', 'none');
+    //     } else if (scroll <= 2900) {
+    //         images.css('display', 'none');
+    //         $('.image1').css('display', 'flex');
+    //     } else if (scroll <= 3400) {
+    //         images.css('display', 'none');
+    //         $('.image2').css('display', 'flex');
+    //     } else if (scroll <= 3900) {
+    //         images.css('display', 'none');
+    //         $('.image3').css('display', 'flex');
+    //     } else if (scroll <= 4400) {
+    //         images.css('display', 'none');
+    //         $('.image4').css('display', 'flex');
+    //     } else if (scroll <= 4900) {
+    //         images.css('display', 'none');
+    //         $('.image5').css('display', 'flex');
+    //     } else {
+    //         images.css('display', 'none');
+    //         $('.image6').css('display', 'flex');
+    //     }
+    //}
+});
 
 $(document).ready(function(){
 

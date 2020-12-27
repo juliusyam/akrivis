@@ -1436,6 +1436,12 @@ section.about {
   background: #eeeeee;
 }
 
+@media (max-width: 600px) {
+  section.about {
+    padding: 10px;
+  }
+}
+
 section.about div.background-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1486,6 +1492,12 @@ section.about div.background-container div.container .title h2 {
   margin-bottom: 10px;
 }
 
+@media (max-width: 600px) {
+  section.about div.background-container div.container .title h2 {
+    font-size: 35px;
+  }
+}
+
 section.about div.background-container div.container .title h6 {
   margin: 0 auto;
   margin-top: 10px;
@@ -1497,6 +1509,7 @@ section.about div.background-container div.container .title h6 {
 }
 
 section.about div.background-container div.container .des-content {
+  margin: 0 30px;
   margin-bottom: 100px;
 }
 
@@ -1555,12 +1568,18 @@ section.service section.content-and-images section.background-img {
   position: sticky;
   top: 40%;
   right: 0;
-  max-width: 400px;
+  width: 350px;
 }
 
 section.service section.content-and-images section.background-img img {
   display: none;
   width: 100%;
+}
+
+@media (max-width: 1050px) {
+  section.service section.content-and-images section.background-img {
+    max-width: 250px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1578,16 +1597,18 @@ section.service section.content-and-images section.background-img img {
     padding: 30;
   }
   section.service section.content-and-images section.content div.each {
-    margin: 100px 0;
+    margin: 90px 0;
+    padding: 10px 0;
+    border-top: 1px solid #18191a;
   }
   section.service section.content-and-images section.content div.each h1 {
     font-size: 25px;
   }
   section.service section.content-and-images section.content div.each img {
     display: block;
-    width: 100%;
+    width: 60%;
     height: auto;
-    margin: 30px 0;
+    margin: 50px auto;
   }
 }
 
@@ -1666,10 +1687,23 @@ section.existing-project div.container .title {
   margin: 50px 30px;
 }
 
+@media (max-width: 600px) {
+  section.existing-project div.container .title {
+    margin: 20px;
+  }
+}
+
 section.existing-project div.container .title h2 {
   text-align: center;
   font-size: 3vw;
   margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+  section.existing-project div.container .title h2 {
+    font-size: 35px;
+    margin-top: 0;
+  }
 }
 
 section.existing-project div.container .title h6 {
