@@ -2,35 +2,38 @@
     <video src="{{ site.baseurl }}/assets/vid/{{ page.video-file-name }}" type="video/mp4" autoplay playsinline muted loop></video>
 
     <div class="header-container">
+        <div class="interactive-logo">
+            <div class="shape1 homepage_navToAbout"><p>About</p></div>
+            <div class="shape2 homepage_navToService"><p>Services</p></div>
+            <a href="{{ site.baseurl }}/projects"><div class="shape3"><p>Projects</p></div></a>
+        </div>
         <h1>{{ site.title }}</h1>
 
-        <span id="grid-toggle" class="link">
-            <h5>Find Out More</h5>
-            <i class="fas fa-arrow-circle-down"></i>
-        </span>
-
         <div class="grid">
-            <div>
+            <div class="each-grid">
                 <h2>About</h2>
-                <i class="icon fas fa-book-reader"></i>
+                <!-- <i class="icon fas fa-book-reader"></i> -->
+                <div class="icon shape1"></div>
                 <p>{{ page.about-brief }}</p>
-                <button id="homepage_navToAbout">
+                <button class="homepage_navToAbout">
                     <i class="fas fa-sign-in-alt"></i>
                     <h6>Enter</h6>
                 </button>
             </div>
-            <div>
+            <div class="each-grid">
                 <h2>Our Services</h2>
-                <i class="icon fas fa-file-code"></i>
+                <!-- <i class="icon fas fa-file-code"></i> -->
+                <div class="icon shape2"></div>
                 <p>{{ page.service-brief }}</p>
-                <button id="homepage_navToService">
+                <button class="homepage_navToService">
                     <i class="fas fa-sign-in-alt"></i>
                     <h6>Enter</h6>
                 </button>
             </div>
-            <div>
+            <div class="each-grid">
                 <h2>Projects</h2>
-                <i class="icon fas fa-gem"></i>
+                <!-- <i class="icon fas fa-gem"></i> -->
+                <div class="icon shape3"></div>
                 <p>{{ page.project-brief }}</p>
                 <a href="{{ site.baseurl }}/projects"><button>
                     <i class="fas fa-sign-in-alt"></i>
@@ -38,12 +41,27 @@
                 </button></a>
             </div>
         </div>
+
+        <span id="grid-toggle" class="link">
+            <h5>Find Out More</h5>
+            <i class="fas fa-arrow-circle-down"></i>
+        </span>
     </div>
     
 </section>
 
 <section class="about" id="about">
-    <div class="grids">
+    <div class="background-container">
+        <div class="container">
+            <div class="title">
+                <h2>What is Akrivis?</h2>
+            </div>
+            <div class="des-content">
+                {{ page.ab-para }}
+            </div>
+        </div>
+    </div>
+    <!-- <div class="grids">
         <div class="grid">
             <div class="des-content">
                 {{ page.ab-para }}
@@ -58,7 +76,7 @@
         </div>
         <div class="grid"></div>
         <div class="grid">6</div>
-    </div>
+    </div> -->
 </section>
 
 <section class="service" id="service">
@@ -107,45 +125,49 @@
 </section>
 
 <section class="existing-project" id="existing-project">
-    <h2>Recent Projects</h2>
-    <h6>Akrivis.io does a range of data services. Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus pariatur vel impedit repellendus fugiat. Dicta sapiente sunt unde dolorum dolorem, labore modi architecto distinctio quisquam facilis quod explicabo eveniet consectetur.</h6>
-    <a href="{{ site.baseurl }}/projects">
-        <span id="recentProjects-toggle" class="link">
-            <i class="fas fa-arrow-circle-right"></i>
-            <h5>More Projects...</h5>
-        </span>
-    </a>
-    <div class="container">
-        <div class="each-project">
-            <img src="{{ site.baseurl }}/assets/img/project1.jpg" alt="">
-            <h3>{{ page.project1-title }}</h3>
-            <div class="description">
-                <p>{{ page.project1-type }}</p>
-                <p>{{ page.project1-date }}</p>
+    <div class="background-container">
+        <div class="container">
+            <div class="title">
+                <h2>Recent Projects</h2>
+                <h6>Akrivis.io does a range of data services. Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus pariatur vel impedit repellendus fugiat. Dicta sapiente sunt unde dolorum dolorem, labore modi architecto distinctio quisquam facilis quod explicabo eveniet consectetur.</h6>
+                <a href="{{ site.baseurl }}/projects">
+                    <span id="recentProjects-toggle" class="link">
+                        <i class="fas fa-arrow-circle-right"></i>
+                        <h5>More Projects...</h5>
+                    </span>
+                </a>
             </div>
-        </div>
-        <div class="each-project">
-            <img src="{{ site.baseurl }}/assets/img/project1.jpg" alt="">
-            <h3>{{ page.project2-title }}</h3>
-            <div class="description">
-                <p>{{ page.project2-type }}</p>
-                <p>{{ page.project2-date }}</p>
+            <div class="each-project">
+                <img src="{{ site.baseurl }}/assets/img/project1.jpg" alt="">
+                <h3>{{ page.project1-title }}</h3>
+                <div class="description">
+                    <p>{{ page.project1-type }}</p>
+                    <p>{{ page.project1-date }}</p>
+                </div>
             </div>
-        </div>
-        <div class="each-project">
-            <img src="{{ site.baseurl }}/assets/img/project1.jpg" alt="">
-            <h3>{{ page.project3-title }}</h3>
-            <div class="description">
-                <p>{{ page.project3-type }}</p>
-                <p>{{ page.project3-date }}</p>
+            <div class="each-project">
+                <img src="{{ site.baseurl }}/assets/img/project1.jpg" alt="">
+                <h3>{{ page.project2-title }}</h3>
+                <div class="description">
+                    <p>{{ page.project2-type }}</p>
+                    <p>{{ page.project2-date }}</p>
+                </div>
             </div>
-        </div>
-        <div class="each-project">
-            <img src="{{ site.baseurl }}/assets/img/project1.jpg" alt="">
-            <h3>{{ page.project4-title }}</h3>
-            <div class="description">
-                <p>{{ page.project4-type }}</p>
-                <p>{{ page.project4-date }}</p>
+            <div class="each-project">
+                <img src="{{ site.baseurl }}/assets/img/project1.jpg" alt="">
+                <h3>{{ page.project3-title }}</h3>
+                <div class="description">
+                    <p>{{ page.project3-type }}</p>
+                    <p>{{ page.project3-date }}</p>
+                </div>
+            </div>
+            <div class="each-project">
+                <img src="{{ site.baseurl }}/assets/img/project1.jpg" alt="">
+                <h3>{{ page.project4-title }}</h3>
+                <div class="description">
+                    <p>{{ page.project4-type }}</p>
+                    <p>{{ page.project4-date }}</p>
+                </div>
             </div>
         </div>
     </div>

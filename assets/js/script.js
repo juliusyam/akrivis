@@ -30,7 +30,6 @@ $('span#grid-toggle').click(function(){
     }
 });
 
-
 let projectToggleState = 0;
 
 $('span#recentProjects-toggle').click(function(){
@@ -49,6 +48,8 @@ $('span#recentProjects-toggle').click(function(){
     }
 });
 
+
+
 let projectDropdownState = 0;
 let projectArrow = $('section.project-section .sub-menu i');
 
@@ -64,13 +65,27 @@ $('section.project-section .sub-menu div').click(function(){
     }
 });
 
-$('button#homepage_navToAbout').click(function(){
+$('section.project-section .buttons button').click(function() {
+    let width = $(window).width();
+
+    $([document.documentElement, document.body]).animate({  
+        scrollTop: $('#project-section').offset().top
+    }, 1000);
+
+    if (width < 1050) {
+        $('section.project-section .buttons').fadeOut('slow');
+        projectArrow.addClass('fa-chevron-down').removeClass('fa-chevron-up');
+        projectDropdownState = 0;
+    }
+});
+
+$('.homepage_navToAbout').click(function(){
     $([document.documentElement, document.body]).animate({  
         scrollTop: $('#about').offset().top
     }, 1000);
 });
 
-$('button#homepage_navToService').click(function(){
+$('.homepage_navToService').click(function(){
     $([document.documentElement, document.body]).animate({
         scrollTop: $('#service').offset().top
     }, 1500);
@@ -90,6 +105,12 @@ $(window).resize(function(){
 })
 
 $(window).scroll(function(){
+
+    $('.header-container .grid').fadeOut('slow').removeClass('active').css('display', 'none');
+    $('div.header-container').css('justify-content', 'center');
+    $('span#grid-toggle').children('h5').html("Find Out More");
+    $('span#grid-toggle').children('i').addClass('fa-arrow-circle-down').removeClass('fa-arrow-circle-up');
+    gridToggleState = 0;
 
     var scroll = $(window).scrollTop();
 
@@ -216,7 +237,8 @@ $('button#project1').click(function(){
 
 $('button#project2').click(function(){
     $('.individual-project').empty();
-    loadProject2JSON();
+    //loadProject2JSON();
+    $('.individual-project').load('/akrivis/projects/project2');
 });
 
 $('button#project3').click(function(){
@@ -224,56 +246,56 @@ $('button#project3').click(function(){
     $('.individual-project').load('/akrivis/projects/project3');
 });
 
-function loadProject2JSON() {
-    $.ajax({
-        type: 'GET',
-        url: '/akrivis/assets/json/stuff.json',
-        contentType: 'application/json; charset=UTF-8',
-        dataType: 'json',
-        success: function(response) {
-            console.log(response);
+// function loadProject2JSON() {
+//     $.ajax({
+//         type: 'GET',
+//         url: '/akrivis/assets/json/stuff.json',
+//         contentType: 'application/json; charset=UTF-8',
+//         dataType: 'json',
+//         success: function(response) {
+//             console.log(response);
 
-            listGroupDiv = $('<div>', {
-                class: 'list-group-div'
-            });
+//             listGroupDiv = $('<div>', {
+//                 class: 'list-group-div'
+//             });
 
-            $.each(response, function(key, value) {
-                //$('.people').append(document.createTextNode(value.Name))
+//             $.each(response, function(key, value) {
+//                 //$('.people').append(document.createTextNode(value.Name))
 
-                listGroupItem = $('<li>', {
-                    class: 'list-group-item'
-                });
+//                 listGroupItem = $('<li>', {
+//                     class: 'list-group-item'
+//                 });
 
-                var ajaxTitle = $('<h1>');
-                var listName = $('<h1>');
-                var listCity = $('<h2>');
-                var listAlignment = $('<h3>');
-                var listBorn = $('<p>');
-                var listPicture = $('<img>');
-                var listPictureSrc = value.Picture;
-                console.log(listPictureSrc);
+//                 var ajaxTitle = $('<h1>');
+//                 var listName = $('<h1>');
+//                 var listCity = $('<h2>');
+//                 var listAlignment = $('<h3>');
+//                 var listBorn = $('<p>');
+//                 var listPicture = $('<img>');
+//                 var listPictureSrc = value.Picture;
+//                 console.log(listPictureSrc);
 
-                ajaxTitle.html("First JSON AJAX");
-                listName.html(document.createTextNode(value.Name));
-                listCity.html(document.createTextNode(value.City));
-                listAlignment.html(document.createTextNode(value.Alignment));
-                listBorn.html(document.createTextNode(value.Born));
-                listPicture.attr("src", listPictureSrc);
-                console.log(listPicture.attr("src"));
+//                 ajaxTitle.html("First JSON AJAX");
+//                 listName.html(document.createTextNode(value.Name));
+//                 listCity.html(document.createTextNode(value.City));
+//                 listAlignment.html(document.createTextNode(value.Alignment));
+//                 listBorn.html(document.createTextNode(value.Born));
+//                 listPicture.attr("src", listPictureSrc);
+//                 console.log(listPicture.attr("src"));
 
-                listGroupItem.append(ajaxTitle);
-                listGroupItem.append(listName);
-                listGroupItem.append(listCity);
-                listGroupItem.append(listAlignment);
-                listGroupItem.append(listBorn);
-                listGroupItem.append(listPicture);
-                listGroupDiv.append(listGroupItem);
-            });
+//                 listGroupItem.append(ajaxTitle);
+//                 listGroupItem.append(listName);
+//                 listGroupItem.append(listCity);
+//                 listGroupItem.append(listAlignment);
+//                 listGroupItem.append(listBorn);
+//                 listGroupItem.append(listPicture);
+//                 listGroupDiv.append(listGroupItem);
+//             });
 
-            $('.individual-project').append(listGroupDiv);
-        },
-        error: function(response) {
-            console.log("error " + response);
-        }
-    });
-}
+//             $('.individual-project').append(listGroupDiv);
+//         },
+//         error: function(response) {
+//             console.log("error " + response);
+//         }
+//     });
+// }
