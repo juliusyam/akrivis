@@ -751,8 +751,6 @@ section.header {
         align-items: center;
 
         .interactive-logo {
-            // width: 100%;
-            // height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -845,11 +843,88 @@ section.header {
                 }
             }
 
+            @media (max-width: $midTablet) {
+                .shape1 {
+                    border-left: 100px solid transparent;
+                    border-right: 100px solid transparent;
+                    border-bottom: 150px solid $logoPeach;
+
+                    p {
+                        margin-top: 60px;
+                    }
+                }
+                .shape2 {
+                    margin-left: -50px;
+                    border-left: 100px solid transparent;
+                    border-right: 100px solid transparent;
+                    border-top: 150px solid $logoCyan;
+
+                    p {
+                        margin-bottom: 60px;
+                    }
+                }
+                .shape3 {
+                    height: 150px;
+                    width: 150px;
+                    border-radius: 75px;
+                    animation: reveal2small-out 1000ms ease-in-out, bounce 2000ms ease infinite;
+
+                    &:hover {
+                        animation: reveal2small-in 1000ms ease-in-out;
+                    }
+                }
+            }
+
+            @media (max-width: $phone) {
+                .shape1 {
+                    border-left: 50px solid transparent;
+                    border-right: 50px solid transparent;
+                    border-bottom: 75px solid $logoPeach;
+                    animation: bounce 2000ms ease infinite;
+
+                    &:hover {
+                        width: 0;
+                        animation: none;
+                        p {
+                            color: rgba(0,0,0,0);
+                        }
+                    }
+                }
+                .shape2 {
+                    margin-left: -25px;
+                    border-left: 50px solid transparent;
+                    border-right: 50px solid transparent;
+                    border-top: 75px solid $logoCyan;
+                    animation: reveal-out 0, bounce 2000ms ease infinite;
+
+                    &:hover {
+                        width: 0;
+                        animation: none;
+                        p {
+                            color: rgba(0,0,0,0);
+                        }
+                    }
+                }
+                .shape3 {
+                    height: 75px;
+                    width: 75px;
+                    border-radius: 37.5px;
+                    animation: reveal-out 0, bounce 2000ms ease infinite;
+
+                    &:hover {
+                        width: 75px;
+                        animation: none;
+                        p {
+                            color: rgba(0,0,0,0);
+                        }
+                    }
+                }
+            }
+
             @keyframes reveal-in {
                 0%   {width: 0px;}
                 100% { width: 200px;}
             }
-            
             @keyframes reveal-out {
                 0%   {width: 200px;}
                 100% { width: 0px;}
@@ -859,10 +934,18 @@ section.header {
                 0%   {width: 250px;}
                 100% { width: 400px;}
             }
-            
             @keyframes reveal2-out {
                 0%   {width: 400px;}
                 100% { width: 250px;}
+            }
+
+            @keyframes reveal2small-in {
+                0%   {width: 150px;}
+                100% { width: 400px;}
+            }
+            @keyframes reveal2small-out {
+                0%   {width: 400px;}
+                100% { width: 150px;}
             }
         
             @keyframes bounce {
@@ -880,6 +963,11 @@ section.header {
             letter-spacing: 2px;
             color: white;
             margin-top: 40px;
+
+            @media (max-width: $smallTablet) {
+                margin-top: 40px;
+                font-size: 30px;
+            }
         }
 
         .grid {
