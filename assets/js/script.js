@@ -93,7 +93,6 @@ $('.homepage_navToService').click(function(){
 
 $(window).resize(function(){    
     let width = $(window).width();
-    //console.log(width);
 
     if (width > 1050) {
         $('section.project-section .buttons').fadeIn('slow');
@@ -130,7 +129,6 @@ $(window).scroll(function(){
 
     // Homepage Images
     let width = $(window).width();
-    console.log(scroll);
 
     const images = $('section.service section.background-img img');
 
@@ -159,107 +157,9 @@ $(window).scroll(function(){
         }
 
     } 
-    // else if (width > 600) {
-
-    //     if (scroll <= 1800) {
-    //         images.css('display', 'none');
-    //     } else if (scroll <= 2900) {
-    //         images.css('display', 'none');
-    //         $('.image1').css('display', 'flex');
-    //     } else if (scroll <= 3400) {
-    //         images.css('display', 'none');
-    //         $('.image2').css('display', 'flex');
-    //     } else if (scroll <= 3900) {
-    //         images.css('display', 'none');
-    //         $('.image3').css('display', 'flex');
-    //     } else if (scroll <= 4400) {
-    //         images.css('display', 'none');
-    //         $('.image4').css('display', 'flex');
-    //     } else if (scroll <= 4900) {
-    //         images.css('display', 'none');
-    //         $('.image5').css('display', 'flex');
-    //     } else {
-    //         images.css('display', 'none');
-    //         $('.image6').css('display', 'flex');
-    //     }
-    //}
 });
 
-$(document).ready(function(){
 
-
-    function createProjectButtonDiv(buttonName) {
-
-        const buttonInnerDiv = $('<div>', {
-
-        });
-    
-        return buttonInnerDiv;
-    }
-
-    // function createProjectButtonDivContent(buttonName, img) {
-
-    //     buttonName = $('<p>', {
-    //         html: 'this is a test'
-    //     });
-
-    //     img = $('<img>', {
-    //         src: '/assets/img/project-icon.png'
-    //     });
-
-    //     return createProjectButtonDiv(buttonName, img);
-    // }
-
-    function createProjectButton(buttonNumber, buttonName) {
-        
-        const button = $('<button>', {
-            id: 'project' + buttonNumber,
-            html: buttonName,
-            attr: ('data-caption', buttonName)
-        });
-    
-        return button;
-    }
-    
-    function prepareProjectButton(object) {
-        
-        const buttonsDiv = $('<div>', {
-            class: 'buttons'
-        });
-    
-        for (var i = 0; i<arguments.length; i++) {
-            object = arguments[i];
-            buttonsDiv.append(createProjectButton(object.buttonNo, object.buttonDes));
-        }
-    
-        return buttonsDiv;
-    }
-    
-    let projectBtnSection = $('section.project-section .catalog');
-    projectBtnSection.append(prepareProjectButton(
-        {buttonNo: '1', buttonDes: 'Project 1a'},
-        {buttonNo: '2', buttonDes: 'Project 2a'},
-        {buttonNo: '3', buttonDes: 'Project 3a'},
-        {buttonNo: '4', buttonDes: 'Project 3a'},
-    ));
-
-});
-
-$('button#project1').click(function(){
-    $('.individual-project').empty();
-    $('.individual-project').load('/akrivis/projects/project1');
-});
-
-$('button#project2').click(function(){
-    $('.individual-project').empty();
-    //loadProject2JSON();
-    $('.individual-project').load('/akrivis/projects/project2');
-});
-
-$('button#project3').click(function(){
-    $('.individual-project').empty();
-    $('.individual-project').load('/akrivis/projects/project3');
-});
 
 // function loadProject2JSON() {
 //     $.ajax({

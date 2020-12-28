@@ -2075,6 +2075,7 @@ section.blockquote-section div.container .blockquote {
   border-radius: 20px;
   margin: 20px;
   padding: 30px 50px;
+  min-height: 15em;
 }
 
 section.blockquote-section div.container .blockquote h3 {
@@ -2088,19 +2089,32 @@ section.blockquote-section div.container .blockquote h3 {
           padding-block-end: 1em;
   text-align: center;
   width: 100%;
-  border-bottom: 1px solid #dbdbdb;
 }
 
 section.blockquote-section div.container .blockquote:nth-child(1) {
-  background-image: linear-gradient(45deg, #05353b 5%, #09909f 85%);
+  background-image: linear-gradient(45deg, #c44545 5%, #FF5757 85%);
+}
+
+section.blockquote-section div.container .blockquote:nth-child(1) h3 {
+  border-bottom: 1px solid #dbdbdb;
 }
 
 section.blockquote-section div.container .blockquote:nth-child(2) {
-  background-image: linear-gradient(45deg, #450826 5%, #9f0957 85%);
+  background-image: linear-gradient(45deg, #3e989c 5%, #5CE1E6 85%);
+  color: #18191a;
+}
+
+section.blockquote-section div.container .blockquote:nth-child(2) h3 {
+  border-bottom: 1px solid #18191a;
 }
 
 section.blockquote-section div.container .blockquote:nth-child(3) {
-  background-image: linear-gradient(45deg, #425c0b 5%, #6da308 85%);
+  background-image: linear-gradient(45deg, #bfb73b 5%, #FFF44F 85%);
+  color: #18191a;
+}
+
+section.blockquote-section div.container .blockquote:nth-child(3) h3 {
+  border-bottom: 1px solid #18191a;
 }
 
 @media (max-width: 1250px) {

@@ -1851,6 +1851,7 @@ section.blockquote-section {
             border-radius: 20px;
             margin: 20px;
             padding: 30px 50px;
+            min-height: 15em;
 
             h3 {
                 margin-block-start: 0;
@@ -1859,17 +1860,27 @@ section.blockquote-section {
                 padding-block-end: 1em;
                 text-align: center;
                 width: 100%;
-                border-bottom: 1px solid #dbdbdb;
             }
 
             &:nth-child(1) {
-                background-image: linear-gradient(45deg, #05353b 5%, $primaryColor 85%);
+                background-image: linear-gradient(45deg, #c44545 5%, $logoPeach 85%);
+                h3 {
+                    border-bottom: 1px solid #dbdbdb;
+                }
             }
             &:nth-child(2) {
-                background-image: linear-gradient(45deg, #450826 5%, #9f0957 85%);
+                background-image: linear-gradient(45deg, #3e989c 5%,$logoCyan 85%);
+                color: $darkBackground;
+                h3 {
+                    border-bottom: 1px solid $darkBackground;
+                }
             }
             &:nth-child(3) {
-                background-image: linear-gradient(45deg, #425c0b 5%, #6da308 85%);
+                background-image: linear-gradient(45deg,#bfb73b 5%, $logoYellow 85%);
+                color: $darkBackground;
+                h3 {
+                    border-bottom: 1px solid $darkBackground;
+                }
             }
         }
     }    
