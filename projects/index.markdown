@@ -22,6 +22,8 @@ block3-description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Asp
 <script>
 $(document).ready(function(){
 
+    var totalButtonAmount = 0;
+
     function createProjectButtonDivP(buttonName) {
 
         const p = $('<p>', {
@@ -73,6 +75,9 @@ $(document).ready(function(){
             buttonsDiv.append(createProjectButton(object.buttonNo, object.buttonDes));
         }
 
+        totalButtonAmount = i;
+        console.log('totalButtonAmount = ' + totalButtonAmount);
+
         return buttonsDiv;
     }
     
@@ -84,19 +89,27 @@ $(document).ready(function(){
         {buttonNo: '4', buttonDes: 'Project 4'},
     ));
 
-    $('button#project1').click(function(){
-        $('.individual-project').empty();
-        $('.individual-project').load('/akrivis/projects/project1');
-    });
+    // var totalFigure = prepareProjectButton(totalButtonAmount);
+    // console.log('totalFigure = ' + totalFigure);
+
+    function projectButtonClick(number) {
+
+        var buttonID = 'project' + number;
+        var getButtonID = 'button#' + buttonID;
+        var loadURL = '/akrivis/projects/' + buttonID;
+
+        $(getButtonID).click(function(){
+            $('.individual-project').empty();
+            $('.individual-project').load(loadURL);
+        });
+        console.log(buttonID);
+        console.log(getButtonID);
+        console.log(loadURL);
+    }
+
+    for (var p = 1; p <= totalButtonAmount; p++) {
+        projectButtonClick(p);
+    }
     
-    $('button#project2').click(function(){
-        $('.individual-project').empty();
-        $('.individual-project').load('/akrivis/projects/project2');
-    });
-    
-    $('button#project3').click(function(){
-        $('.individual-project').empty();
-        $('.individual-project').load('/akrivis/projects/project3');
-    });
 });
 </script>
