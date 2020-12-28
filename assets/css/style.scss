@@ -38,7 +38,38 @@ html, body {
 
 body {
     background: $darkBackground;
+    scrollbar-width: thin;
+    scrollbar-color: #111111 rgba(255, 255, 255, 0.6);
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    &::-webkit-scrollbar-track {
+        background: #111111;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-image: linear-gradient(45deg, #FF5757 0%, #5CE1E6, 75%, #FFF44F 100%);
+        border-radius: 2.5px;
+        box-shadow: 1px 1px 3px #3a3d40 inset;
+    }
 }
+
+// body::-webkit-scrollbar {
+//     width: 25px;
+//   }
+//   body {
+//     scrollbar-width: thin;
+//     scrollbar-color: #18191a rgba(255, 255, 255, 0.6);
+//   }
+//   body::-webkit-scrollbar-track {
+//     background: #18191a;
+//   }
+//   body::-webkit-scrollbar-thumb {
+//     background-image: linear-gradient(45deg, #FF5757 0%, #5CE1E6, 75%, #FFF44F 100%);
+//     border-radius: 12.5px;
+//     box-shadow: 1px 1px 3px #3a3d40 inset;
+//   }
+  
 
 h1 {
     margin-block-start: 0.5em;
@@ -455,7 +486,7 @@ div.form-section {
     }
 
     textarea {
-        width: 95%;
+        width: 90%;
         background-color: rgba(0,0,0,0);
         border: none;
         border-bottom: 2px solid $primaryColor;
@@ -550,25 +581,25 @@ div.form-section {
             transition: all 0.5s linear;
             margin-bottom: -20px;
         }
-
-        @media (max-width: $largeTablet) {
-            section {
-                margin: 10px 0;
-            }
-        }
     }
 
     .checkbox-div {
         display: flex;
         flex-wrap: wrap;
         padding: 10px 0;
+        max-width: 800px;
 
-        div {
-            margin: 5px;
+        .checkBoxEach {
+            max-width: 350px;
+            width: 100%;
+            margin: 15px 20px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
         }
 
         label {
-            margin-left: 5px;
+            margin-left: 10px;
         }
 
         // [type='checkbox'] {
@@ -1689,13 +1720,13 @@ section.contact {
     flex-direction: column;
     background: $whiteBackground;
 
-    div.container {
-        max-width: 80em;
-    }
-
     h2 {
         text-align: center;
         font-size: 3vw;
+
+        @media (max-width: $phone) {
+            font-size: 35px;
+        }
     }
 
     p {
@@ -1708,8 +1739,8 @@ section.contact {
         max-width: 90em;
         display: flex;
         justify-content: center;
-        align-items: flex-start;
-        flex-wrap: wrap;
+        align-items: center;
+        flex-direction: column;
         margin: 50px 0;
 
         div.form-section {
@@ -1770,6 +1801,11 @@ section.contact {
             }
         
             .text-input-div {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+
+
                 input[type='text'] {
                     border-bottom: 2px solid $primaryAccent;
                     background-color: transparent   ;
@@ -2248,6 +2284,20 @@ section.footer {
     align-items: center;
     font-family: monospace;
     overflow-x: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #1e1e1e rgba(255, 255, 255, 0.6);
+
+    &::-webkit-scrollbar {
+        height: 15px;
+    }
+    &::-webkit-scrollbar-track {
+        background: #1e1e1e;
+    }
+    &::-webkit-scrollbar-thumb {
+        //background-image: linear-gradient(45deg, #3e989c 5%,$logoCyan 85%);
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 7.5px;
+    }
 
     figure {
         margin: 0;

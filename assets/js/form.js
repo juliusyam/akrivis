@@ -68,7 +68,7 @@ $(document).ready(function(){
 
     function wrapCheckBox(checkbox, label) {
         const wrapper = $('<div>', {
-            class: 'checkBoxDiv'
+            class: 'checkBoxEach'
         });
 
         wrapper.append(checkbox);
@@ -123,9 +123,13 @@ $(document).ready(function(){
         {scriptInputName: 'company', presentationInputName: 'Company'}
     ));
     form.append(prepareCheckBox(
-        {scriptName: 'service-1', presentationName: 'Service 1'},
-        {scriptName: 'service-2', presentationName: 'Service 2'},
-        {scriptName: 'service-3', presentationName: 'Service 3'}
+        {scriptName: 'exploratory-data-mining-and-gathering', presentationName: 'Exploratory data mining and gathering'},
+        {scriptName: 'data-cleaning-and-transformation', presentationName: 'Data cleaning and transformation'},
+        {scriptName: 'data-visualization-and-analysis', presentationName: 'Data visualization and analysis'},
+        {scriptName: 'statistical-modeling-and-testing', presentationName: 'Statistical modeling and testing'},
+        {scriptName: 'data-management-and-warehousing', presentationName: 'Data management and warehousing'},
+        {scriptName: 'machine-learning-for-correlation-and-pattern-matching', presentationName: 'Machine learning for correlation and pattern matching'},
+        {scriptName: 'others', presentationName: 'Others'}
     ));
     form.append(textarea);
     form.append(br);

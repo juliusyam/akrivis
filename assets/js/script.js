@@ -65,19 +65,21 @@ $('section.project-section .sub-menu div').click(function(){
     }
 });
 
-$('section.project-section .buttons button').click(function() {
+$('section.project-section .each-project-btn').click(function() {
     let width = $(window).width();
-
-    $([document.documentElement, document.body]).animate({  
-        scrollTop: $('#project-section').offset().top
-    }, 1000);
 
     if (width < 1050) {
         $('section.project-section .buttons').fadeOut('slow');
         projectArrow.addClass('fa-chevron-down').removeClass('fa-chevron-up');
         projectDropdownState = 0;
     }
+
+    $([document.documentElement, document.body]).animate({  
+        scrollTop: $('#project-section').offset().top
+    }, 1000);
+
 });
+
 
 $('.homepage_navToAbout').click(function(){
     $([document.documentElement, document.body]).animate({  

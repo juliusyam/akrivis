@@ -9,6 +9,23 @@ html, body {
 
 body {
   background: #18191a;
+  scrollbar-width: thin;
+  scrollbar-color: #111111 rgba(255, 255, 255, 0.6);
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(45deg, #FF5757 0%, #5CE1E6, 75%, #FFF44F 100%);
+  border-radius: 2.5px;
+  -webkit-box-shadow: 1px 1px 3px #3a3d40 inset;
+          box-shadow: 1px 1px 3px #3a3d40 inset;
 }
 
 h1 {
@@ -537,7 +554,7 @@ div.form-section label {
 }
 
 div.form-section textarea {
-  width: 95%;
+  width: 90%;
   background-color: rgba(0, 0, 0, 0);
   border: none;
   border-bottom: 2px solid #09909f;
@@ -656,12 +673,6 @@ div.form-section .text-input-div .textInput {
   margin-bottom: -20px;
 }
 
-@media (max-width: 1050px) {
-  div.form-section .text-input-div section {
-    margin: 10px 0;
-  }
-}
-
 div.form-section .checkbox-div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -669,14 +680,26 @@ div.form-section .checkbox-div {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding: 10px 0;
+  max-width: 800px;
 }
 
-div.form-section .checkbox-div div {
-  margin: 5px;
+div.form-section .checkbox-div .checkBoxEach {
+  max-width: 350px;
+  width: 100%;
+  margin: 15px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 div.form-section .checkbox-div label {
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
 /*Animation*/
@@ -1864,13 +1887,15 @@ section.contact {
   background: #eeeeee;
 }
 
-section.contact div.container {
-  max-width: 80em;
-}
-
 section.contact h2 {
   text-align: center;
   font-size: 3vw;
+}
+
+@media (max-width: 600px) {
+  section.contact h2 {
+    font-size: 35px;
+  }
 }
 
 section.contact p {
@@ -1887,11 +1912,13 @@ section.contact div.container {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin: 50px 0;
 }
 
@@ -1960,6 +1987,17 @@ section.contact div.container div.form-section select:-webkit-autofill:focus {
 
 section.contact div.container div.form-section span.validationMessage {
   color: #18191a;
+}
+
+section.contact div.container div.form-section .text-input-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 section.contact div.container div.form-section .text-input-div input[type='text'] {
@@ -2595,6 +2633,21 @@ section.footer p {
           align-items: center;
   font-family: monospace;
   overflow-x: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #1e1e1e rgba(255, 255, 255, 0.6);
+}
+
+.codes::-webkit-scrollbar {
+  height: 15px;
+}
+
+.codes::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+.codes::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 7.5px;
 }
 
 .codes figure {

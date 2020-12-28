@@ -56,6 +56,7 @@ $(document).ready(function(){
         
         const button = $('<button>', {
             id: 'project' + buttonNumber,
+            class: 'each-project-btn'
             // html: buttonName
         });
 
@@ -83,14 +84,14 @@ $(document).ready(function(){
     
     var projectBtnSection = $('section.project-section .catalog');
     projectBtnSection.append(prepareProjectButton(
+
+
+        //This section is all you need to edit!
         {buttonNo: '1', buttonDes: 'Project 1'},
         {buttonNo: '2', buttonDes: 'Project 2'},
         {buttonNo: '3', buttonDes: 'Project 3'},
         {buttonNo: '4', buttonDes: 'Project 4'},
     ));
-
-    // var totalFigure = prepareProjectButton(totalButtonAmount);
-    // console.log('totalFigure = ' + totalFigure);
 
     function projectButtonClick(number) {
 
