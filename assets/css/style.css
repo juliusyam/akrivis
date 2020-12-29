@@ -1032,7 +1032,7 @@ section.header div.header-container .interactive-logo .shape3:hover p {
   section.header div.header-container .interactive-logo .shape1 {
     border-left: 100px solid transparent;
     border-right: 100px solid transparent;
-    border-bottom: 150px solid #FF5757;
+    border-bottom: 150px solid #FFF44F;
   }
   section.header div.header-container .interactive-logo .shape1 p {
     margin-top: 60px;
@@ -1063,7 +1063,7 @@ section.header div.header-container .interactive-logo .shape3:hover p {
   section.header div.header-container .interactive-logo .shape1 {
     border-left: 50px solid transparent;
     border-right: 50px solid transparent;
-    border-bottom: 75px solid #FF5757;
+    border-bottom: 150px solid #FFF44F;
     -webkit-animation: bounce 2000ms ease infinite;
             animation: bounce 2000ms ease infinite;
   }
@@ -1352,7 +1352,7 @@ section.header div.header-container .grid div.each-grid .shape1 {
   height: 0;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-  border-bottom: 25px solid #FF5757;
+  border-bottom: 25px solid #FFF44F;
 }
 
 section.header div.header-container .grid div.each-grid .shape2 {
@@ -1366,7 +1366,7 @@ section.header div.header-container .grid div.each-grid .shape2 {
 section.header div.header-container .grid div.each-grid .shape3 {
   height: 25px;
   width: 25px;
-  background-color: #FFF44F;
+  background-color: #FF5757;
   border-radius: 12.5px;
 }
 

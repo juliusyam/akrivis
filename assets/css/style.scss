@@ -850,7 +850,7 @@ section.header {
                 .shape1 {
                     border-left: 100px solid transparent;
                     border-right: 100px solid transparent;
-                    border-bottom: 150px solid $logoPeach;
+                    border-bottom: 150px solid $logoYellow;
 
                     p {
                         margin-top: 60px;
@@ -882,7 +882,7 @@ section.header {
                 .shape1 {
                     border-left: 50px solid transparent;
                     border-right: 50px solid transparent;
-                    border-bottom: 75px solid $logoPeach;
+                    border-bottom: 150px solid $logoYellow;
                     animation: bounce 2000ms ease infinite;
 
                     &:hover {
@@ -1045,7 +1045,7 @@ section.header {
                     height: 0;
                     border-left: 15px solid transparent;
                     border-right: 15px solid transparent;
-                    border-bottom: 25px solid $logoPeach;
+                    border-bottom: 25px solid $logoYellow;
                 }
                 .shape2 {
                     width: 0;
@@ -1057,7 +1057,7 @@ section.header {
                 .shape3 {
                     height: 25px;
                     width: 25px;
-                    background-color: $logoYellow;
+                    background-color: $logoPeach;
                     border-radius: 12.5px;
                 }
 
