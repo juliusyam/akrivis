@@ -18,67 +18,33 @@ $('span#grid-toggle').click(function(){
     if (gridToggleState == 0) {
         $('.header-container .grid').fadeIn('slow').addClass('active').css('display', 'flex');
         $('div.header-container').css('justify-content', 'space-around');
-        $(this).children('h5').html("Collapse");
         $(this).children('i').addClass('fa-arrow-circle-up').removeClass('fa-arrow-circle-down');
         gridToggleState = 1;
     } else {
         $('.header-container .grid').fadeOut('slow').removeClass('active').css('display', 'none');
         $('div.header-container').css('justify-content', 'center');
-        $(this).children('h5').html("Find Out More");
         $(this).children('i').addClass('fa-arrow-circle-down').removeClass('fa-arrow-circle-up');
         gridToggleState = 0;
     }
 });
 
-let projectToggleState = 0;
+// let projectToggleState = 0;
 
-$('span#recentProjects-toggle').click(function(){
-    if (projectToggleState == 0) {
-        $('.header-container .grid').fadeIn('slow').addClass('active').css('display', 'flex');
-        $('div.header-container').css('justify-content', 'space-around');
-        $(this).children('h5').html("Collapse");
-        $(this).children('i').addClass('fa-arrow-circle-up').removeClass('fa-arrow-circle-down');
-        projectToggleState = 1;
-    } else {
-        $('.header-container .grid').fadeOut('slow').removeClass('active').css('display', 'none');
-        $('div.header-container').css('justify-content', 'center');
-        $(this).children('h5').html("Find Out More");
-        $(this).children('i').addClass('fa-arrow-circle-down').removeClass('fa-arrow-circle-up');
-        projectToggleState = 0;
-    }
-});
-
-
-
-let projectDropdownState = 0;
-let projectArrow = $('section.project-section .sub-menu i');
-
-$('section.project-section .sub-menu div').click(function(){
-    if (projectDropdownState == 0) {
-        $('section.project-section .buttons').fadeIn('slow').css('display', 'flex');
-        projectArrow.addClass('fa-chevron-up').removeClass('fa-chevron-down');
-        projectDropdownState = 1;
-    } else {
-        $('section.project-section .buttons').fadeOut('slow');
-        projectArrow.addClass('fa-chevron-down').removeClass('fa-chevron-up');
-        projectDropdownState = 0;
-    }
-});
-
-$('section.project-section .each-project-btn').click(function() {
-    let width = $(window).width();
-
-    if (width < 1050) {
-        $('section.project-section .buttons').fadeOut('slow');
-        projectArrow.addClass('fa-chevron-down').removeClass('fa-chevron-up');
-        projectDropdownState = 0;
-    }
-
-    $([document.documentElement, document.body]).animate({  
-        scrollTop: $('#project-section').offset().top
-    }, 1000);
-
-});
+// $('span#recentProjects-toggle').click(function(){
+//     if (projectToggleState == 0) {
+//         $('.header-container .grid').fadeIn('slow').addClass('active').css('display', 'flex');
+//         $('div.header-container').css('justify-content', 'space-around');
+//         $(this).children('h5').html("Collapse");
+//         $(this).children('i').addClass('fa-arrow-circle-up').removeClass('fa-arrow-circle-down');
+//         projectToggleState = 1;
+//     } else {
+//         $('.header-container .grid').fadeOut('slow').removeClass('active').css('display', 'none');
+//         $('div.header-container').css('justify-content', 'center');
+//         $(this).children('h5').html("Find Out More");
+//         $(this).children('i').addClass('fa-arrow-circle-down').removeClass('fa-arrow-circle-up');
+//         projectToggleState = 0;
+//     }
+// });
 
 
 $('.homepage_navToAbout').click(function(){
@@ -93,17 +59,7 @@ $('.homepage_navToService').click(function(){
     }, 1500);
 });
 
-$(window).resize(function(){    
-    let width = $(window).width();
 
-    if (width > 1050) {
-        $('section.project-section .buttons').fadeIn('slow');
-    } else {
-        $('section.project-section .buttons').fadeOut('slow');
-        projectArrow.addClass('fa-chevron-down').removeClass('fa-chevron-up');
-        projectDropdownState = 0;
-    }
-})
 
 $(window).scroll(function(){
 

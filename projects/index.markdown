@@ -15,6 +15,8 @@ block2-description: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iu
 
 block3-title: Our Achievements
 block3-description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores in harum porro explicabo doloribus dolore placeat, id commodi accusantium quaerat corrupti itaque dolorum qui dolor cumque quod. Minus, nemo inventore. quaerat corrupti itaque dolorum qui dolor cumque quod. Minus, nemo inventore.
+
+# Please scroll to line 109 to add buttons!
 ---
 
 {% include projects.html %}
@@ -23,6 +25,24 @@ block3-description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Asp
 $(document).ready(function(){
 
     var totalButtonAmount = 0;
+    var projectDropdownState = 0;
+    var projectArrow = $('section.project-section .sub-menu i');
+
+    var width = $(window).width();
+    $(window).on('resize', function() {
+        if ($(this).width() !== width) {
+            width = $(this).width();
+            console.log('$(this).width() = ' + width);
+        }
+
+        if (width > 1050) {
+            $('section.project-section .buttons').fadeIn('slow');
+        } else {
+            $('section.project-section .buttons').fadeOut('slow');
+            projectArrow.addClass('fa-chevron-down').removeClass('fa-chevron-up');
+            projectDropdownState = 0;
+        }
+    });
 
     function createProjectButtonDivP(buttonName) {
 
@@ -93,6 +113,18 @@ $(document).ready(function(){
         {buttonNo: '4', buttonDes: 'Project 4'},
     ));
 
+    $('section.project-section .sub-menu div').click(function(){
+        if (projectDropdownState == 0) {
+            $('section.project-section .buttons').fadeIn('slow').css('display', 'flex');
+            projectArrow.addClass('fa-chevron-up').removeClass('fa-chevron-down');
+            projectDropdownState = 1;
+        } else {
+            $('section.project-section .buttons').fadeOut('slow');
+            projectArrow.addClass('fa-chevron-down').removeClass('fa-chevron-up');
+            projectDropdownState = 0;
+        }
+    });
+
     function projectButtonClick(number) {
 
         var buttonID = 'project' + number;
@@ -102,10 +134,20 @@ $(document).ready(function(){
         $(getButtonID).click(function(){
             $('.individual-project').empty();
             $('.individual-project').load(loadURL);
+
+            $([document.documentElement, document.body]).animate({  
+                scrollTop: $('#project-section').offset().top
+            }, 1000);
+
+            if (width < 1050) {
+                $('section.project-section .buttons').fadeOut('slow');
+                projectArrow.addClass('fa-chevron-down').removeClass('fa-chevron-up');
+                projectDropdownState = 0;
+            }
         });
-        console.log(buttonID);
-        console.log(getButtonID);
-        console.log(loadURL);
+        // console.log(buttonID);
+        // console.log(getButtonID);
+        // console.log(loadURL);
     }
 
     for (var p = 1; p <= totalButtonAmount; p++) {
@@ -114,3 +156,4 @@ $(document).ready(function(){
     
 });
 </script>
+
