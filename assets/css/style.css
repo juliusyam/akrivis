@@ -1063,7 +1063,7 @@ section.header div.header-container .interactive-logo .shape3:hover p {
   section.header div.header-container .interactive-logo .shape1 {
     border-left: 50px solid transparent;
     border-right: 50px solid transparent;
-    border-bottom: 150px solid #FFF44F;
+    border-bottom: 75px solid #FFF44F;
     -webkit-animation: bounce 2000ms ease infinite;
             animation: bounce 2000ms ease infinite;
   }
