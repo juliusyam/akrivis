@@ -775,7 +775,7 @@ section.header {
                 height: 0;
                 border-left: 150px solid transparent;
                 border-right: 150px solid transparent;
-                border-bottom: 250px solid $logoPeach;
+                border-bottom: 250px solid $logoYellow;
                 align-items: flex-start;
                 animation: reveal-out 1000ms ease-in-out, bounce 2000ms ease infinite;
 
@@ -791,7 +791,7 @@ section.header {
                     animation: reveal-in 1000ms ease-in-out;
 
                     p {
-                        color: white;
+                        color: $darkBackground;
                     }
                 }
             }
@@ -817,7 +817,7 @@ section.header {
                     animation: reveal-in 1000ms ease-in-out;
 
                     p {
-                        color: white;
+                        color: $darkBackground;
                     }
                 }
             }
@@ -825,7 +825,7 @@ section.header {
             .shape3 {
                 height: 250px;
                 width: 250px;
-                background-color: $logoYellow;
+                background-color: $logoPeach;
                 border-radius: 125px;
                 align-items: center;
                 animation: reveal2-out 1000ms ease-in-out, bounce 2000ms ease infinite;
@@ -841,7 +841,7 @@ section.header {
                     animation: reveal2-in 1000ms ease-in-out;
 
                     p {
-                        color: black;
+                        color: $primaryWhite;
                     }
                 }
             }

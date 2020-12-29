@@ -941,7 +941,7 @@ section.header div.header-container .interactive-logo .shape1 {
   height: 0;
   border-left: 150px solid transparent;
   border-right: 150px solid transparent;
-  border-bottom: 250px solid #FF5757;
+  border-bottom: 250px solid #FFF44F;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -964,7 +964,7 @@ section.header div.header-container .interactive-logo .shape1:hover {
 }
 
 section.header div.header-container .interactive-logo .shape1:hover p {
-  color: white;
+  color: #18191a;
 }
 
 section.header div.header-container .interactive-logo .shape2 {
@@ -996,13 +996,13 @@ section.header div.header-container .interactive-logo .shape2:hover {
 }
 
 section.header div.header-container .interactive-logo .shape2:hover p {
-  color: white;
+  color: #18191a;
 }
 
 section.header div.header-container .interactive-logo .shape3 {
   height: 250px;
   width: 250px;
-  background-color: #FFF44F;
+  background-color: #FF5757;
   border-radius: 125px;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -1025,7 +1025,7 @@ section.header div.header-container .interactive-logo .shape3:hover {
 }
 
 section.header div.header-container .interactive-logo .shape3:hover p {
-  color: black;
+  color: #e9e9e9;
 }
 
 @media (max-width: 900px) {
