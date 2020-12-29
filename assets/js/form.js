@@ -7,12 +7,6 @@ $(document).ready(function(){
         name: 'submissionForm'
     });
 
-    const textarea = $('<textarea>', {
-        id: 'message',
-        placeholder: 'Enquiry',
-        name: 'message'
-    });
-
     const submit = $('<input>', {
         id: 'submit',
         type: 'submit',
@@ -26,11 +20,14 @@ $(document).ready(function(){
         class: 'validationMessage'
     });
 
-    function wrapTextInput(textInputLabel, textInput) {
-        const wrapper = $('<section>');
+    function wrapTextInput(textInputLabel, textInput, line) {
+        const wrapper = $('<section>', {
+            class: 'eachTextInput'
+        });
 
         wrapper.append(textInputLabel);
         wrapper.append(textInput);
+        wrapper.append(line);
 
         return wrapper;
     }
@@ -50,7 +47,11 @@ $(document).ready(function(){
             html: presentationInputValue
         });
 
-        return wrapTextInput(textInputLabel, textInput);
+        const line = $('<div>', {
+            class: 'line'
+        })
+
+        return wrapTextInput(textInputLabel, textInput, line);
     };
 
     function prepareTextInput(object) {
@@ -109,6 +110,31 @@ $(document).ready(function(){
         return checkboxDiv;
     };
 
+    function createTextarea() {
+        const textarea = $('<textarea>', {
+            id: 'message',
+            placeholder: 'Enquiry',
+            name: 'message'
+        });
+
+        const line = $('<div>', {
+            class: 'line'
+        });
+
+        return prepareTextarea(textarea, line);
+    }
+
+    function prepareTextarea(textarea, line) {
+        const textareaDiv = $('<div>', {
+            class: 'textarea-div'
+        });
+
+        textareaDiv.append(textarea);
+        textareaDiv.append(line);
+
+        return textareaDiv;
+    }
+
     // $('input.inputElement').mousedown(function(){
     //     //if (event.which === 1) {
     //         $('.textInput').css('color', 'red');
@@ -131,7 +157,7 @@ $(document).ready(function(){
         {scriptName: 'machine-learning-for-correlation-and-pattern-matching', presentationName: 'Machine learning for correlation and pattern matching'},
         {scriptName: 'others', presentationName: 'Others'}
     ));
-    form.append(textarea);
+    form.append(createTextarea());
     form.append(br);
     form.append(submit);
     $('div.form-section').append(form);

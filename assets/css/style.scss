@@ -485,17 +485,6 @@ div.form-section {
         color: $primaryColor;
     }
 
-    textarea {
-        width: 90%;
-        background-color: rgba(0,0,0,0);
-        border: none;
-        border-bottom: 2px solid $primaryColor;
-        color: white;
-        
-        &:focus {
-            outline: none;
-        }
-    }
 
     input[type='submit'] {
         background: rgba(0,0,0,0);
@@ -546,21 +535,26 @@ div.form-section {
         flex-wrap: wrap;
         justify-content: flex-start;
         align-items: flex-start;
+        max-width: 800px;
 
-        section {
+        section.eachTextInput {
             display: flex;
             flex-direction: column;
             justify-content: space-around;
             align-items: space-around;
             margin: 10px;
             min-height: 50px;
+            width: 45%;
+
+            @media (max-width: $phone) {
+                width: 100%;
+            }
         }
 
         input[type='text'] {
             width: 50%;
             min-width: 300px;
             border: none;
-            border-bottom: 2px solid $primaryColor;
             background-color: rgba(0,0,0,0);
             color: white;
 
@@ -574,12 +568,18 @@ div.form-section {
             }
         }
 
-        .textInput {
+        label.textInput {
             font-size: 14px;
             font-weight: 500;
             letter-spacing: 1.5px;
             transition: all 0.5s linear;
             margin-bottom: -20px;
+        }
+
+        div.line {
+            width: 100%;
+            height: 2px;
+            background: $primaryAccent;
         }
     }
 
@@ -601,59 +601,30 @@ div.form-section {
         label {
             margin-left: 10px;
         }
+    }
 
-        // [type='checkbox'] {
+    .textarea-div {
+        display: flex;
+        flex-direction: column;
+        max-width: 800px;
+        width: 95%;
+
+        textarea {
+            background-color: rgba(0,0,0,0);
+            border: none;
+            color: white;
+            height: 10em;
             
-            
-        // }
+            &:focus {
+                outline: none;
+            }
+        }
 
-        // [type='checkbox']:not(:checked) + label, 
-        // [type='checkbox']:checked + label {
-        //     position: relative;
-        //     padding-left: 30px;
-        //     cursor: pointer;
-        // }
-
-        // [type='checkbox']:not(:checked) + label:before, 
-        // [type='checkbox']:checked + label:before {
-        //     content: '';
-        //     position: absolute;
-        //     left: 0;
-        //     top: 0;
-        //     width: 1.25em;
-        //     height: 1.25em;
-        //     border: 2px solid $primaryColor;
-        //     background: rgba(0,0,0,0);
-        //     border-radius: 4px;
-        // }
-
-        // [type='checkbox']:not(:checked) + label:after, 
-        // [type='checkbox']:checked + label:after {
-        //     content: '\2713\0020';
-        //     position: absolute;
-        //     left: 0.22em;
-        //     top: 0.15em;
-        //     font-size: 1.3em;
-        //     line-height: 0.8;
-        //     color: $primaryColor;
-        //     transition: all 0.2s;
-        // }
-
-        // [type='checkbox']:not(:checked) + label:after {
-        //     opacity: 0;
-        //     transform: scale(0);
-        // }
-        // [type='checkbox']:checked + label:after {
-        //     opacity: 1;
-        //     transform: scale(1);
-        // }
-        // [type='checkbox']:not(:checked):focus + label:before,
-        // [type='checkbox']:checked:focus + label:before {
-        //     border: 2px solid $primaryAccent;
-        // }
-        // label:hover:before {
-        //     border: 2px solid $primaryAccent;
-        // }
+        div.line {
+            width: 100%;
+            height: 2px;
+            background: $primaryAccent;
+        }
     }
 }
 
@@ -1736,7 +1707,7 @@ section.contact {
     }
 
     div.container {
-        max-width: 90em;
+        max-width: 60em;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1754,12 +1725,6 @@ section.contact {
 
             label {
                 color: $primaryAccent;
-            }
-
-            textarea {
-                color: $darkBackground;
-                border-bottom: 2px solid $primaryAccent;
-                height: 10em;
             }
         
             input[type='submit'] {
@@ -1807,7 +1772,6 @@ section.contact {
 
 
                 input[type='text'] {
-                    border-bottom: 2px solid $primaryAccent;
                     background-color: transparent   ;
                     color: $darkBackground;
                 }

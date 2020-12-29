@@ -553,18 +553,6 @@ div.form-section label {
   color: #09909f;
 }
 
-div.form-section textarea {
-  width: 90%;
-  background-color: rgba(0, 0, 0, 0);
-  border: none;
-  border-bottom: 2px solid #09909f;
-  color: white;
-}
-
-div.form-section textarea:focus {
-  outline: none;
-}
-
 div.form-section input[type='submit'] {
   background: rgba(0, 0, 0, 0);
   color: #09909f;
@@ -625,9 +613,10 @@ div.form-section .text-input-div {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  max-width: 800px;
 }
 
-div.form-section .text-input-div section {
+div.form-section .text-input-div section.eachTextInput {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -642,13 +631,19 @@ div.form-section .text-input-div section {
           align-items: space-around;
   margin: 10px;
   min-height: 50px;
+  width: 45%;
+}
+
+@media (max-width: 600px) {
+  div.form-section .text-input-div section.eachTextInput {
+    width: 100%;
+  }
 }
 
 div.form-section .text-input-div input[type='text'] {
   width: 50%;
   min-width: 300px;
   border: none;
-  border-bottom: 2px solid #09909f;
   background-color: rgba(0, 0, 0, 0);
   color: white;
 }
@@ -664,13 +659,19 @@ div.form-section .text-input-div input[type='text']:focus {
   }
 }
 
-div.form-section .text-input-div .textInput {
+div.form-section .text-input-div label.textInput {
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 1.5px;
   -webkit-transition: all 0.5s linear;
   transition: all 0.5s linear;
   margin-bottom: -20px;
+}
+
+div.form-section .text-input-div div.line {
+  width: 100%;
+  height: 2px;
+  background: #107685;
 }
 
 div.form-section .checkbox-div {
@@ -700,6 +701,35 @@ div.form-section .checkbox-div .checkBoxEach {
 
 div.form-section .checkbox-div label {
   margin-left: 10px;
+}
+
+div.form-section .textarea-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 800px;
+  width: 95%;
+}
+
+div.form-section .textarea-div textarea {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: white;
+  height: 10em;
+}
+
+div.form-section .textarea-div textarea:focus {
+  outline: none;
+}
+
+div.form-section .textarea-div div.line {
+  width: 100%;
+  height: 2px;
+  background: #107685;
 }
 
 /*Animation*/
@@ -1905,7 +1935,7 @@ section.contact p {
 }
 
 section.contact div.container {
-  max-width: 90em;
+  max-width: 60em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1940,12 +1970,6 @@ section.contact div.container div.form-section form.form {
 
 section.contact div.container div.form-section label {
   color: #107685;
-}
-
-section.contact div.container div.form-section textarea {
-  color: #18191a;
-  border-bottom: 2px solid #107685;
-  height: 10em;
 }
 
 section.contact div.container div.form-section input[type='submit'] {
@@ -2001,7 +2025,6 @@ section.contact div.container div.form-section .text-input-div {
 }
 
 section.contact div.container div.form-section .text-input-div input[type='text'] {
-  border-bottom: 2px solid #107685;
   background-color: transparent;
   color: #18191a;
 }
