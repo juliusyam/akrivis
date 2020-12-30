@@ -4,11 +4,11 @@ title: Home
 video-file-name: background-video.mp4
 
 # Header Container Short Description
-about-brief: Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum modi ab unde explicabo consequuntur eius, officiis iste amet at.
+about-brief: The Akrivis team supports educators and administrators by organizing, analyzing, and communicating data through interactive visualizations and in-depth analysis. Akrivis helps clients understand their data and turns insight into action.
 
-service-brief: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem magnam commodi blanditiis id omnis officia, ipsum perspiciatis harum, non ratione.
+service-brief: Akrivis offers a variety of data services to meet your company’s needs.
 
-project-brief: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita molestiae iure, enim minima nesciunt est in rem, maxime autem quo impedit.
+project-brief: Akrivis collaborates with thought leaders and stakeholders to extract the most out of your data. 
 
 # About Section
 
@@ -32,21 +32,13 @@ service6-title: Machine learning for correlation and pattern matching
 service6-des: We will run machine learning algorithms to help you predict what your data is telling you. 
 
 # Project Section
-project1-title: Insert Title Here This is a Splendid Project
-project1-type: Data Cleaning & Transformation
-project1-date: Dec 2020
+project1-title: COVID-19 Return to the Office Analysis
+project1-type: Exploratory data mining and gathering
+project1-date: Sep 2020
 
-project2-title: Insert Title Here Also Decent Project Innit
-project2-type: Data Management & Warehousing
-project2-date: Sep 2021
-
-project3-title: Analysis of School Performance
-project3-type: Data Visualization & Analysis
-project3-date: Mar 2020
-
-project4-title: Yolo Am I Right Lorem Ipsum This Already
-project4-type: Machine Learning for Correlation & Pattern Matching
-project4-date: Nov 2019
+project2-title: Employee Exit Survey Analysis
+project2-type: Data Visualization & Analysis
+project2-date: Mar 2020
 ---
 
 <!-- This signifies what layouts are included. DONT TOUCH THIS, I will prepare this. -->

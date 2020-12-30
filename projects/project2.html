@@ -4,6 +4,7 @@ sub-title: Statistical modeling and testing
 video: https://www.youtube.com/embed/C_-zzCAaFRM
 script-name: Script written in R | Demographics Cleanup.R
 script2-name: Script written in R | Demographics Join.R
+script3-name: Script written in SQL | SQL Permissions to view Tableau Analysis.sql
 ---
 <section class="title-and-description">
     <h1>{{ page.title }}</h1>
@@ -31,95 +32,95 @@ script2-name: Script written in R | Demographics Join.R
 <section class="codes">
 {% highlight r linenos %}
 
-    # Author: Artemas Wang
+# Author: Artemas Wang
 
-    # Loading required packages
-    library(data.table)
-    library(tidyverse)
-    library(tidyr)
+# Loading required packages
+library(data.table)
+library(tidyverse)
+library(tidyr)
 
-    # Reading in data
-    original_data <- fread(paste0("Sample Data.csv"), header = T, stringsAsFactors = F, data.table = T)
-    original_roster_data <- fread(paste0("Employee Roster-Table.1csv"), header = T, stringsAsFactors = F, data.table = T)
+# Reading in data
+original_data <- fread(paste0("Sample Data.csv"), header = T, stringsAsFactors = F, data.table = T)
+original_roster_data <- fread(paste0("Employee Roster-Table.1csv"), header = T, stringsAsFactors = F, data.table = T)
 
-    roster <- original_roster_data
-    data_sample <- original_data
+roster <- original_roster_data
+data_sample <- original_data
 
-    # Learning about data
-    nrow(data_sample)
-    nrow(roster) 
-    nrow(colnames)
+# Learning about data
+nrow(data_sample)
+nrow(roster) 
+nrow(colnames)
 
-    ### Cleaning Org Health data
+### Cleaning Org Health data
 
-    # Getting rid of the useless extra "Associate ID" column/variable
-    data_sample <- data_sample[3:nrow(data_sample),1:53]
+# Getting rid of the useless extra "Associate ID" column/variable
+data_sample <- data_sample[3:nrow(data_sample),1:53]
 
-    # Selecting relevant variables and getting rid of duplicate Associate Id entries
-    data_sample <- data_sample %>% select("Race/Ethnicity", "FG", "Associate ID") %>% 
-                        distinct(`Associate ID`,.keep_all = TRUE)
-    str(data_sample)
+# Selecting relevant variables and getting rid of duplicate Associate Id entries
+data_sample <- data_sample %>% select("Race/Ethnicity", "FG", "Associate ID") %>% 
+                    distinct(`Associate ID`,.keep_all = TRUE)
+str(data_sample)
 
-    # Renaming Associate ID for future merge
-    data_sample$Associate_ID <- data_sample$`Associate ID`
-    data_sample$`Associate ID` <- NULL
+# Renaming Associate ID for future merge
+data_sample$Associate_ID <- data_sample$`Associate ID`
+data_sample$`Associate ID` <- NULL
 
-    # Checking to see if there are any NA values within observations
-    which(is.na(data_sample$`Race/Ethnicity`))
-    which(is.na(data_sample$FG))
-    which(is.na(data_sample$`Associate ID`))
+# Checking to see if there are any NA values within observations
+which(is.na(data_sample$`Race/Ethnicity`))
+which(is.na(data_sample$FG))
+which(is.na(data_sample$`Associate ID`))
 
-    ## Checking to see unique values within each variable & fixing them
+## Checking to see unique values within each variable & fixing them
 
-    # Race and Ethnicity into Separate Columns
-    data_sample$Race_Description <- ifelse(data_sample$`Race/Ethnicity` == "" |
-                                        data_sample$`Race/Ethnicity` == "I prefer not to respond" , "Not Specified", 
-                                        data_sample$`Race/Ethnicity`)
-    data_sample$`Race/Ethnicity` <- NULL 
+# Race and Ethnicity into Separate Columns
+data_sample$Race_Description <- ifelse(data_sample$`Race/Ethnicity` == "" |
+                                    data_sample$`Race/Ethnicity` == "I prefer not to respond" , "Not Specified", 
+                                    data_sample$`Race/Ethnicity`)
+data_sample$`Race/Ethnicity` <- NULL 
 
-    data_sample$Ethnicity <- ifelse(data_sample$Race_Description == "Not Specified" |
-                                data_sample$Race_Description == "", "Not Specified",
-                            ifelse(data_sample$Race_Description == "Asian" |
-                                data_sample$Race_Description == "White" |
-                                data_sample$Race_Description == "American Indian or Alaska Native" |
-                                data_sample$Race_Description == "Native Hawaiian or Other Pacific Islander" |
-                                data_sample$Race_Description == "Two or More Races" |
-                                data_sample$Race_Description == "Black or African-American" |
-                                data_sample$Race_Description == "Other", "",
-                            ifelse(data_sample$Race_Description == "Hispanic or Latino", "Hispanic or Latino", "Not Hispanic or Latino")))
-                            
-    # First Grad
-    data_sample$First_Generation_College_Graduate <- ifelse(data_sample$FG == "" |
-                            data_sample$FG == "I prefer not to respond", "Not Specified", data_sample$FG)
-    data_sample$FG <- NULL
+data_sample$Ethnicity <- ifelse(data_sample$Race_Description == "Not Specified" |
+                            data_sample$Race_Description == "", "Not Specified",
+                        ifelse(data_sample$Race_Description == "Asian" |
+                            data_sample$Race_Description == "White" |
+                            data_sample$Race_Description == "American Indian or Alaska Native" |
+                            data_sample$Race_Description == "Native Hawaiian or Other Pacific Islander" |
+                            data_sample$Race_Description == "Two or More Races" |
+                            data_sample$Race_Description == "Black or African-American" |
+                            data_sample$Race_Description == "Other", "",
+                        ifelse(data_sample$Race_Description == "Hispanic or Latino", "Hispanic or Latino", "Not Hispanic or Latino")))
+                        
+# First Grad
+data_sample$First_Generation_College_Graduate <- ifelse(data_sample$FG == "" |
+                        data_sample$FG == "I prefer not to respond", "Not Specified", data_sample$FG)
+data_sample$FG <- NULL
 
-    ## Cleaning Roster data
-    # Selecting relevant variables and getting rid of duplicate Associate Id entries
-    roster <- roster %>% select("NAME","ASSOCIATE ID", "POSITION ID") %>% 
-                distinct(`ASSOCIATE ID`,.keep_all = TRUE) # 2350 rows now
+## Cleaning Roster data
+# Selecting relevant variables and getting rid of duplicate Associate Id entries
+roster <- roster %>% select("NAME","ASSOCIATE ID", "POSITION ID") %>% 
+            distinct(`ASSOCIATE ID`,.keep_all = TRUE) # 2350 rows now
 
-    # Renaming Associate ID for future merge
-    roster$Associate_ID <- roster$`ASSOCIATE ID`
-    roster$`ASSOCIATE ID` <- NULL
+# Renaming Associate ID for future merge
+roster$Associate_ID <- roster$`ASSOCIATE ID`
+roster$`ASSOCIATE ID` <- NULL
 
-    # Checking to see if there are any NA values within observations=
-    which(is.na(roster$NAME))
-    which(is.na(roster$`ASSOCIATE ID`))
-    which(is.na(roster$`JOB TITLE`))
+# Checking to see if there are any NA values within observations=
+which(is.na(roster$NAME))
+which(is.na(roster$`ASSOCIATE ID`))
+which(is.na(roster$`JOB TITLE`))
 
-    # Splitting Name into First and Last
-    roster <- separate(data = roster, col = NAME, into = c("Last Name", "First Name"), sep = "\\,")
-    trimws(roster$`Last Name`)
-    trimws(roster$`First Name`)
+# Splitting Name into First and Last
+roster <- separate(data = roster, col = NAME, into = c("Last Name", "First Name"), sep = "\\,")
+trimws(roster$`Last Name`)
+trimws(roster$`First Name`)
 
-    # Merging two datasets on Associate ID
-    employees_final <- merge(x = data_sample, y = roster, by = "Associate_ID", all.x = TRUE)
-    employees_final <- employees_final %>% select("Associate_ID", "POSITION ID", "First Name", "Last Name",
-                                                "Race_Description", "Ethnicity", "First_Generation_College_Graduate")
+# Merging two datasets on Associate ID
+employees_final <- merge(x = data_sample, y = roster, by = "Associate_ID", all.x = TRUE)
+employees_final <- employees_final %>% select("Associate_ID", "POSITION ID", "First Name", "Last Name",
+                                            "Race_Description", "Ethnicity", "First_Generation_College_Graduate")
 
 
-    # Writing to CSV
-    write.csv(employees_final, file="Employees to ADP.csv", row.names = FALSE)
+# Writing to CSV
+write.csv(employees_final, file="Employees to ADP.csv", row.names = FALSE)
 {% endhighlight %}
 </section>
 
@@ -130,55 +131,119 @@ script2-name: Script written in R | Demographics Join.R
 <section class="codes">
 {% highlight r linenos %}
 
-    # Author: Artemas Wang
+# Author: Artemas Wang
 
-    # Loading required packages
-    library(data.table)
-    library(tidyverse)
-    library(tidyr)
+# Loading required packages
+library(data.table)
+library(tidyverse)
+library(tidyr)
 
-    # Reading in data
-    custom_fields <- fread(paste0("sample_data1.csv"), header = T, stringsAsFactors = F, data.table = T)
-    cleaned_data <- fread(paste0("sample_data2.csv"), header = T, stringsAsFactors = F, data.table = T)
+# Reading in data
+custom_fields <- fread(paste0("sample_data1.csv"), header = T, stringsAsFactors = F, data.table = T)
+cleaned_data <- fread(paste0("sample_data2.csv"), header = T, stringsAsFactors = F, data.table = T)
 
-    custom <- custom_fields
-    custom$Associate_ID <- custom$`Associate ID`
+custom <- custom_fields
+custom$Associate_ID <- custom$`Associate ID`
 
-    custom <- custom %>% select("Associate_ID", "Position ID","First Name", "Last Name", "Race Description", "Ethnicity", 
-                                "First Generation College Graduate")
+custom <- custom %>% select("Associate_ID", "Position ID","First Name", "Last Name", "Race Description", "Ethnicity", 
+                            "First Generation College Graduate")
 
-    cleaned_data_final <- cleaned_data
+cleaned_data_final <- cleaned_data
 
-    employees <- merge(x = custom, y = cleaned_data_final, by = "Associate_ID", all.x = TRUE)
+employees <- merge(x = custom, y = cleaned_data_final, by = "Associate_ID", all.x = TRUE)
 
-    employees$Race.Description <- ifelse(employees$`Race Description` == employees$Race_Description, 
-                                        employees$Race_Description, employees$`Race Description`)
+employees$Race.Description <- ifelse(employees$`Race Description` == employees$Race_Description, 
+                                    employees$Race_Description, employees$`Race Description`)
 
-    employees$Ethnicity <- ifelse(employees$Ethnicity.x == employees$Ethnicity.y, 
-                                employees$Ethnicity.y, employees$Ethnicity.x)
+employees$Ethnicity <- ifelse(employees$Ethnicity.x == employees$Ethnicity.y, 
+                            employees$Ethnicity.y, employees$Ethnicity.x)
 
-    employees$First.Gen.College.Grad <- ifelse(employees$`First Generation College Graduate` == employees$First_Generation_College_Graduate, 
-                                            employees$First_Generation_College_Graduate, employees$`First Generation College Graduate`)
+employees$First.Gen.College.Grad <- ifelse(employees$`First Generation College Graduate` == employees$First_Generation_College_Graduate, 
+                                        employees$First_Generation_College_Graduate, employees$`First Generation College Graduate`)
 
-    variable_selection <- c(1:4, 14:16)
-    employees <- employees %>% select(variable_selection)
+variable_selection <- c(1:4, 14:16)
+employees <- employees %>% select(variable_selection)
 
 
-    # Recreating fields
-    employees$Race.Description <- ifelse(employees$Race.Description == "" |
-                                            is.na(employees$Race.Description), "Not Specified", 
-                                            employees$Race.Description)
+# Recreating fields
+employees$Race.Description <- ifelse(employees$Race.Description == "" |
+                                        is.na(employees$Race.Description), "Not Specified", 
+                                        employees$Race.Description)
 
-    employees$Ethnicity <- ifelse(employees$Race.Description == "" |
-                                        is.na(employees$Ethnicity) , "Not Specified", 
-                                        employees$Ethnicity)
+employees$Ethnicity <- ifelse(employees$Race.Description == "" |
+                                    is.na(employees$Ethnicity) , "Not Specified", 
+                                    employees$Ethnicity)
 
-    employees$First.Gen.College.Grad <- ifelse(employees$First.Gen.College.Grad == "" |
-                                        is.na(employees$First.Gen.College.Grad), "Not Specified", 
-                                        employees$First.Gen.College.Grad)
+employees$First.Gen.College.Grad <- ifelse(employees$First.Gen.College.Grad == "" |
+                                    is.na(employees$First.Gen.College.Grad), "Not Specified", 
+                                    employees$First.Gen.College.Grad)
 
-    # Writing to CSV
-    write.csv(employees, file="Employees Final.csv", row.names = FALSE)
+# Writing to CSV
+write.csv(employees, file="Employees Final.csv", row.names = FALSE)
+
+{% endhighlight %}
+</section>
+
+<section class="script-description">
+    <p>{{ page.script3-name }}</p>
+</section>
+
+<section class="codes">
+{% highlight sql linenos %}
+
+SELECT DISTINCT A.EmployeeKey,
+		A.JobTitle,
+		B.WinNT_ID AS ADUserName,
+		C.Division,
+		B.Department
+    FROM [HRISStaged].[dbo].[EmployeeJobTitle] A
+    LEFT JOIN [MasterData].[dbo].[ADAccounts] B ON A.EmployeeKey = B.EmployeeID --Using LEFT JOIN because we know we have missing data fields
+    CROSS JOIN [HRISStaged].[dbo].[EmployeeCorpGroup_Pivoted] C
+    LEFT JOIN [HRISStaged].[dbo].[EmployeeStatus] D ON A.EmployeeKey = D.EmployeeKey
+    WHERE D.StatusName = 'Active' AND
+          (A.JobTitle = 'Associate Director' OR
+	  A.JobTitle = 'Executive' OR
+          A.JobTitle = 'Regional Boss' OR
+          A.JobTitle = 'Regional Director' OR
+	  A.EmployeeKey = '105893' OR
+	  A.EmployeeKey = 'EBMFH2N9Q'  OR
+	  A.EmployeeKey = '105895'  OR
+	  A.EmployeeKey = '102628'  OR
+	  A.EmployeeKey = 'PRUW3DISZ')
+UNION
+SELECT A.EmployeeKey,
+       A.JobTitle,
+       B.WinNT_ID AS ADUserName,
+       C.Division,
+       B.Department
+    FROM [HRISStaged].[dbo].[EmployeeJobTitle] A
+    LEFT JOIN [MasterData].[dbo].[ADAccounts] B ON A.EmployeeKey = B.EmployeeID --Using LEFT JOIN because we know we have missing data fields
+    LEFT JOIN [HRISStaged].[dbo].[EmployeeCorpGroup_Pivoted] C ON A.EmployeeKey = C.EmployeeKey
+    LEFT JOIN [HRISStaged].[dbo].[EmployeeStatus] D ON A.EmployeeKey = D.EmployeeKey
+    WHERE D.StatusName = 'Active' AND
+          (A.JobTitle LIKE '%Director%' OR
+          A.JobTitle LIKE '%Associate%' OR
+          A.JobTitle = 'Director of Operations')
+UNION
+SELECT DISTINCT A.EmployeeKey,
+		A.JobTitle,
+		B.WinNT_ID as ADUserName,
+		--- Use Employee ID to add an exceptions school ---
+		--- User below as template - paste in new line below green line below ---
+		--- WHEN b.EmployeeID = '101747' THEN 'Company D' ---
+		CASE
+                    WHEN B.EmployeeID = 'VV5KV1Q1E' THEN 'Company A'
+                    --- Paste new exceptions here ---
+                    WHEN B.EmployeeID = '101705' THEN 'Company B'
+                    ELSE C.Division
+                END AS Division,
+		C.Division as Department
+	FROM [HRISStaged].[dbo].[EmployeeJobTitle] A
+	LEFT JOIN [MasterData].[dbo].[ADAccounts] as B ON A.EmployeeKey = B.EmployeeID
+	LEFT JOIN [HRISStaged].[dbo].[EmployeeCorpGroup_Pivoted] as C ON A.EmployeeKey = C.EmployeeKey
+	LEFT JOIN [HRISStaged].[dbo].[EmployeeStatus] D ON A.EmployeeKey = D.EmployeeKey
+	WHERE A.EmployeeKey IS NOT NULL AND
+              D.StatusName = 'Active'
 
 {% endhighlight %}
 </section>
