@@ -113,7 +113,7 @@ $(document).ready(function(){
     function createTextarea() {
         const textarea = $('<textarea>', {
             id: 'message',
-            placeholder: 'Enquiry',
+            placeholder: 'Inquire',
             name: 'message'
         });
 
