@@ -1199,12 +1199,27 @@ section.header div.header-container .grid div.each-grid {
   margin: 20px;
 }
 
+section.header div.header-container .grid div.each-grid:nth-child(1):hover {
+  -webkit-box-shadow: 5px 6px 23px 9px #36330c;
+          box-shadow: 5px 6px 23px 9px #36330c;
+}
+
 section.header div.header-container .grid div.each-grid:nth-child(1) button:hover {
   background-color: #FFF44F;
 }
 
+section.header div.header-container .grid div.each-grid:nth-child(2):hover {
+  -webkit-box-shadow: 5px 6px 23px 9px #0c3436;
+          box-shadow: 5px 6px 23px 9px #0c3436;
+}
+
 section.header div.header-container .grid div.each-grid:nth-child(2) button:hover {
   background-color: #5CE1E6;
+}
+
+section.header div.header-container .grid div.each-grid:nth-child(3):hover {
+  -webkit-box-shadow: 5px 6px 23px 9px #522525;
+          box-shadow: 5px 6px 23px 9px #522525;
 }
 
 section.header div.header-container .grid div.each-grid:nth-child(3) button:hover {
@@ -1213,8 +1228,6 @@ section.header div.header-container .grid div.each-grid:nth-child(3) button:hove
 
 section.header div.header-container .grid div.each-grid:hover {
   background: #18191a;
-  -webkit-box-shadow: 5px 6px 23px 9px #0c1d2e;
-          box-shadow: 5px 6px 23px 9px #0c1d2e;
 }
 
 section.header div.header-container .grid div.each-grid:hover h2 {
