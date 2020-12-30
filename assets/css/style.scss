@@ -2036,7 +2036,7 @@ section.project-section {
                 }
             }            
 
-            .buttons {
+            div.buttons {
                 width: 100%;
                 display: flex;
                 flex-direction: column;
@@ -2061,6 +2061,11 @@ section.project-section {
                         img {
                             width: 40px;
                         }
+
+                        p {
+                            text-align: right;
+                            padding-left: 30px;
+                        }
                     }
                 }
             }
@@ -2077,7 +2082,7 @@ section.project-section {
                     width: 96%;
                 }
 
-                .buttons {
+                div.buttons {
                     flex-direction: row;
                     flex-wrap: wrap;
                     margin: 0 auto;
@@ -2086,7 +2091,7 @@ section.project-section {
 
                     button {
                         background-image: linear-gradient(45deg, #2e2e2e 15%, #383838 65%);
-                        width: 48%;
+                        width: 45%;
                         min-height: 70px;
                     }
                 }
@@ -2098,7 +2103,7 @@ section.project-section {
                 padding: 10px 5px;
                 top: 60px;
 
-                .buttons {
+                div.buttons {
                     flex-direction: row;
                     flex-wrap: wrap;
                     margin: 0 auto;
@@ -2145,9 +2150,24 @@ section.project-section {
                     font-size: 40px;
                 }
 
-                p {
+                h5 {
                     color: #9e9e9e;
-                    text-align: justify;
+                }
+
+                p {
+                    color: #d9d9d9;
+                    // text-align: justify;
+                    font-weight: 400;
+
+                    strong {
+                        font-weight: 600;
+                    }
+                }
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    max-width: 700px;
                 }
             }
 
@@ -2201,15 +2221,31 @@ section.project-section {
                 }
             }
 
+            section.script-description {
+                color: $primaryWhite;
+                font-weight: 600;
+                width: 100%;
+                max-width: 90vw;
+                margin-top: 20px;
+                padding: 10px;
+                padding-bottom: 0;
+
+                p {
+                    text-align: left;
+                    letter-spacing: 1.2px;
+                }
+            }
+
             section.codes {
                 background: #1e1e1e;
                 width: 100%;
                 max-width: 90vw;
                 overflow-x: scroll;
                 padding: 10px;
+                padding-top: 0;
 
                 @media (max-width: $largeTablet) {
-                    margin: 50px;
+                    margin: 0 50px 50px 50px;
                 }
             }
         }        
@@ -2439,5 +2475,23 @@ table.rouge-table {
     }
     .kc {
         color: #1e88da;
+    }
+}
+
+.language-sql {
+    .lineno {
+        color: #9cdcfe;
+    }
+    .k {
+        color: #1e88da;
+    }
+    .nn, .nc, .o, .na, .p, .nb, .n {
+        color: #a9b7c6;
+    }
+    .c1 {
+        color: #6a9955;
+    }
+    .s1, .s2 {
+        color: #ce8349;
     }
 }

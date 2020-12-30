@@ -1,7 +1,9 @@
 ---
-title: Project 2
+title: Staff Retention Analysis
 sub-title: Statistical modeling and testing
 video: https://www.youtube.com/embed/C_-zzCAaFRM
+script-name: Script written in R | Demographics Cleanup.R
+script2-name: Script written in R | Demographics Join.R
 ---
 <section class="title-and-description">
     <h1>{{ page.title }}</h1>
@@ -11,7 +13,7 @@ video: https://www.youtube.com/embed/C_-zzCAaFRM
     </div>
 </section>
 
-<section class="embeded-video">
+<!-- <section class="embeded-video">
     <div class="all-videos">
         <div class="each">
             <iframe src="{{ page.video }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -20,427 +22,164 @@ video: https://www.youtube.com/embed/C_-zzCAaFRM
             <iframe src="{{ page.video }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
+</section> -->
+
+<section class="script-description">
+    <p>{{ page.script-name }}</p>
 </section>
 
 <section class="codes">
 {% highlight r linenos %}
 
-    ---
-    title: "Data Cleaning Covid Spring 2020"
-    author: "Artemas Wang"
-    date: "5/4/2020"
-    output: html_document
-    ---
+    # Author: Artemas Wang
 
-    # Uploading Required Packages
-    ```{r}
-    library(dplyr)
-    library(tidyr)
-    library(utils)
-    library(stringr)
-    library(knitr)
+    # Loading required packages
     library(data.table)
-    ```
-
-    # Reading in Raw Data File
-    ```{r}
-    Covid.NS.Org.Health.Raw <- read.csv("RAW DATA - COVID-19 Pulse Check Survey Data from Qualtrics.csv")
-    original <- read.csv("RAW DATA - COVID-19 Pulse Check Survey Data from Qualtrics.csv")
-    ```
-
-    # Initial View
-    ```{r}
-    # Looking at the data
-    str(Covid.NS.Org.Health.Raw)
-
-    # Check which variables to remove
-    Covid.NS.Org.Health.Raw[1:4,]
-    colnames(Covid.NS.Org.Health.Raw)
-
-    # Removing unncessary fields
-    Covid.NS.Org.Health.Raw <- Covid.NS.Org.Health.Raw %>%
-    select(., -StartDate, -EndDate, -Status, -IPAddress, -Finished, -RecordedDate, -LocationLatitude, -LocationLongitude, -Progress, -Duration..in.seconds.)
-
-    # Checking to make sure things are  appropriate
-    head(Covid.NS.Org.Health.Raw)
-    ```
-
-    # Creating Questions List to Add Later and Removing from Dataset
-    ```{r}
-    # Taking th first row (which contains the question text)
-    Covid.NS.Org.Health.Questions <- as.data.frame(t(Covid.NS.Org.Health.Raw[1,]))
-
-    # Adding the codes currently in the dataset
-    Covid.NS.Org.Health.Questions$Code <- row.names(Covid.NS.Org.Health.Questions)
-
-    # Setting the values as the question text (to clean up the question text and remove the difficult references)
-    Covid.NS.Org.Health.Questions$Value <- str_replace_all(Covid.NS.Org.Health.Questions$`1`, "\\n", " ")
-
-    # Removing the old reference
-    Covid.NS.Org.Health.Questions$`1` <- NULL
-
-    # Separating out compass circle questions. I will be able to determine whether the principal org health questions are asked because of job title. 
-    Covid.NS.Org.Health.Questions$Type <- 
-    ifelse(Covid.NS.Org.Health.Questions$Code %in% c("Q2", "Q4", "Q6", "Q8", "Q10", "Q11"), "Open-Ended Question",
-        ifelse(Covid.NS.Org.Health.Questions$Code %in% c("Q1", "Q3", "Q5", "Q7", "Q9"), "Normal Question", 
-                ifelse(Covid.NS.Org.Health.Questions$Code %in% c("Q12","Q13","Q14","Q15","Q16","Q13_248_TEXT"), "Demographic Question", "")))
-
-    # Creating reference file for reference does and question types
-    write.csv(Covid.NS.Org.Health.Questions, "DATA - COVID Question Codes and Type.csv", row.names = FALSE)
-
-    # Checking to make sure everything is correct
-    Covid.NS.Org.Health.Questions
-
-    # Codes and values for all the questions stored, can now delete this information from original dataset. 
-    Covid.NS.Org.Health.Raw <- Covid.NS.Org.Health.Raw[3:nrow(Covid.NS.Org.Health.Raw),]
-
-    # Check to make sure that it's looking as expected. The first two rows, with question text and Qualtrics IDs should now be removed
-    head(Covid.NS.Org.Health.Raw)
-    ```
-
-    # Pivoting Data from Wide to Long
-    ```{r}
-    # For data to work in Tableau, data needs to be in a long format. In other words, a row needs to represent a response to a question, not a survey.
-    Covid.NS.Org.Health.Raw.Long <- Covid.NS.Org.Health.Raw  %>%
-    gather(key = Question, value = Response, -ResponseId, -Evaluator.Email, -Associate.ID,                                        -Department, -Date.of.Hire, -Q12, -Q13, -Q14, -Q15, -Q16)
-
-    Covid.NS.Org.Health.Raw.Long <- Covid.NS.Org.Health.Raw.Long %>% rename(Race.Ethnicity = Q12,
-                                                                        Gender = Q13,
-                                                                        LGBTQ = Q14,
-                                                                        First.Generation.College = Q15)
-
-    # Deleting rows with empty responses
-    Covid.NS.Org.Health.Raw.Long <- Covid.NS.Org.Health.Raw.Long %>% filter(Response != "")
-
-    # Checking to make sure the data looks as expected!
-    str(Covid.NS.Org.Health.Raw.Long)
-    ```
-
-    # Adding in Question Text and Type
-    ```{r}
-    # Adding in question type and text
-    Covid.NS.Org.Health.Raw.Long <- merge(x = Covid.NS.Org.Health.Raw.Long, y = Covid.NS.Org.Health.Questions, by.x = "Question", by.y = "Code", all.x = TRUE)
-
-    # Making sure it worked
-    str(Covid.NS.Org.Health.Raw.Long)
-    table(Covid.NS.Org.Health.Raw.Long$Value, useNA = "always")
-
-    # Making question text the question variable in the dataset
-    Covid.NS.Org.Health.Raw.Long$Question <- NULL
-    Covid.NS.Org.Health.Raw.Long <- Covid.NS.Org.Health.Raw.Long %>% rename(Question = Value)
-
-    # Producing quality checking documents for reference
-    Covid.NS.Org.Health.Raw.Long %>% 
-    select(Department, Question, Response) %>%
-    group_by(Department, Question) %>%
-    summarize(Count.Response = n())
-    write.csv("QC - Count of Responses by Team and Question.csv", row.names=FALSE)
-
-    # Producing reference files for later reference
-    write.csv(Covid.NS.Org.Health.Raw.Long, "REFERENCE - Data before Cleaning.csv", row.names=FALSE)
-    ```
-
-    # Removing Duplicates Surveys @adw to do once survey is closed
-    ```{r}
-    # # Identifying duplicates and additional survey that wasn't supposed to be completed
-
-    # Covid.NS.Org.Health.Raw.Long <- Covid.NS.Org.Health.Raw.Long %>%
-    #   distinct(Associate.ID, Question, .keep_all = TRUE) %>%
-    #   filter(Associate.ID != "XXXXXXXXXXX")
-    ```
-
-    # Quality Controls - Raw, Pivoted Data
-
-    # Quality Control - By Department
-    ```{r Department}
-    # Checking array and quantity of Teams
-    # Compare the Approx.Count.Employees to the number of employees in each team who took the survey. They need to match.
-    # Count.Teams is total team responses, 16 is questions
-
-    Covid.NS.Org.Health.Raw.Long %>% 
-    select(Department) %>%
-    group_by(Department) %>%
-    summarize(Count.Teams = n(), Approx.Count.Employees = round(n()/16,0)) 
-
-    # # Adding in subteams
-    # Subteams <- read.csv("DATA - Subteam Breakdown.csv")
-    # str(Subteams)
-    #
-    # # Cleaning it up
-    # Subteams <- Subteams %>%
-    #   select(Associate.ID, Subteam = Subteam) %>%
-    #   mutate_all(as.character)
-
-    # # Merging into dataset
-    # Covid.NS.Org.Health.Raw.Long <- merge(x = Covid.NS.Org.Health.Raw.Long, y = Subteams, by = "Associate.ID", all.x = TRUE)
-    #
-    # # Making sure we are all set
-    # table(Covid.NS.Org.Health.Raw.Long$Subteam, useNA="ifany")
-    ```
-
-    # Quality Control - By ResponseID
-    ```{r Response ID}
-    # Checking if any Rater/Response IDs repeated more than number of questions
-    Covid.NS.Org.Health.Raw.Long %>% 
-    select(ResponseId) %>%
-    group_by(ResponseId) %>%
-    summarize(Count = n()) %>%
-    subset(Count > 16) # 16 total questions, 11 from COVID-19, 5 Demographic questions
-
-    # No result is good. Rows that appear need to be checked
-    ```
-
-    # Quality Control - Multiple Associate.IDs and Evaluator Emails per employee
-    ```{r Mutliple_Associate IDs}
-    # Checking for repetitive names
-    Covid.NS.Org.Health.Raw.Long %>%
-    select(Associate.ID, Evaluator.Email) %>%
-    group_by(Associate.ID, Evaluator.Email) %>%
-    summarize() %>%
-    group_by(Evaluator.Email) %>%
-    summarize(count.name = n()) %>%
-    subset(count.name > 1)
-
-    # If someting shows up, that means that there are multiple EIDs for the same email
-    ```
-
-    # Quality Control - Multiple names per Associate.ID
-    ```{r Multiple_Names per Associate ID}
-    # Checking for repetitive EIDs
-    Covid.NS.Org.Health.Raw.Long %>%
-    select(Associate.ID, Evaluator.Email) %>%
-    group_by(Associate.ID, Evaluator.Email) %>%
-    summarize() %>%
-    group_by(Associate.ID) %>%
-    summarize(count.eid = n()) %>%
-    subset(count.eid > 1)
-
-    # If something shows up, that means that there are multiple emails for the same EID
-    ```
-
-    # Quantifying Responses, making them numeric
-    ```{r Responses_QC}
-    # Changing Responses to Numeric values
-    Covid.NS.Org.Health.Raw.Long$Response <- 
-    ifelse(Covid.NS.Org.Health.Raw.Long$Response == "Strongly agree", 5,
-        ifelse(Covid.NS.Org.Health.Raw.Long$Response == "Agree", 4,
-                ifelse(Covid.NS.Org.Health.Raw.Long$Response == "Neutral", 3,
-                        ifelse(Covid.NS.Org.Health.Raw.Long$Response == "Disagree", 2,
-                                ifelse(Covid.NS.Org.Health.Raw.Long$Response == "Strongly disagree", 1, 
-                                    as.character(Covid.NS.Org.Health.Raw.Long$Response))))))
-
-    # Checking Quantity of Responses - Normal Question
-    Covid.NS.Org.Health.Raw.Long %>% 
-    filter(Type == "Normal Question") %>%
-    select(Response) %>%
-    group_by(Response) %>%
-    summarize(Count.Questions = n())
-
-    # Checking Quantity of Responses - Open-Ended Questions
-    Covid.NS.Org.Health.Raw.Long %>% 
-    filter(Type == "Open-Ended Question") %>%
-    select(Response) %>%
-    group_by(Response) %>%
-    summarize(Count.Questions = n())
-
-    # Checking quantity of responses by team
-    Covid.NS.Org.Health.Raw.Long %>%  
-    filter(Type == "Normal Question") %>%
-    select(Department, Response) %>%
-    group_by(Department, Response) %>%
-    summarize(Count = n()) %>%
-    spread(Response, Count)
-
-    # I'm using this to check: 
-    # 1) Whether there is the correct number of responses; and
-    # 2) how many 1s, 2s, etc. each team receives and see if it makes sense.
-    ```
-
-    # Quality Control - First Generation College Graduate
-    ```{r First_Gen_QC}
-    # Fixing FG responses
-    Covid.NS.Org.Health.Raw.Long$First.Generation <- as.character(Covid.NS.Org.Health.Raw.Long$First.Generation.College)
-    Covid.NS.Org.Health.Raw.Long$First.Generation <- as.factor(
-    ifelse(Covid.NS.Org.Health.Raw.Long$First.Generation == "I prefer not to respond", "Not Specified",
-        ifelse(Covid.NS.Org.Health.Raw.Long$First.Generation == "No", "Non-FG", "FG")))
-    Covid.NS.Org.Health.Raw.Long$First.Generation.College <- NULL
-
-    # Checking array and quantity of first gen by school
-    Covid.NS.Org.Health.Raw.Long %>% 
-    select(Department, First.Generation) %>%
-    group_by(Department, First.Generation) %>%
-    summarize(Count = round(n()/16,0)) %>%
-    spread(First.Generation, Count)
-
-    # Use this to check: 
-    # 1) To see if there is the correct array of responses; 
-    # 2) how many responses each category receives and see if it makes sense; and
-    # 3) if there are any decimals, names and First Gen responses do not match.
-    ```
-
-    # Quality Control - Race/Ethnicity
-    ```{r BLM_QC}
-    # Making race/ethnicity character-based for easier QC
-    Covid.NS.Org.Health.Raw.Long$Race.Ethnicity <- as.character(Covid.NS.Org.Health.Raw.Long$Race.Ethnicity)
-
-    # Adding in BLM and and assigning based on race/ethnicity response
-    Covid.NS.Org.Health.Raw.Long$BLM <- as.factor(
-    ifelse(Covid.NS.Org.Health.Raw.Long$Race.Ethnicity == "Black or African-American" | 
-            Covid.NS.Org.Health.Raw.Long$Race.Ethnicity == "Hispanic or Latino" | 
-            Covid.NS.Org.Health.Raw.Long$Race.Ethnicity == "Two or More Races", "BLM",
-        ifelse(Covid.NS.Org.Health.Raw.Long$Race.Ethnicity == "American Indian or Alaska Native" |
-                    Covid.NS.Org.Health.Raw.Long$Race.Ethnicity == "White" | 
-                    Covid.NS.Org.Health.Raw.Long$Race.Ethnicity == "Other" | 
-                    Covid.NS.Org.Health.Raw.Long$Race.Ethnicity == "Asian" | 
-                    Covid.NS.Org.Health.Raw.Long$Race.Ethnicity == "Native Hawaiian or Other Pacific Islander", "Non-BLM", "Not Specified")))
-
-    # Checking to confirm that designations are correct
-    table(Covid.NS.Org.Health.Raw.Long$Race.Ethnicity, Covid.NS.Org.Health.Raw.Long$BLM, useNA="ifany")
-
-    # Checking array and quantity of BLM by team
-    Covid.NS.Org.Health.Raw.Long %>% 
-    select(Department, BLM) %>%
-    group_by(Department, BLM) %>%
-    summarize(Count = round(n()/16,0)) %>%
-    spread(BLM, Count)
-
-    # Use this to check: 
-    # 1) To see if there is the correct array of responses; 
-    # 2) how many responses each category receives and see if it makes sense; and
-    # 3) if there are any decimals, names and BLM responses do not match.
-    ```
-
-    # Quality Control - Gender
-    ```{r Gender_QC}
-    # Looking at responses of self-reported gender identities
-    table(Covid.NS.Org.Health.Raw.Long$Gender_248_TEXT)
-
-    # Simplifying values
-    Covid.NS.Org.Health.Raw.Long$Gender_248_TEXT <- NULL
-    Covid.NS.Org.Health.Raw.Long$Gender <- as.character(Covid.NS.Org.Health.Raw.Long$Gender)
-    Covid.NS.Org.Health.Raw.Long$Gender1 <- as.factor(
-    ifelse(Covid.NS.Org.Health.Raw.Long$Gender == "I prefer not to respond" | 
-            Covid.NS.Org.Health.Raw.Long$Gender == "", "Not Specified",
-        ifelse(Covid.NS.Org.Health.Raw.Long$Gender == "Female", "Female",
-                ifelse(Covid.NS.Org.Health.Raw.Long$Gender == "Male", "Male",
-                        ifelse(Covid.NS.Org.Health.Raw.Long$Gender == "Non-binary", "Non-binary", "Other")))))
-
-    # Confirming that the values are distributed appropriately
-    table(Covid.NS.Org.Health.Raw.Long$Gender, Covid.NS.Org.Health.Raw.Long$Gender1, useNA = "ifany")
-
-    # Transferring values and seleting unnecessary column
-    Covid.NS.Org.Health.Raw.Long$Gender <- Covid.NS.Org.Health.Raw.Long$Gender1
-    Covid.NS.Org.Health.Raw.Long$Gender1 <- NULL
-
-    # Checking array and quantity of Gender by team
-    Covid.NS.Org.Health.Raw.Long %>% 
-    select(Department, Gender, Associate.ID) %>%
-    group_by(Department, Gender) %>%
-    unique() %>%
-    summarize(Count = n()) %>%
-    spread(Gender, Count)
-
-    ```
-
-    # Quality Control - Years of Experience
-    ```{r Years_of_Experience_QC}
-    # Cleaning up values
-    Covid.NS.Org.Health.Raw.Long$YoE <- as.character(Covid.NS.Org.Health.Raw.Long$Q16)
-    Covid.NS.Org.Health.Raw.Long$YoE1 <- as.character(Covid.NS.Org.Health.Raw.Long$YoE)
-
-    Covid.NS.Org.Health.Raw.Long$YoE1[Covid.NS.Org.Health.Raw.Long$YoE == ""] <- "Not Specified"
-    Covid.NS.Org.Health.Raw.Long$YoE1[Covid.NS.Org.Health.Raw.Long$YoE == "I prefer not to respond"] <- "Not Specified"
-
-    Covid.NS.Org.Health.Raw.Long$YoE1[Covid.NS.Org.Health.Raw.Long$YoE == "During or before the 2000-2001 year"] <- "20+"
-    Covid.NS.Org.Health.Raw.Long$YoE1[str_detect(Covid.NS.Org.Health.Raw.Long$YoE, "2005") == TRUE] <- "15-19"
-    Covid.NS.Org.Health.Raw.Long$YoE1[str_detect(Covid.NS.Org.Health.Raw.Long$YoE, "2006") == TRUE] <- "10-14"
-    Covid.NS.Org.Health.Raw.Long$YoE1[Covid.NS.Org.Health.Raw.Long$YoE == "2011-12 year"] <- "9"
-    Covid.NS.Org.Health.Raw.Long$YoE1[Covid.NS.Org.Health.Raw.Long$YoE == "2012-13 year"] <- "8"
-    Covid.NS.Org.Health.Raw.Long$YoE1[Covid.NS.Org.Health.Raw.Long$YoE == "2013-14 year"] <- "7"
-    Covid.NS.Org.Health.Raw.Long$YoE1[Covid.NS.Org.Health.Raw.Long$YoE == "2014-15 year"] <- "6"
-    Covid.NS.Org.Health.Raw.Long$YoE1[Covid.NS.Org.Health.Raw.Long$YoE == "2015-16 year"] <- "5"
-    Covid.NS.Org.Health.Raw.Long$YoE1[Covid.NS.Org.Health.Raw.Long$YoE == "2016-17 year"] <- "4"
-    Covid.NS.Org.Health.Raw.Long$YoE1[Covid.NS.Org.Health.Raw.Long$YoE == "2017-18 year"] <- "3"
-    Covid.NS.Org.Health.Raw.Long$YoE1[Covid.NS.Org.Health.Raw.Long$YoE == "2018-19 year"] <- "2"
-    Covid.NS.Org.Health.Raw.Long$YoE1[Covid.NS.Org.Health.Raw.Long$YoE == "2019-20 year"] <- "1"
-
-    # Converting to factor
-    Covid.NS.Org.Health.Raw.Long$YoE1 <- as.factor(Covid.NS.Org.Health.Raw.Long$YoE1)
-
-    # Confirming it's good to go
-    table(Covid.NS.Org.Health.Raw.Long$YoE, Covid.NS.Org.Health.Raw.Long$YoE1, useNA = "ifany")
-
-    # Assigning Years of Experience variable to what it should actually be in dataset, now that it's confirmed to be accurate
-    Covid.NS.Org.Health.Raw.Long$YoE <- Covid.NS.Org.Health.Raw.Long$YoE1
-    Covid.NS.Org.Health.Raw.Long$YoE1 <- NULL
-    Covid.NS.Org.Health.Raw.Long$Q16 <- NULL
-
-    # Checking array and quantity of grade by team
-    Covid.NS.Org.Health.Raw.Long %>% 
-    select(Department, YoE, Associate.ID) %>%
-    group_by(Department, YoE) %>%
-    unique() %>%
-    summarize(Count = n()) %>%
-    spread(YoE, Count)
-
-    ```
-
-    # Quality Control - LGBTQ+
-    ```{r LGBTQ+}
-    # Cleaning up LGBTQ+
-    Covid.NS.Org.Health.Raw.Long$LGBTQ <- as.character(Covid.NS.Org.Health.Raw.Long$LGBTQ)
-    Covid.NS.Org.Health.Raw.Long$LGBTQ.1 <- as.factor(
-    ifelse(Covid.NS.Org.Health.Raw.Long$LGBTQ == "I prefer not to respond" | 
-            Covid.NS.Org.Health.Raw.Long$LGBTQ == "", "Not Specified",
-        ifelse(Covid.NS.Org.Health.Raw.Long$LGBTQ == "No", "Non-LGBTQ+", "LGBTQ+")))
-
-    # Confirming it's correct
-    table(Covid.NS.Org.Health.Raw.Long$LGBTQ, Covid.NS.Org.Health.Raw.Long$LGBTQ.1, useNA = "ifany")
-
-    # Assigning new value
-    Covid.NS.Org.Health.Raw.Long$LGBTQ <- Covid.NS.Org.Health.Raw.Long$LGBTQ.1
-    Covid.NS.Org.Health.Raw.Long$LGBTQ.1 <- NULL
-
-    # Checking array and quantity of subject by team
-    Covid.NS.Org.Health.Raw.Long %>% 
-    select(Department, LGBTQ, Associate.ID) %>%
-    group_by(Department, LGBTQ) %>%
-    unique() %>%
-    summarize(Count = n()) %>%
-    spread(LGBTQ, Count)
-
-    ```
-
-    ```{r Writing_CSV}
-
-    # write.csv(Covid.NS.Org.Health.Raw.Long, file="CLEANED - Covid.NS.Org.Health.Raw.Long.csv", row.names = FALSE)
-
-    ```
-
-    ```{r Cleaning_for_JobTitle}
-
-    # Reading in CSV with JobTitles
-    title_bands <- read.csv("Title Support SQL Pull.csv")
-
-    # Selecting Variables to Merge on
-    title_bands <- title_bands %>%select(EmployeeId, JobTitle)
-
-    title_bands$Associate.ID <- title_bands$EmployeeId
-    title_bands$EmployeeId <- NULL
-
-    ```
-
-    ```{r Merging two Datasets}
-
-    Covid.NS.Org.Health.Raw.Long.Titles <- merge(x = Covid.NS.Org.Health.Raw.Long, y = title_bands, by.x = "Associate.ID", all.x = TRUE)
-
-    ```
-
-    ```{r Writing_CSV}
-
-    write.csv(Covid.NS.Org.Health.Raw.Long.Titles, file="CLEANED - Covid.NS.Org.Health.Raw.Long.Titles.csv", row.names = FALSE)
-
-    ```
+    library(tidyverse)
+    library(tidyr)
+
+    # Reading in data
+    original_data <- fread(paste0("Sample Data.csv"), header = T, stringsAsFactors = F, data.table = T)
+    original_roster_data <- fread(paste0("Employee Roster-Table.1csv"), header = T, stringsAsFactors = F, data.table = T)
+
+    roster <- original_roster_data
+    data_sample <- original_data
+
+    # Learning about data
+    nrow(data_sample)
+    nrow(roster) 
+    nrow(colnames)
+
+    ### Cleaning Org Health data
+
+    # Getting rid of the useless extra "Associate ID" column/variable
+    data_sample <- data_sample[3:nrow(data_sample),1:53]
+
+    # Selecting relevant variables and getting rid of duplicate Associate Id entries
+    data_sample <- data_sample %>% select("Race/Ethnicity", "FG", "Associate ID") %>% 
+                        distinct(`Associate ID`,.keep_all = TRUE)
+    str(data_sample)
+
+    # Renaming Associate ID for future merge
+    data_sample$Associate_ID <- data_sample$`Associate ID`
+    data_sample$`Associate ID` <- NULL
+
+    # Checking to see if there are any NA values within observations
+    which(is.na(data_sample$`Race/Ethnicity`))
+    which(is.na(data_sample$FG))
+    which(is.na(data_sample$`Associate ID`))
+
+    ## Checking to see unique values within each variable & fixing them
+
+    # Race and Ethnicity into Separate Columns
+    data_sample$Race_Description <- ifelse(data_sample$`Race/Ethnicity` == "" |
+                                        data_sample$`Race/Ethnicity` == "I prefer not to respond" , "Not Specified", 
+                                        data_sample$`Race/Ethnicity`)
+    data_sample$`Race/Ethnicity` <- NULL 
+
+    data_sample$Ethnicity <- ifelse(data_sample$Race_Description == "Not Specified" |
+                                data_sample$Race_Description == "", "Not Specified",
+                            ifelse(data_sample$Race_Description == "Asian" |
+                                data_sample$Race_Description == "White" |
+                                data_sample$Race_Description == "American Indian or Alaska Native" |
+                                data_sample$Race_Description == "Native Hawaiian or Other Pacific Islander" |
+                                data_sample$Race_Description == "Two or More Races" |
+                                data_sample$Race_Description == "Black or African-American" |
+                                data_sample$Race_Description == "Other", "",
+                            ifelse(data_sample$Race_Description == "Hispanic or Latino", "Hispanic or Latino", "Not Hispanic or Latino")))
+                            
+    # First Grad
+    data_sample$First_Generation_College_Graduate <- ifelse(data_sample$FG == "" |
+                            data_sample$FG == "I prefer not to respond", "Not Specified", data_sample$FG)
+    data_sample$FG <- NULL
+
+    ## Cleaning Roster data
+    # Selecting relevant variables and getting rid of duplicate Associate Id entries
+    roster <- roster %>% select("NAME","ASSOCIATE ID", "POSITION ID") %>% 
+                distinct(`ASSOCIATE ID`,.keep_all = TRUE) # 2350 rows now
+
+    # Renaming Associate ID for future merge
+    roster$Associate_ID <- roster$`ASSOCIATE ID`
+    roster$`ASSOCIATE ID` <- NULL
+
+    # Checking to see if there are any NA values within observations=
+    which(is.na(roster$NAME))
+    which(is.na(roster$`ASSOCIATE ID`))
+    which(is.na(roster$`JOB TITLE`))
+
+    # Splitting Name into First and Last
+    roster <- separate(data = roster, col = NAME, into = c("Last Name", "First Name"), sep = "\\,")
+    trimws(roster$`Last Name`)
+    trimws(roster$`First Name`)
+
+    # Merging two datasets on Associate ID
+    employees_final <- merge(x = data_sample, y = roster, by = "Associate_ID", all.x = TRUE)
+    employees_final <- employees_final %>% select("Associate_ID", "POSITION ID", "First Name", "Last Name",
+                                                "Race_Description", "Ethnicity", "First_Generation_College_Graduate")
+
+
+    # Writing to CSV
+    write.csv(employees_final, file="Employees to ADP.csv", row.names = FALSE)
+{% endhighlight %}
+</section>
+
+<section class="script-description">
+    <p>{{ page.script2-name }}</p>
+</section>
+
+<section class="codes">
+{% highlight r linenos %}
+
+    # Author: Artemas Wang
+
+    # Loading required packages
+    library(data.table)
+    library(tidyverse)
+    library(tidyr)
+
+    # Reading in data
+    custom_fields <- fread(paste0("sample_data1.csv"), header = T, stringsAsFactors = F, data.table = T)
+    cleaned_data <- fread(paste0("sample_data2.csv"), header = T, stringsAsFactors = F, data.table = T)
+
+    custom <- custom_fields
+    custom$Associate_ID <- custom$`Associate ID`
+
+    custom <- custom %>% select("Associate_ID", "Position ID","First Name", "Last Name", "Race Description", "Ethnicity", 
+                                "First Generation College Graduate")
+
+    cleaned_data_final <- cleaned_data
+
+    employees <- merge(x = custom, y = cleaned_data_final, by = "Associate_ID", all.x = TRUE)
+
+    employees$Race.Description <- ifelse(employees$`Race Description` == employees$Race_Description, 
+                                        employees$Race_Description, employees$`Race Description`)
+
+    employees$Ethnicity <- ifelse(employees$Ethnicity.x == employees$Ethnicity.y, 
+                                employees$Ethnicity.y, employees$Ethnicity.x)
+
+    employees$First.Gen.College.Grad <- ifelse(employees$`First Generation College Graduate` == employees$First_Generation_College_Graduate, 
+                                            employees$First_Generation_College_Graduate, employees$`First Generation College Graduate`)
+
+    variable_selection <- c(1:4, 14:16)
+    employees <- employees %>% select(variable_selection)
+
+
+    # Recreating fields
+    employees$Race.Description <- ifelse(employees$Race.Description == "" |
+                                            is.na(employees$Race.Description), "Not Specified", 
+                                            employees$Race.Description)
+
+    employees$Ethnicity <- ifelse(employees$Race.Description == "" |
+                                        is.na(employees$Ethnicity) , "Not Specified", 
+                                        employees$Ethnicity)
+
+    employees$First.Gen.College.Grad <- ifelse(employees$First.Gen.College.Grad == "" |
+                                        is.na(employees$First.Gen.College.Grad), "Not Specified", 
+                                        employees$First.Gen.College.Grad)
+
+    # Writing to CSV
+    write.csv(employees, file="Employees Final.csv", row.names = FALSE)
+
 {% endhighlight %}
 </section>
 

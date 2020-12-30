@@ -107,10 +107,9 @@ $(document).ready(function(){
 
 
         //This section is all you need to edit!
-        {buttonNo: '1', buttonDes: 'Project 1'},
-        {buttonNo: '2', buttonDes: 'Project 2'},
-        {buttonNo: '3', buttonDes: 'Project 3'},
-        {buttonNo: '4', buttonDes: 'Project 4'},
+        {buttonNo: '1', buttonDes: 'Employee Exit Survey Analysis'},
+        {buttonNo: '2', buttonDes: 'Staff Retention Analysis'},
+        {buttonNo: '3', buttonDes: 'COVID-19 Return to the Office Analysis'},
     ));
 
     $('section.project-section .sub-menu div').click(function(){

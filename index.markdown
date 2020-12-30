@@ -14,22 +14,22 @@ project-brief: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedit
 
 # Service Section
 service1-title: Exploratory data mining and gathering
-service1-des: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui quia, accusantium laborum est praesentium autem eveniet quam ex eum animi.
+service1-des: We will help you discover the characteristics of your data and extract it for you. 
 
 service2-title: Data cleaning and transformation 
-service2-des: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, ad perspiciatis assumenda sint debitis nulla veniam est facilis asperiores.
+service2-des: We will tidy and organize your data so it is structured and ready for analysis.
 
 service3-title: Data visualization and analysis
-service3-des: Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta maiores velit aliquam doloribus perspiciatis!
+service3-des: We will visualize your data in interactive and user-friendly dashboards for you to analyze.
 
 service4-title: Statistical modeling and testing
-service4-des: Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, quia. Modi, quos velit dolore esse, aperiam repellendus labore ullam debitis molestias.
+service4-des: We will perform tests on your data to check for correlations and statistical significance. 
 
 service5-title: Data management and warehousing 
-service5-des: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum quae autem accusamus, distinctio illum earum necessitatibus unde assumenda voluptatibus ex pariatur nihil.
+service5-des: We will use the most efficient methods to store and manage your data for you.
 
 service6-title: Machine learning for correlation and pattern matching
-service6-des: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis ipsum nostrum aperiam doloremque inventore atque quis rerum labore.
+service6-des: We will run machine learning algorithms to help you predict what your data is telling you. 
 
 # Project Section
 project1-title: Insert Title Here This is a Splendid Project

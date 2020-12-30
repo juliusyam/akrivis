@@ -2,6 +2,32 @@
 layout: none
 ---
 
-Donec viverra ultrices massa ut placerat. Praesent massa tortor, fermentum non neque eget, lobortis fringilla nisl. Nam iaculis nunc eu metus venenatis, sit amet dapibus mauris pellentesque. Nam in iaculis ipsum. Mauris quis diam nibh. Fusce egestas laoreet orci, vitae blandit orci mollis sit amet. Sed nec tellus at felis elementum fermentum. Curabitur elementum mauris eu ipsum accumsan, eget hendrerit enim auctor. Ut fermentum mi facilisis, accumsan libero a, ullamcorper dolor. Nam efficitur, mi ac lacinia efficitur, nisi erat sagittis magna, fermentum semper arcu turpis et massa. Donec vitae quam condimentum, pulvinar enim nec, commodo mi. Maecenas porttitor dapibus volutpat.
+[//]: <> (Markdown Guide Here https://www.markdownguide.org/basic-syntax/)
 
-Phasellus vitae imperdiet felis. Aenean malesuada leo vel ligula interdum dictum. Cras augue eros, congue vitae ex eu, tempus efficitur mi. Vestibulum congue libero ac lorem condimentum, ac viverra lacus fringilla. Nunc vehicula, lorem eu finibus tincidunt, elit neque commodo sapien, in fermentum diam lorem vitae urna. Ut pellentesque est ut mauris volutpat fermentum. Nulla efficitur nisl et sem posuere, nec rutrum nisi tempor. Ut semper mi odio, nec posuere nisl scelerisque et. Ut imperdiet condimentum dui, id semper turpis molestie semper. Nunc ultrices id lorem ut porta.
+##### *ALL PERSONAL AND/OR UNIQUE IDENTIFIERS HAVE BEEN REMOVED FROM ALL SAMPLE DATA*
+
+<br>
+
+**Goal and Purpose:**
+
+Discussed goals and direction with cabinet level colleagues to conceive and implement a Tableau report that looked at staff retention rates for the 19-20 fiscal year. The company wanted to see whether the various personal and professional implications of the COVID-19 pandemic had any significant correlations with staff retention. Level of detail in data granularity was also of importance as stakeholders requested to see retention rates broken down by years of service, employment status, and demographic information.
+
+<br>
+
+**Methodology:**
+
+As I was the lead data scientist for this project, I decided to run a point in time vs point in time retention analysis. I took all the employees that were in their jobs in December of 2019 and then compared their employment status in December of 2020. If their employee IDs (unique identifiers) were still in the SQL data pull I conducted in 2020, that indicated to me that they were retained, if not, the employee was either terminated or resigned. The best way to visualize this retention data was to link the data to our Tableau servers. This allowed all stakeholders to view and interact with the data according to their own preferences.
+
+<br>
+
+**Final Report:**
+
+**The final report had many visualizations. One of which was a macro-level view that displays staff retention for all companies within the network broken down by years of service, full-time/part-time employees, and self-identified demomgraphic information.**
+
+![](/akrivis/assets/img/project2/Retention-1.gif)
+
+<br>
+
+**The second visualization displays a breakdown of the staff retention rates by departments within the network. The data can be partitioned along demographic lines, years of service, but also by job title and seniority.**
+
+![](/akrivis/assets/img/project2/Retention-2.gif)

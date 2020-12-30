@@ -1,7 +1,8 @@
 ---
-title: Project 1
+title: Employee Exit Survey Analysis
 sub-title: Exploratory data mining and gathering 
 video: https://www.youtube.com/embed/C_-zzCAaFRM
+script-name: Script written in SQL | SQL Permissions to view Tableau Analysis.sql
 ---
 <section class="title-and-description">
     <h1>{{ page.title }}</h1>
@@ -11,104 +12,67 @@ video: https://www.youtube.com/embed/C_-zzCAaFRM
     </div>
 </section>
 
-<section class="embeded-video">
-    <div class="all-videos">
-        <div class="each">
-            <iframe src="{{ page.video }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="each">
-            <iframe src="{{ page.video }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </div>
+<section class="script-description">
+    <p>{{ page.script-name }}</p>
 </section>
 
 <section class="codes">
-{% highlight java linenos %}
+    {% highlight sql linenos %}
 
-    package com.example.proximitysensor;
-
-    import androidx.annotation.RequiresApi;
-    import androidx.appcompat.app.AppCompatActivity;
-    import androidx.core.content.ContextCompat;
-
-    import android.content.Context;
-    import android.hardware.Sensor;
-    import android.hardware.SensorEvent;
-    import android.hardware.SensorEventListener;
-    import android.hardware.SensorManager;
-    import android.os.Build;
-    import android.os.Bundle;
-    import android.os.VibrationEffect;
-    import android.os.Vibrator;
-    import android.widget.TextView;
-    import android.widget.Toast;
-
-    public class MainActivity extends AppCompatActivity implements SensorEventListener {
-        
-        private SensorManager sensorManager;
-        private Sensor proximitySensor;
-        private boolean isProximitySensorAvailable;
-        private Vibrator vibrator;
-    
-        public TextView textview;
-    
-    
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-    
-            textview = findViewById(R.id.proximity_text);
-    
-            sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-            vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-    
-            //Check If Proximity Sensor is Available
-            if (sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)  != null) {
-                proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-                Toast.makeText(this, "proximity sensor is available", Toast.LENGTH_LONG).show();
-                isProximitySensorAvailable = true;
-            } else {
-                Toast.makeText(this, "proximity sensor not available", Toast.LENGTH_LONG).show();
-                isProximitySensorAvailable = false;
-            }
-        }
-    
-        @RequiresApi(api = Build.VERSION_CODES.O)
-        @Override
-        public void onSensorChanged(SensorEvent sensorEvent) {
-            textview.setText(sensorEvent.values[0] + "cm");
-    
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                vibrator.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
-            } else {
-                vibrator.vibrate(500);
-            }
-        }
-    
-        @Override
-        public void onAccuracyChanged(Sensor sensor, int accuracy) {
-    
-        }
-    
-        @Override
-        protected void onResume() {
-            super.onResume();
-            if (isProximitySensorAvailable) {
-                sensorManager.registerListener(this, proximitySensor, SensorManager.SENSOR_DELAY_NORMAL);
-            }
-        }
-    
-        @Override
-        protected void onPause() {
-            super.onPause();
-            if (isProximitySensorAvailable) {
-                sensorManager.unregisterListener(this);
-            }
-        }
-    
-    }
-{% endhighlight %}
+        SELECT DISTINCT A.EmployeeKey,
+        A.JobTitle,
+        B.WinNT_ID AS ADUserName,
+        C.Division,
+        B.Department
+        FROM [HRISStaged].[dbo].[EmployeeJobTitle] A
+        LEFT JOIN [MasterData].[dbo].[ADAccounts] B ON A.EmployeeKey = B.EmployeeID --Using LEFT JOIN because we know we have missing data fields
+        CROSS JOIN [HRISStaged].[dbo].[EmployeeCorpGroup_Pivoted] C
+        LEFT JOIN [HRISStaged].[dbo].[EmployeeStatus] D ON A.EmployeeKey = D.EmployeeKey
+        WHERE D.StatusName = 'Active' AND
+        (A.JobTitle = 'Associate Regional Super' OR
+        A.JobTitle = 'Executive' OR
+        A.JobTitle = 'Regional Super' OR
+        A.JobTitle = 'Regional Dir' OR
+        A.EmployeeKey = '105893' OR
+        A.EmployeeKey = 'EBMFH2N9Q'  OR
+        A.EmployeeKey = '105895'  OR
+        A.EmployeeKey = '102628'  OR
+        A.EmployeeKey = 'PRUW3DISZ')
+        UNION
+        SELECT A.EmployeeKey,
+        A.JobTitle,
+        B.WinNT_ID AS ADUserName,
+        C.Division,
+        B.Department
+        FROM [HRISStaged].[dbo].[EmployeeJobTitle] A
+        LEFT JOIN [MasterData].[dbo].[ADAccounts] B ON A.EmployeeKey = B.EmployeeID --Using LEFT JOIN because we know we have missing data fields
+        LEFT JOIN [HRISStaged].[dbo].[EmployeeCorpGroup_Pivoted] C ON A.EmployeeKey = C.EmployeeKey
+        LEFT JOIN [HRISStaged].[dbo].[EmployeeStatus] D ON A.EmployeeKey = D.EmployeeKey
+        WHERE D.StatusName = 'Active' AND
+        (A.JobTitle LIKE '%Principal%' OR
+        A.JobTitle LIKE '%Dean%' OR
+        A.JobTitle = 'Director of School')
+        UNION
+        SELECT DISTINCT A.EmployeeKey,
+        A.JobTitle,
+        B.WinNT_ID as ADUserName,
+        --- Use Employee ID to add an exceptions school ---
+        --- User below as template - paste in new line below green line below ---
+        --- WHEN b.EmployeeID = '101747' THEN 'Company C' ---
+        CASE
+                    WHEN B.EmployeeID = 'VV5KV1Q1E' THEN 'Company A'
+                    --- Paste new exceptions here ---
+                    WHEN B.EmployeeID = '101705' THEN 'Company B'
+                    ELSE C.Division
+                END AS Division,
+        C.Division as Department
+        FROM [HRISStaged].[dbo].[EmployeeJobTitle] A
+        LEFT JOIN [MasterData].[dbo].[ADAccounts] as B ON A.EmployeeKey = B.EmployeeID
+        LEFT JOIN [HRISStaged].[dbo].[EmployeeCorpGroup_Pivoted] as C ON A.EmployeeKey = C.EmployeeKey
+        LEFT JOIN [HRISStaged].[dbo].[EmployeeStatus] D ON A.EmployeeKey = D.EmployeeKey
+        WHERE A.EmployeeKey IS NOT NULL AND
+            D.StatusName = 'Active'
+    {% endhighlight %}
 </section>
 
 <script>

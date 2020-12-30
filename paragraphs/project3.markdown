@@ -2,10 +2,36 @@
 layout: none
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et tempor lorem. Mauris lobortis, odio in viverra sodales, ligula nibh ullamcorper turpis, nec lobortis velit enim at enim. Phasellus vel nisl nec arcu dignissim aliquet. Aenean eget ornare turpis. Cras venenatis risus sed sem lacinia commodo. In hac habitasse platea dictumst. Pellentesque interdum volutpat massa id pulvinar.
+[//]: <> (Markdown Guide Here https://www.markdownguide.org/basic-syntax/)
 
-Donec viverra ultrices massa ut placerat. Praesent massa tortor, fermentum non neque eget, lobortis fringilla nisl. Nam iaculis nunc eu metus venenatis, sit amet dapibus mauris pellentesque. Nam in iaculis ipsum. Mauris quis diam nibh. Fusce egestas laoreet orci, vitae blandit orci mollis sit amet. Sed nec tellus at felis elementum fermentum. Curabitur elementum mauris eu ipsum accumsan, eget hendrerit enim auctor. Ut fermentum mi facilisis, accumsan libero a, ullamcorper dolor. Nam efficitur, mi ac lacinia efficitur, nisi erat sagittis magna, fermentum semper arcu turpis et massa. Donec vitae quam condimentum, pulvinar enim nec, commodo mi. Maecenas porttitor dapibus volutpat.
+##### *ALL PERSONAL AND/OR UNIQUE IDENTIFIERS HAVE BEEN REMOVED FROM ALL SAMPLE DATA*
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam itaque excepturi eius, recusandae laborum labore quo, cupiditate ipsam sit nemo exercitationem. Sunt delectus eligendi ea nihil? Commodi odio illo quas.
+<br>
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea unde cumque eveniet officia quasi tempore, vitae modi tempora qui similique corporis laudantium eaque quaerat animi eligendi recusandae iusto quae eius?
+Managed the complete data survey, processing, and analysis process for the company regarding staff sentiment about returning to/working from the office.
+
+<br>
+
+**Goal and Purpose:**
+
+After meeting with fellow team leads, I was tasked to create a visualization that helped C-level decision makers understand how their staff felt about returning to physical office spaces. The timeline to create the data collection method, clean the data, and then produce a visualization was a total of five working days.
+
+<br>
+
+**Methodology:**
+
+Given the time restraints, I used a Google survey instead of my preferred data collection method of Qualtrics. Sometimes I prefer to use Google surveys over Qualtrics, especially when information needs to be gathered quickly so decisions can be made as soon as possible! Once the survey was launched, I used the first sets of data that trickled in to start creating my visualization in Tableau. Finally, once the Tableau report was completed, I permissioned the report through SQL to conduct further analysis and share the visualization.
+
+<br>
+
+**Final Report:**
+
+**The final report had two visualizations. The first one was a macro-level view that displays whether staff were willing or unwilling to return to the office, this was also broken down by job function and title.**
+
+![](/akrivis/assets/img/project3/Visualization-1.gif)
+
+<br>
+
+**The second visualization displays the reasons why staff did not want to return to physical offices. This helped decision makers understand which issues staff were concerned with so they could decide which issues to address and how they would address them.**
+
+![](/akrivis/assets/img/project3/Visualization-2.gif)

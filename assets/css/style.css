@@ -2247,7 +2247,7 @@ section.project-section div.container div.catalog div.sub-menu i {
   font-size: 25px;
 }
 
-section.project-section div.container div.catalog .buttons {
+section.project-section div.container div.catalog div.buttons {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2258,7 +2258,7 @@ section.project-section div.container div.catalog .buttons {
           flex-direction: column;
 }
 
-section.project-section div.container div.catalog .buttons button {
+section.project-section div.container div.catalog div.buttons button {
   color: #e9e9e9;
   margin: 5px;
   background: transparent;
@@ -2267,11 +2267,11 @@ section.project-section div.container div.catalog .buttons button {
   border-radius: 10px;
 }
 
-section.project-section div.container div.catalog .buttons button:hover {
+section.project-section div.container div.catalog div.buttons button:hover {
   background-image: linear-gradient(45deg, #1292a3 15%, #107685 65%);
 }
 
-section.project-section div.container div.catalog .buttons button div {
+section.project-section div.container div.catalog div.buttons button div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2283,8 +2283,13 @@ section.project-section div.container div.catalog .buttons button div {
           align-items: center;
 }
 
-section.project-section div.container div.catalog .buttons button div img {
+section.project-section div.container div.catalog div.buttons button div img {
   width: 40px;
+}
+
+section.project-section div.container div.catalog div.buttons button div p {
+  text-align: right;
+  padding-left: 30px;
 }
 
 @media (max-width: 1050px) {
@@ -2299,7 +2304,7 @@ section.project-section div.container div.catalog .buttons button div img {
     padding: 10px 0;
     width: 96%;
   }
-  section.project-section div.container div.catalog .buttons {
+  section.project-section div.container div.catalog div.buttons {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -2312,9 +2317,9 @@ section.project-section div.container div.catalog .buttons button div img {
             justify-content: center;
     display: none;
   }
-  section.project-section div.container div.catalog .buttons button {
+  section.project-section div.container div.catalog div.buttons button {
     background-image: linear-gradient(45deg, #2e2e2e 15%, #383838 65%);
-    width: 48%;
+    width: 45%;
     min-height: 70px;
   }
 }
@@ -2326,7 +2331,7 @@ section.project-section div.container div.catalog .buttons button div img {
     padding: 10px 5px;
     top: 60px;
   }
-  section.project-section div.container div.catalog .buttons {
+  section.project-section div.container div.catalog div.buttons {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -2338,7 +2343,7 @@ section.project-section div.container div.catalog .buttons button div img {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  section.project-section div.container div.catalog .buttons button {
+  section.project-section div.container div.catalog div.buttons button {
     width: 100%;
   }
 }
@@ -2395,9 +2400,23 @@ section.project-section div.container div.individual-project section.title-and-d
   font-size: 40px;
 }
 
-section.project-section div.container div.individual-project section.title-and-description p {
+section.project-section div.container div.individual-project section.title-and-description h5 {
   color: #9e9e9e;
-  text-align: justify;
+}
+
+section.project-section div.container div.individual-project section.title-and-description p {
+  color: #d9d9d9;
+  font-weight: 400;
+}
+
+section.project-section div.container div.individual-project section.title-and-description p strong {
+  font-weight: 600;
+}
+
+section.project-section div.container div.individual-project section.title-and-description img {
+  width: 100%;
+  height: auto;
+  max-width: 700px;
 }
 
 section.project-section div.container div.individual-project section.embeded-video {
@@ -2464,17 +2483,33 @@ section.project-section div.container div.individual-project section.embeded-vid
   }
 }
 
+section.project-section div.container div.individual-project section.script-description {
+  color: #e9e9e9;
+  font-weight: 600;
+  width: 100%;
+  max-width: 90vw;
+  margin-top: 20px;
+  padding: 10px;
+  padding-bottom: 0;
+}
+
+section.project-section div.container div.individual-project section.script-description p {
+  text-align: left;
+  letter-spacing: 1.2px;
+}
+
 section.project-section div.container div.individual-project section.codes {
   background: #1e1e1e;
   width: 100%;
   max-width: 90vw;
   overflow-x: scroll;
   padding: 10px;
+  padding-top: 0;
 }
 
 @media (max-width: 1050px) {
   section.project-section div.container div.individual-project section.codes {
-    margin: 50px;
+    margin: 0 50px 50px 50px;
   }
 }
 
@@ -2745,5 +2780,25 @@ pre span {
 
 .language-r .kc {
   color: #1e88da;
+}
+
+.language-sql .lineno {
+  color: #9cdcfe;
+}
+
+.language-sql .k {
+  color: #1e88da;
+}
+
+.language-sql .nn, .language-sql .nc, .language-sql .o, .language-sql .na, .language-sql .p, .language-sql .nb, .language-sql .n {
+  color: #a9b7c6;
+}
+
+.language-sql .c1 {
+  color: #6a9955;
+}
+
+.language-sql .s1, .language-sql .s2 {
+  color: #ce8349;
 }
 /*# sourceMappingURL=style.css.map */

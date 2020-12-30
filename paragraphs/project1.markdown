@@ -2,12 +2,59 @@
 layout: none
 ---
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam itaque excepturi eius, recusandae laborum labore quo, cupiditate ipsam sit nemo exercitationem. Sunt delectus eligendi ea nihil? Commodi odio illo quas.
+[//]: <> (Markdown Guide Here https://www.markdownguide.org/basic-syntax/)
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea unde cumque eveniet officia quasi tempore, vitae modi tempora qui similique corporis laudantium eaque quaerat animi eligendi recusandae iusto quae eius?
+##### *ALL PERSONAL AND/OR UNIQUE IDENTIFIERS HAVE BEEN REMOVED FROM ALL SAMPLE DATA*
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et tempor lorem. Mauris lobortis, odio in viverra sodales, ligula nibh ullamcorper turpis, nec lobortis velit enim at enim. Phasellus vel nisl nec arcu dignissim aliquet. Aenean eget ornare turpis. Cras venenatis risus sed sem lacinia commodo. In hac habitasse platea dictumst. Pellentesque interdum volutpat massa id pulvinar.
+<br>
 
-Donec viverra ultrices massa ut placerat. Praesent massa tortor, fermentum non neque eget, lobortis fringilla nisl. Nam iaculis nunc eu metus venenatis, sit amet dapibus mauris pellentesque. Nam in iaculis ipsum. Mauris quis diam nibh. Fusce egestas laoreet orci, vitae blandit orci mollis sit amet. Sed nec tellus at felis elementum fermentum. Curabitur elementum mauris eu ipsum accumsan, eget hendrerit enim auctor. Ut fermentum mi facilisis, accumsan libero a, ullamcorper dolor. Nam efficitur, mi ac lacinia efficitur, nisi erat sagittis magna, fermentum semper arcu turpis et massa. Donec vitae quam condimentum, pulvinar enim nec, commodo mi. Maecenas porttitor dapibus volutpat.
+**Goal and Purpose:**
 
-Phasellus vitae imperdiet felis. Aenean malesuada leo vel ligula interdum dictum. Cras augue eros, congue vitae ex eu, tempus efficitur mi. Vestibulum congue libero ac lorem condimentum, ac viverra lacus fringilla. Nunc vehicula, lorem eu finibus tincidunt, elit neque commodo sapien, in fermentum diam lorem vitae urna. Ut pellentesque est ut mauris volutpat fermentum. Nulla efficitur nisl et sem posuere, nec rutrum nisi tempor. Ut semper mi odio, nec posuere nisl scelerisque et. Ut imperdiet condimentum dui, id semper turpis molestie semper. Nunc ultrices id lorem ut porta.
+Before this analysis my company did not have a centralized way to gather and visualize reasons why employees left the company. Therefore, I was asked to create this Tableau report and analysis to visualize these reasons as it is helpful and beneficial for my company to understand the various issues that led to employee resignation and terminations.
+
+<br>
+
+**Context:**
+
+This report, visualized in Tableau, ultimately helped my company identify and then rectify the issues that led to employee resignations. It also provided a sentiment analysis of how employees felt when they left.
+
+Some of the departments that used this report included: - Human Resources: this report helped them gauge employee sentiment about a variety of subjects including employee benefits, compensation, career advancement and relationships with managers. - Employee recruitment teams: the analysis helped them direct their interview questions - Team Finance: the analyis helped them allocate funds to different segments of our company to address employee retention.
+
+<br>
+
+**Methodology:**
+
+I wanted this analysis to be as comprehensive as possible as this would be the last time we as a company could ever gather data and information about the employee. Therefore, I created an extensive Exit Survey in Qualtrics to mine this data. The survey questions asked the leaving employee about all aspects of their time with the company. Some subjects included:
+
+Why they are leaving?
+What they thought of the company?
+Their impressions about their manager and colleagues?
+Whether company benefits (health, vision, dependency) were adequate.
+Whether they'd ever work with the company again and why?
+Once I effectively gathered the data in Qualtrics, I then cleaned the data and pivoted the data in ways that would best be visualized in Tableau.
+
+<br>
+
+**Final Report:**
+
+The final report had many visualizations, three of which are shareable because they include no unique identifers and respects the data privacy and integrity of all people and parties involved! As you can see, there are many filters and granular level cuts of data that can be explored in the final Tableau reports. Any stakeholder, client, or user can filter the data however they wanted, along business unit, demographiic filters, experience filters, first generation college status, and even the question type.
+
+The first visualization is a macro-level view that displayed the various reasons why people left the company, in a quantitative manner.
+
+<br>
+
+**The first visualization is a macro-level view that displayed the various reasons why people left the company, in a quantitative manner.**
+
+![](/akrivis/assets/img/project1/Exit-1.gif)
+
+<br>
+
+**The second visualization is a macro-level view that displayed the various reasons why people left the company, in an open-ended response manner.**
+
+![](/akrivis/assets/img/project1/Exit-2.gif)
+
+<br>
+
+**The third visualization displays the employee's satisfaction with the company's benefits and career advancement/professional development opportunities.**
+
+![](/akrivis/assets/img/project1/Exit-3.gif)
