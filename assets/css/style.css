@@ -1249,8 +1249,8 @@ section.header div.header-container .grid div.each-grid h2 {
 }
 
 section.header div.header-container .grid div.each-grid p {
-  -webkit-margin-after: 80px;
-          margin-block-end: 80px;
+  -webkit-margin-after: 30px;
+          margin-block-end: 30px;
   color: #eeeeee;
 }
 
