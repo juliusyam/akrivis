@@ -8,7 +8,7 @@ about-brief: The Akrivis team supports educators and administrators by organizin
 
 service-brief: Akrivis offers a variety of data services to meet your company’s needs.
 
-project-brief: Akrivis collaborates with thought leaders and stakeholders to extract the most out of your data. 
+project-brief: Akrivis collaborates with thought leaders and stakeholders to extract the most out of your data. We look forward to collaborating with you. 
 
 # About Section
 
@@ -52,6 +52,6 @@ project2-date: Mar 2020
         //The . in front correlates to a class="xxx" tag, so just leave it there.
         $('.des-content').empty();
         $('.des-content').load('/paragraphs/about');
-        
+
     });
 </script>
