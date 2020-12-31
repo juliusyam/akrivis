@@ -72,7 +72,7 @@ LEFT JOIN [HRISStaged].[dbo].[EmployeeCorpGroup_Pivoted] as C ON A.EmployeeKey =
 LEFT JOIN [HRISStaged].[dbo].[EmployeeStatus] D ON A.EmployeeKey = D.EmployeeKey
 WHERE A.EmployeeKey IS NOT NULL AND
     D.StatusName = 'Active'
-    
+
 {% endhighlight %}
 </section>
 
@@ -83,7 +83,7 @@ WHERE A.EmployeeKey IS NOT NULL AND
 
     // Just change the file name behind paragraphs/ to the corresponding one.
     $('.description').empty();
-    $('.description').load('/akrivis/paragraphs/project1');
+    $('.description').load('/paragraphs/project1');
 
     });
 </script>

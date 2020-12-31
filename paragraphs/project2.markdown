@@ -24,10 +24,10 @@ As I was the lead data scientist for this project, I decided to run a point in t
 
 **The final report had many visualizations. One of which was a macro-level view that displays staff retention for all companies within the network broken down by years of service, full-time/part-time employees, and self-identified demomgraphic information.**
 
-![](/akrivis/assets/img/project2/Retention-1.gif)
+![](/assets/img/project2/Retention-1.gif)
 
 <br>
 
 **The second visualization displays a breakdown of the staff retention rates by departments within the network. The data can be partitioned along demographic lines, years of service, but also by job title and seniority.**
 
-![](/akrivis/assets/img/project2/Retention-2.gif)
+![](/assets/img/project2/Retention-2.gif)

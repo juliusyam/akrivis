@@ -56,7 +56,7 @@ $(document).ready(function(){
     function createProjectButtonDivImg() {
 
         const img = $('<img>', {
-            src: '/akrivis/assets/img/project-icon.png'
+            src: '/assets/img/project-icon.png'
         });
 
         return img;
@@ -128,7 +128,7 @@ $(document).ready(function(){
 
         var buttonID = 'project' + number;
         var getButtonID = 'button#' + buttonID;
-        var loadURL = '/akrivis/projects/' + buttonID;
+        var loadURL = '/projects/' + buttonID;
 
         $(getButtonID).click(function(){
             $('.individual-project').empty();

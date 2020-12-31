@@ -45,16 +45,16 @@ The first visualization is a macro-level view that displayed the various reasons
 
 **The first visualization is a macro-level view that displayed the various reasons why people left the company, in a quantitative manner.**
 
-![](/akrivis/assets/img/project1/Exit-1.gif)
+![](/assets/img/project1/Exit-1.gif)
 
 <br>
 
 **The second visualization is a macro-level view that displayed the various reasons why people left the company, in an open-ended response manner.**
 
-![](/akrivis/assets/img/project1/Exit-2.gif)
+![](/assets/img/project1/Exit-2.gif)
 
 <br>
 
 **The third visualization displays the employee's satisfaction with the company's benefits and career advancement/professional development opportunities.**
 
-![](/akrivis/assets/img/project1/Exit-3.gif)
+![](/assets/img/project1/Exit-3.gif)

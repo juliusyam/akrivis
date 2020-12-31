@@ -28,10 +28,10 @@ Given the time restraints, I used a Google survey instead of my preferred data c
 
 **The final report had two visualizations. The first one was a macro-level view that displays whether staff were willing or unwilling to return to the office, this was also broken down by job function and title.**
 
-![](/akrivis/assets/img/project3/Visualization-1.gif)
+![](/assets/img/project3/Visualization-1.gif)
 
 <br>
 
 **The second visualization displays the reasons why staff did not want to return to physical offices. This helped decision makers understand which issues staff were concerned with so they could decide which issues to address and how they would address them.**
 
-![](/akrivis/assets/img/project3/Visualization-2.gif)
+![](/assets/img/project3/Visualization-2.gif)

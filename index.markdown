@@ -47,16 +47,11 @@ project2-date: Mar 2020
 <script>
     $(window).ready(function(){
     
-    // These are the only two lines need changing. First bracket states where you intend the paragraph to be situated, second bracket states where the paragraph is located at.
+        // These are the only two lines need changing. First bracket states where you intend the paragraph to be situated, second bracket states where the paragraph is located at.
 
-    //The . in front correlates to a class="xxx" tag, so just leave it there.
-    $('.des-content').empty();
-    $('.des-content').load('/akrivis/paragraphs/about');
-
-    // $('.des-content').empty();
-    // $('.des-content').load('/akrivis/paragraphs/about');
-
-    // $('.des-content').empty();
-    // $('.des-content').load('/akrivis/paragraphs/about');
+        //The . in front correlates to a class="xxx" tag, so just leave it there.
+        $('.des-content').empty();
+        $('.des-content').load('/paragraphs/about');
+        
     });
 </script>
