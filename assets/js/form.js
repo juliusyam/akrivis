@@ -136,12 +136,6 @@ $(document).ready(function(){
         return textareaDiv;
     }
 
-    // $('input.inputElement').mousedown(function(){
-    //     //if (event.which === 1) {
-    //         $('.textInput').css('color', 'red');
-    //     //}
-    // });
-
     form.append(prepareTextInput(
         {scriptInputName: 'name', presentationInputName: 'Name'},
         {scriptInputName: 'email', presentationInputName: 'Email'},

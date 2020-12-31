@@ -6,7 +6,6 @@ $(window).ready(function(){
 });
 
 //Toggles!
-
 let gridToggleState = 0;
 
 $('span#grid-toggle').click(function(){
