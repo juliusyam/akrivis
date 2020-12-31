@@ -142,7 +142,6 @@ $(document).ready(function(){
     //     //}
     // });
 
-    form.append(validationMessage);
     form.append(prepareTextInput(
         {scriptInputName: 'name', presentationInputName: 'Name'},
         {scriptInputName: 'email', presentationInputName: 'Email'},
@@ -161,6 +160,7 @@ $(document).ready(function(){
     form.append(createTextarea());
     form.append(br);
     form.append(submit);
+    form.append(validationMessage);
     $('div.form-section').append(form);
 
     $('input.inputElement').mousedown(function(event){
