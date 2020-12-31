@@ -32,7 +32,7 @@ $(document).ready(function(){
     $(window).on('resize', function() {
         if ($(this).width() !== width) {
             width = $(this).width();
-            console.log('$(this).width() = ' + width);
+            //console.log('$(this).width() = ' + width);
         }
 
         if (width > 1050) {
@@ -97,7 +97,7 @@ $(document).ready(function(){
         }
 
         totalButtonAmount = i;
-        console.log('totalButtonAmount = ' + totalButtonAmount);
+        //console.log('totalButtonAmount = ' + totalButtonAmount);
 
         return buttonsDiv;
     }
