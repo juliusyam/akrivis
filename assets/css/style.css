@@ -2642,6 +2642,7 @@ section.footer p {
   overflow-x: scroll;
   scrollbar-width: thin;
   scrollbar-color: #1e1e1e rgba(255, 255, 255, 0.6);
+  color: white;
 }
 
 .codes::-webkit-scrollbar {
