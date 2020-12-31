@@ -1,11 +1,6 @@
 $(window).ready(function(){
     $('.individual-project').empty();
     $('.individual-project').load('/akrivis/projects/project1');
-    
-    // $('section.background-section .blockquote').animate({
-    //     opacity: 1,
-    //     bottom: '+=100'
-    // }, 1500);
 
     $('section.blockquote-section').effect("fold", { mode : "show",  size : 105}, 2000);
 });
@@ -28,24 +23,6 @@ $('span#grid-toggle').click(function(){
     }
 });
 
-// let projectToggleState = 0;
-
-// $('span#recentProjects-toggle').click(function(){
-//     if (projectToggleState == 0) {
-//         $('.header-container .grid').fadeIn('slow').addClass('active').css('display', 'flex');
-//         $('div.header-container').css('justify-content', 'space-around');
-//         $(this).children('h5').html("Collapse");
-//         $(this).children('i').addClass('fa-arrow-circle-up').removeClass('fa-arrow-circle-down');
-//         projectToggleState = 1;
-//     } else {
-//         $('.header-container .grid').fadeOut('slow').removeClass('active').css('display', 'none');
-//         $('div.header-container').css('justify-content', 'center');
-//         $(this).children('h5').html("Find Out More");
-//         $(this).children('i').addClass('fa-arrow-circle-down').removeClass('fa-arrow-circle-up');
-//         projectToggleState = 0;
-//     }
-// });
-
 
 $('.homepage_navToAbout').click(function(){
     $([document.documentElement, document.body]).animate({  
@@ -58,7 +35,6 @@ $('.homepage_navToService').click(function(){
         scrollTop: $('#service').offset().top
     }, 1500);
 });
-
 
 
 $(window).scroll(function(){
@@ -106,7 +82,7 @@ $(window).scroll(function(){
         } else if (scroll <= 3250) {
             images.css('display', 'none');
             $('.image4').css('display', 'flex');
-        } else if (scroll <= 3750) {
+        } else if (scroll <= 3550) {
             images.css('display', 'none');
             $('.image5').css('display', 'flex');
         } else {
@@ -116,59 +92,3 @@ $(window).scroll(function(){
 
     } 
 });
-
-
-
-// function loadProject2JSON() {
-//     $.ajax({
-//         type: 'GET',
-//         url: '/akrivis/assets/json/stuff.json',
-//         contentType: 'application/json; charset=UTF-8',
-//         dataType: 'json',
-//         success: function(response) {
-//             console.log(response);
-
-//             listGroupDiv = $('<div>', {
-//                 class: 'list-group-div'
-//             });
-
-//             $.each(response, function(key, value) {
-//                 //$('.people').append(document.createTextNode(value.Name))
-
-//                 listGroupItem = $('<li>', {
-//                     class: 'list-group-item'
-//                 });
-
-//                 var ajaxTitle = $('<h1>');
-//                 var listName = $('<h1>');
-//                 var listCity = $('<h2>');
-//                 var listAlignment = $('<h3>');
-//                 var listBorn = $('<p>');
-//                 var listPicture = $('<img>');
-//                 var listPictureSrc = value.Picture;
-//                 console.log(listPictureSrc);
-
-//                 ajaxTitle.html("First JSON AJAX");
-//                 listName.html(document.createTextNode(value.Name));
-//                 listCity.html(document.createTextNode(value.City));
-//                 listAlignment.html(document.createTextNode(value.Alignment));
-//                 listBorn.html(document.createTextNode(value.Born));
-//                 listPicture.attr("src", listPictureSrc);
-//                 console.log(listPicture.attr("src"));
-
-//                 listGroupItem.append(ajaxTitle);
-//                 listGroupItem.append(listName);
-//                 listGroupItem.append(listCity);
-//                 listGroupItem.append(listAlignment);
-//                 listGroupItem.append(listBorn);
-//                 listGroupItem.append(listPicture);
-//                 listGroupDiv.append(listGroupItem);
-//             });
-
-//             $('.individual-project').append(listGroupDiv);
-//         },
-//         error: function(response) {
-//             console.log("error " + response);
-//         }
-//     });
-// }

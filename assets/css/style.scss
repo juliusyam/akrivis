@@ -526,8 +526,8 @@ div.form-section {
     }
 
     span.validationMessage {
-        color: white;
-        font-size: 10px;
+        font-size: 14px;
+        font-weight: 600;   
     }
 
     .text-input-div {
@@ -2151,6 +2151,18 @@ section.footer {
     p {
         color: $primaryWhite;
         font-size: 12px;
+    }
+
+    @media(max-width: 600px) {
+        justify-content: center;
+
+        div {
+            margin: 10px;
+        }
+
+        p {
+            margin: 0;
+        }
     }
 }
 

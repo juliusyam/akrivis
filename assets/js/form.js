@@ -91,6 +91,7 @@ $(document).ready(function(){
 
         const checkboxLabel = $('<label>', {
             class: 'checkBoxLabel',
+            for: 'checkBoxLabel_' + scriptValue,
             html: presentationValue
         });
 
@@ -229,16 +230,6 @@ $(document).ready(function(){
                 services: services,
                 message: message
             }
-
-            // sendData({
-            //     date: new Date().toString(),
-            //     name: name,
-            //     email: email,
-            //     phone: phone,
-            //     company: company,
-            //     services: services,
-            //     message: message
-            // });
     
             var sendJSON = JSON.stringify(createJSON);
             console.log(sendJSON);
@@ -246,21 +237,12 @@ $(document).ready(function(){
             localStorage.setItem('JSON Form', sendJSON);
             console.log('Form successfully sent');
 
-            function sendData(data) {
-                var xmlhttp;
-                if (window.XMLHttpRequest) {
-                  xmlhttp = new XMLHttpRequest();
-                } else {
-                  // code for older browsers
-                  xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.open("POST", "https://formspree.io/f/xqkgyobg", true);
-                xmlhttp.setRequestHeader("x-api-key", "I06EVXWxBzakbN77ajkBh7pCwuwW9SxL5F9STAW7");
-                xmlhttp.setRequestHeader("Content-Type", "application/json");
-                xmlhttp.send(JSON.stringify(data));
-                console.log(data);
-                console.log('Form successfully sent');
-            }
+            $.ajax({
+                url: "https://formspree.io/f/xqkgyobg",
+                method: "POST",
+                dataType: "json",
+                data: createJSON
+            });
         
             form.trigger('reset');
             $('.textInput').css({
