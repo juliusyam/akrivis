@@ -225,14 +225,14 @@ $(document).ready(function(){
                 message: message
             }
     
-            var sendJSON = JSON.stringify(createJSON);
-            console.log(sendJSON);
+            // var sendJSON = JSON.stringify(createJSON);
+            // console.log(sendJSON);
 
-            localStorage.setItem('JSON Form', sendJSON);
-            console.log('Form successfully sent');
+            // localStorage.setItem('JSON Form', sendJSON);
+            // console.log('Form successfully sent');
 
             $.ajax({
-                url: "https://formspree.io/f/xqkgyobg",
+                url: "https://formspree.io/f/xqkggjwk",
                 method: "POST",
                 dataType: "json",
                 data: createJSON
