@@ -2117,6 +2117,7 @@ section.individual-project-frame {
 
 /*Cookies*/
 section.consent-modal {
+    z-index: 2000;
     position: fixed;
     bottom: 20px;
     left: 20px;
