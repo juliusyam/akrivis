@@ -2067,6 +2067,54 @@ section.individual-project-frame {
     }
 }
 
+/*Cookies*/
+section.consent-modal {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: $primaryColor;
+    border-radius: 10px;
+    padding: 20px;
+    color: $darkBackground;
+
+    h1 {
+        letter-spacing: 1.5px;
+        font-size: 30px;
+    }
+
+    a {
+        color: $logoCyan;
+
+        &:hover {
+            color: $logoYellow;
+        }
+    }
+
+    button.accept {
+        background: $primaryAccent;
+        color: $primaryWhite;
+        text-transform: uppercase;
+        font-weight: 600;
+        padding: 15px 20px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 5px;
+
+        &:hover {
+            background: $darkBackground;
+            color: $logoPeach;
+        }
+    }
+
+    @media (max-width: $phone) {
+        width: 85%;
+        left: 0;
+        right: 0;
+        bottom: 10px;
+        margin: 0 auto;
+    }
+}
+
 /*Footer*/
 section.footer {
     background-color: $darkBackground;
