@@ -4,7 +4,6 @@
 
 layout: default
 title: Our Projects
-description: Feel Free to Browse around!
 
 # Blockquote Section
 block1-title: Our Focus
@@ -153,7 +152,20 @@ $(document).ready(function(){
     for (var p = 1; p <= totalButtonAmount; p++) {
         projectButtonClick(p);
     }
-    
 });
+
+var lastScrollTop = 0;
+$(document).scroll(function(){
+
+    var scroll = $(window).scrollTop();
+
+    var st = $(this).scrollTop();
+    if (st > lastScrollTop && scroll < 500){
+        $('img.background-img').css('animation', 'animateZ 1s ease-in-out forwards');
+    } else if (st < lastScrollTop && scroll < 300) {
+        $('img.background-img').css('animation', 'animateZout 1s ease-in-out forwards');
+    }
+    lastScrollTop = st;
+})
 </script>
 
