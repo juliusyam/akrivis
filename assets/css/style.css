@@ -2429,6 +2429,14 @@ section.project-section div.container div.individual-project section.title-and-d
   max-width: 700px;
 }
 
+section.project-section div.container div.individual-project section.title-and-description ul {
+  padding-left: 40px;
+}
+
+section.project-section div.container div.individual-project section.title-and-description ul li {
+  list-style: disc;
+}
+
 section.project-section div.container div.individual-project section.embeded-video {
   display: -webkit-box;
   display: -ms-flexbox;

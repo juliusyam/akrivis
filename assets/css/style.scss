@@ -1942,6 +1942,14 @@ section.project-section {
                     height: auto;
                     max-width: 700px;
                 }
+
+                ul {
+                    padding-left: 40px;
+
+                    li {
+                        list-style: disc;
+                    }
+                }
             }
 
             section.embeded-video {
@@ -2058,9 +2066,6 @@ section.individual-project-frame {
         align-items: center;
     }
 }
-
-
-
 
 /*Footer*/
 section.footer {

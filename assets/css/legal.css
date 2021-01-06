@@ -1,0 +1,70 @@
+body {
+  background: #e9e9e9;
+}
+
+/*Legal Stuff*/
+section.legal-stuff {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 50px auto;
+  width: 100%;
+}
+
+section.legal-stuff .container {
+  max-width: 1200px;
+  color: #18191a;
+}
+
+@media (max-width: 1050px) {
+  section.legal-stuff .container {
+    margin: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  section.legal-stuff .container {
+    margin: 20px;
+  }
+}
+
+section.legal-stuff .container h1 {
+  font-size: 40px;
+}
+
+section.legal-stuff .container p {
+  font-weight: 400;
+}
+
+section.legal-stuff .container p strong {
+  font-weight: 600;
+}
+
+section.legal-stuff .container img {
+  width: 100%;
+  height: auto;
+  max-width: 700px;
+}
+
+section.legal-stuff .container ul {
+  padding-left: 40px;
+}
+
+section.legal-stuff .container ul li {
+  list-style: disc;
+}
+
+section.legal-stuff .container a:hover {
+  text-decoration: underline;
+}
+/*# sourceMappingURL=legal.css.map */

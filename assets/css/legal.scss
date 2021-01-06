@@ -1,0 +1,86 @@
+$narrowDesktop: 1250px;
+$largeTablet: 1050px;
+$midTablet: 900px;
+$smallTablet: 780px;
+$phone: 600px;
+$smallPhone: 350px;
+
+$allMaxHeight: 800px;
+$phoneMaxHeight: 500px;
+
+$submitBackground: #e9e9e9;
+$solidNavbar: rgba(13, 13, 13, 1);
+
+$darkBackground: #18191a;
+$whiteBackground: #eeeeee;
+
+$primaryColor: #09909f;
+$primaryAccent: #107685;
+
+$logoPeach: #FF5757;
+$logoCyan: #5CE1E6;
+$logoYellow: #FFF44F;
+
+$greyShadow: #dedede;
+
+$primaryWhite: #e9e9e9;
+
+body {
+    background: $primaryWhite;
+}
+
+/*Legal Stuff*/
+section.legal-stuff {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+    width: 100%;
+
+    .container {
+        max-width: 1200px;
+
+        color: $darkBackground;
+
+        @media (max-width: $largeTablet) {
+            margin: 50px;
+        }
+
+        @media (max-width: $phone) {
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 40px;
+        }
+
+        p {
+            font-weight: 400;
+
+            strong {
+                font-weight: 600;
+            }
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            max-width: 700px;
+        }
+
+        ul {
+            padding-left: 40px;
+
+            li {
+                list-style: disc;
+            }
+        }
+
+        a {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
