@@ -9,6 +9,8 @@ title: Terms of Use
 
 Last Updated: January 2, 2021
 
+<br>
+
 ### **BY UTILIZING THE SITE OR ANY SERVICES, YOU SIGNIFY THAT YOU AGREE TO THESE TERMS OF SERVICE, INCLUDING OUR PRIVACY POLICY, WHICH IS INCORPORATED HEREIN BY REFERENCE.**
 
 Akrivis is transforming teaching and learning by helping school administrators and clients provide in-depth data analysis to meet their business objectives. Our analysis focus on providing our clients the best in-class data services. These Terms of Service (“Terms of Service”) governs the website located at  www.akrivis.io (the “Site”) and our related products and services.
