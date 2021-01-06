@@ -110,6 +110,7 @@ $(document).ready(function(){
         {buttonNo: '1', buttonDes: 'Employee Exit Survey Analysis'},
         {buttonNo: '2', buttonDes: 'Staff Retention Analysis'},
         {buttonNo: '3', buttonDes: 'COVID-19 Return to the Office Analysis'},
+        {buttonNo: '4', buttonDes: 'Company Culture and Organizational-Health-Analysis'},
     ));
 
     $('section.project-section .sub-menu div').click(function(){
