@@ -7,11 +7,11 @@ title: Terms of Use
 
 ##### Version 1.2
 
-Last Updated: January 2, 2021
+Last Updated: February 10, 2021
 
 <br>
 
-Akrivis, LLC (“Akrivis,” “we” or “us”), a New York limited liability company, is committed to protecting the privacy of both children and adults. This privacy policy (“Privacy Policy”) governs the website located at www.akrivis.io (the “Site”) and our related products and services.
+Akrivis LLC (“Akrivis,” “we” or “us”), a New York limited liability company, is committed to protecting the privacy of both children and adults. This privacy policy (“Privacy Policy”) governs the website located at www.akrivis.io (the “Site”) and our related products and services.
 
 We created this Privacy Policy to give you confidence as you make use of the Site and the Services and to demonstrate our commitment to fair information practices and the protection of user and data privacy. Your use of the Site and the Services is governed by this Privacy Policy, as well as our Terms of Service, which are incorporated herein by reference. Unless otherwise defined herein, all capitalized terms in this Privacy Policy shall have the meanings indicated in the Terms of Service. 
 
@@ -24,7 +24,7 @@ We reserve the right, at any time, to add to, change, update, or modify this Pri
 **Information You Provide**
 
 ***A. Collection, Use and Deletion*** <br>
-All data collected by Akrivis shall be provided by you unless stated otherwise by you. We automatically collect and store learning performance data on databases locally and in our servers on Amazon Web Services. This information is used to update the data within our visualizations and dashboards.
+All data collected by Akrivis shall be provided by you unless stated otherwise by you. We automatically collect and store learning performance data on databases locally and in our servers on Amazon Web Services. This information is used to update the data within our visualizations and dashboards. 
 
 Some applications available on the Akrivis platform may have been developed by third party app developers (“Akrivis-connected app”). No Akrivis-connected app receives Personal Information from Akrivis and all Akrivis-connected app developers are contractually obligated to comply with Akrivis privacy and security policies.
 
@@ -34,7 +34,7 @@ Subject to the Privacy Policy, if you submit any feedback to or request informat
 ***C. Updating or Deleting Personal Information*** <br>
 Some premium services, such as reports remain available to the Account Holder for the duration of the contracted subscription. Data remains stored on Akrivis’s secure servers through the duration of the contracted period and for up to six months upon expiration of the contract at which time all Personal Information is securely deleted, unless the contract is renewed and the Account Holder requests that Akrivis continue to store the data.
 
-You may update and/or delete any or all of your Personal Information by contacting us at: **<akrivis@akrivis.com>**. Please indicate your name and email address, and what information you would like to update when you contact us. You can also update your information at any time by logging into your account.
+You may update and/or delete any or all of your Personal Information by contacting us at: **<akrivis@akrivis.io>**. Please indicate your name and email address, and what information you would like to update when you contact us. You can also update your information at any time by logging into your account.
 
 <br>
 
@@ -47,18 +47,18 @@ Information that we collect when you visit our Site may include: (1) IP addresse
 A variety of technologies are used to obtain Usage and Traffic Data, including:
 
 ***(i) Cookies*** <br>
-Cookies are small data files stored on your computer.  They contain information such as your username, user preferences, the pages you’ve visited and the activities you’ve performed while using the Site and Services. Cookies enable us to recognize your browser on return visits to our Site and to remember your preferences.  You may disable or block cookies or set your browser to alert you when cookies are being sent to your device; however, by disabling cookies, you may not have access to all of the features of the Site or Services. To learn more about browser cookies, visit allaboutcookies.org.  
+Cookies are small data files stored on your computer.  They contain information such as your username, user preferences, the pages you’ve visited and the activities you’ve performed while using the Site and Services. Cookies enable us to recognize your browser on return visits to our Site and to remember your preferences.  You may disable or block cookies or set your browser to alert you when cookies are being sent to your device; however, by disabling cookies, you may not have access to all of the features of the Site or Services. To learn more about browser cookies, visit **<allaboutcookies.org>**.  
 
 ***(ii) Web Beacons/Pixel Tags*** <br>
 We or our third party tracking utility companies may also use “web beacons” or “pixel tags” to collect anonymous information about your use of our Site and other third party service providers, and your use of emails, special promotions or newsletters we or selected partners may send to you. Web beacons and pixel tags are tiny graphic image files embedded in a web page or email that create a record of a user’s interaction with the web page or email and send back that record to a home server. The information collected by web beacons and pixel tags allows us to statistically monitor how many people are using our Site and selected partners’ websites and for what purposes as well as email interaction.
 
-Certain third-party entities that we use to provide website functionality or social networking within adult-directed sections of our Site and Services may collect Usage Information for the purposes of online behavior advertising. Our website does not respond to “do not track” signals transmitted by web browsers, but we encourage you to visit the following links if you would like to opt out of online behavioral advertising:  **<http://www.networkadvertising.org/choices>** or **<http://www.aboutads.info/choices/.>**
+Certain third-party entities that we use to provide website functionality or social networking within adult-directed sections of our Site and Services may collect Usage Information for the purposes of online behavior advertising. Our website does not respond to “do not track” signals transmitted by web browsers, but we encourage you to visit the following links if you would like to opt out of online behavioral advertising:  **<http://www.networkadvertising.org/choices>**  or **<http://www.aboutads.info/choices/>**.
 
 <br>
 
 **Links to Social Networking and Other Websites**
 
-The Site and Services may contain hyperlinks to social network and other third party sites in areas intended for adults.  These links are included for your information and convenience only, and does not suggest an endorsement by Akrivis.  These sites have their own privacy policies and we encourage you to read them.  
+The Site and Services may contain hyperlinks to social network and other third party sites in areas intended for adults. These links are included for your information and convenience only, and does not suggest an endorsement by Akrivis. These sites have their own privacy policies and we encourage you to read them. 
 
 <br>
 
@@ -88,4 +88,4 @@ Under New York law, users who are residents of New York may contact us and reque
 
 If you have any questions about our Privacy Policy, please contact us at:
 
-**<akrivis@akrivis.com>**
+**<akrivis@akrivis.io>**

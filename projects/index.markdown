@@ -106,10 +106,10 @@ $(document).ready(function(){
 
 
         //This section is all you need to edit!
-        {buttonNo: '1', buttonDes: 'Employee Exit Survey Analysis'},
-        {buttonNo: '2', buttonDes: 'Staff Retention Analysis'},
+        {buttonNo: '1', buttonDes: 'Exit Survey Analysis'},
+        {buttonNo: '2', buttonDes: 'Retention Analysis'},
         {buttonNo: '3', buttonDes: 'COVID-19 Return to the Office Analysis'},
-        {buttonNo: '4', buttonDes: 'Company Culture and Organizational-Health-Analysis'},
+        {buttonNo: '4', buttonDes: 'Company Culture Sentiment Analysis'},
     ));
 
     $('section.project-section .sub-menu div').click(function(){

@@ -7,13 +7,13 @@ title: Terms of Use
 
 ##### Version 1.1
 
-Last Updated: January 2, 2021
+Last Updated: February 10, 2021
 
 <br>
 
 ### **BY UTILIZING THE SITE OR ANY SERVICES, YOU SIGNIFY THAT YOU AGREE TO THESE TERMS OF SERVICE, INCLUDING OUR PRIVACY POLICY, WHICH IS INCORPORATED HEREIN BY REFERENCE.**
 
-Akrivis is transforming teaching and learning by helping school administrators and clients provide in-depth data analysis to meet their business objectives. Our analysis focus on providing our clients the best in-class data services. These Terms of Service (“Terms of Service”) governs the website located at  www.akrivis.io (the “Site”) and our related products and services.
+Akrivis LLC is transforming teaching and learning by helping school administrators and clients, providing them with bespoke data services to meet their business objectives. Our analysis focuses on providing our clients the best in-class data services. These Terms of Service (“Terms of Service”) governs the website located at  www.akrivis.io (the “Site”) and our related products and services.
 
 <br>
 
@@ -37,7 +37,7 @@ Akrivis grants to you, a limited, non-exclusive license to access and use the Si
 
 **Fees & Services**
 
-Some Services may be offered to you for a fee. By electing to purchase a paid service, you agree to submit a purchase request and pay in U.S. dollars via a Akrivis accepted payment method. You agree all information you provide to Akrivis is true and accurate and agree to pay all fees and associated taxes, as applicable. Services are non-refundable, though subscriptions may be canceled at any time. Payments will not renew automatically unless otherwise indicated.
+Some Services may be offered to you for a fee. By electing to purchase a paid service, you agree to submit a purchase request and pay in U.S. dollars via an Akrivis accepted payment method. You agree all information you provide to Akrivis is true and accurate and agree to pay all fees and associated taxes, as applicable. Services are non-refundable, though subscriptions may be canceled at any time. Payments will not renew automatically unless otherwise indicated.
 
 <br>
 
@@ -72,7 +72,7 @@ Akrivis respects the intellectual property of others and requires that our users
 - a statement by you, made under penalty of perjury, that the above information in your notification is accurate and that you are the copyright owner or are authorized to act on the copyright owner's behalf; and
 - your physical or electronic signature.
 
-Our Designated Copyright Agent for notification of claimed infringement can be reached by email at: akrivis@akrivis.com.
+Our Designated Copyright Agent for notification of claimed infringement can be reached by email at: **<akrivis@akrivis.io>**.
 
 <br>
 
@@ -128,7 +128,7 @@ Use of the Services is void where prohibited by applicable law, and the right to
 
 **Assignment**
 
-We may assign this contract at any time to any parent, subsidiary, or any affiliated company, or as part of the sale to, merger with, or other transfer of our company to another entity. You may not assign, transfer or sublicense the Terms of Service to anyone else and any attempt to do so shall be null and void.
+We may assign this contract at any time to any individual, subsidiary, or any affiliated company, or as part of the sale to, merger with, or other transfer of our company to another entity. You may not assign, transfer or sublicense the Terms of Service to anyone else and any attempt to do so shall be null and void.
 
 <br>
 
@@ -138,4 +138,4 @@ These Terms of Service and any supplemental terms, policies, rules and guideline
 
 Please contact us with any questions regarding these Terms of Services at:
 
-**<akrivis@akrivis.com>**
+**<akrivis@akrivis.io>**
